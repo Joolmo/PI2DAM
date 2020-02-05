@@ -13,10 +13,15 @@ const routes: Routes = [
     loadChildren: () => import('./screens/profile-screen/profile-screen.module').then( m => m.ProfileScreenPageModule)
   },
   {
+    path: 'reports-screen',
+    loadChildren: () => import('./screens/reports-screen/reports-screen.module').then( m => m.ReportsScreenPageModule)
+  },
+  {
     path: 'pregunta1-p2',
     loadChildren: () => import('./pregunta1-p2/pregunta1-p2.module').then( m => m.Pregunta1P2PageModule)
   },
 ];
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
