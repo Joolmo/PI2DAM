@@ -1,14 +1,15 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
+  <ion-title>
+    Bienvenido
+  </ion-title>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <br>
+  <ion-button [routerLink]="['/login-screen']" expand="block">
+    ACCESO LOGIN
+  </ion-button>
+  <ion-button [routerLink]="['/pregunta1-p2']" expand="block">
+    ACCESO FORMULARIO
+  </ion-button>
 </ion-content>
