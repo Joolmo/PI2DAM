@@ -80,6 +80,7 @@
 
 .pene{
   --size: 27px;
+  margin-left: 10px;;
 }
 .margen{
   --padding-start: 20px;
@@ -90,4 +91,7 @@
 }
 .negrita{
   font-weight: bold;
+}
+.centrarleft{
+  justify-content: left;
 }
