@@ -11,7 +11,11 @@ const routes: Routes = [
   {
     path: 'profile-screen',
     loadChildren: () => import('./screens/profile-screen/profile-screen.module').then( m => m.ProfileScreenPageModule)
+  },  {
+    path: 'reports-screen',
+    loadChildren: () => import('./screens/reports-screen/reports-screen.module').then( m => m.ReportsScreenPageModule)
   },
+
 
 
 ];
