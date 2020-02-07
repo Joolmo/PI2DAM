@@ -1,28 +1,26 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title class="negrita">
+<ion-header >
+  <ion-toolbar color="secondary">
+    <ion-title text-center class="negrita">
       Log in
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-text-center">
+<ion-content>
   <div class="ion-padding">
-    <p class="negrita">Nombre:</p><br>
-    <ion-item class="margen">
-      <ion-input class="negrita" placeholder="Introduce tu nombre"></ion-input>
-      <br>
+    <br>
+    <ion-item>
+      <ion-label position="floating">Username</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input></ion-input>
     </ion-item>
     <br>
-    <p class="negrita">Contraseña:</p>
-    <ion-item class="margen">
-      <ion-input class="negrita" placeholder="Introduce tu contraseña"></ion-input>
-      <br>
-    </ion-item>
-    <br>
-    <p>Recordar usuario?<ion-checkbox class="pene"></ion-checkbox></p>
+    <p>Remember me<ion-checkbox class="pene"></ion-checkbox></p>
     <ion-item class="margen">
     </ion-item>
-    <ion-button fill="outline" size="large" expand="full">Iniciar Sesión</ion-button>
+    <ion-button color="secondary" class="shadow-red" shape="round"  size="large" expand="full" [routerLink]="['/profile-screen']">Sign in</ion-button>
   </div>
 </ion-content>
