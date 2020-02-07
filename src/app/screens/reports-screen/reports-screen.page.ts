@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IReports } from 'src/app/interfaces/IUser';
 import { ActivatedRoute } from '@angular/router';
+import ReportsService from 'src/app/services/reports.service';
 
 @Component({
   selector: 'app-reports-screen',
@@ -16,12 +17,15 @@ export class ReportsScreenPage implements OnInit {
   description: string; 
   childrenId: number;
 
-  constructor(private _activatedRoute: ActivatedRoute) { }
+  
+
+  constructor(private _report: ReportsService, private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
 
-    this.id = +this._activatedRoute.snapshot.paramMap.get('id'); 
-    //this.report;
+    this._report.reportByChild(1).then(result =>{
+      this.reports = result;
+    })
   }
 
 }
