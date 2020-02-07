@@ -13,9 +13,15 @@
       <ion-label position="floating">Username</ion-label>
       <ion-input></ion-input>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="contrasenya==true"> 
+      <ion-label position="floating" >Password</ion-label>
+      <ion-input type="password" [ngModel]="textoContra"></ion-input>
+      <ion-button (click)="(CambiarInput())" color="secondary">Mostrar/Ocultar</ion-button>
+    </ion-item>
+    <ion-item *ngIf="contrasenya==false">
       <ion-label position="floating">Password</ion-label>
       <ion-input></ion-input>
+      <ion-button (click)="(CambiarInput())" color="secondary">Mostrar/Ocultar</ion-button>
     </ion-item>
     <br>
     <p>Remember me<ion-checkbox class="pene"></ion-checkbox></p>

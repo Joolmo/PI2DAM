@@ -8,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class LoginScreenPage implements OnInit {
 
   constructor() { }
-
+  contrasenya  =  true;
+  textoContra : string;
+  CambiarInput(){
+    this.contrasenya = !this.contrasenya;
+  }
   ngOnInit() {
 
 
