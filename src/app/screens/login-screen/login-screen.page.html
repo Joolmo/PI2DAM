@@ -10,12 +10,12 @@
   <div class="ion-padding">
     <br>
     <ion-item>
-      <ion-label position="floating">Username</ion-label>
-      <ion-input></ion-input>
+      <ion-label position="floating" >Username</ion-label>
+      <ion-input [(ngModel)]="userTexto"></ion-input>
     </ion-item>
     <ion-item *ngIf="contrasenya==true"> 
       <ion-label position="floating" >Password</ion-label>
-      <ion-input type="password" [ngModel]="textoContra"></ion-input>
+      <ion-input type="password" [(ngModel)]="contraTexto"></ion-input>
       <ion-button (click)="(CambiarInput())" color="secondary">Mostrar/Ocultar</ion-button>
     </ion-item>
     <ion-item *ngIf="contrasenya==false">
@@ -27,6 +27,7 @@
     <p>Remember me<ion-checkbox class="pene"></ion-checkbox></p>
     <ion-item class="margen">
     </ion-item>
-    <ion-button color="secondary" class="shadow-red" shape="round"  size="large" expand="full" [routerLink]="['/profile-screen']">Sign in</ion-button>
+    <ion-button color="secondary" class="shadow-red" shape="round"  size="large" expand="full" (click)="(Implementar())">Sign in</ion-button>
   </div>
+  
 </ion-content>
