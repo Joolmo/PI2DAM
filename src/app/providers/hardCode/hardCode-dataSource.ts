@@ -23,6 +23,11 @@ export default {
             id : 3,
             description : "caca",
             childrenId : 1, 
+        },
+        {
+            id : 4,
+            description : "culo",
+            childrenId : 2, 
         }
     ], 
 
@@ -31,6 +36,12 @@ export default {
             id: 1,
             name: "Cristina",
             surname: "Gonzalez"
+        },
+
+        {
+            id: 2,
+            name: "Aurelio",
+            surname: "Benito"
         }
     ],
 

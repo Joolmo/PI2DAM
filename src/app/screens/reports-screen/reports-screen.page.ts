@@ -20,16 +20,27 @@ export class ReportsScreenPage implements OnInit {
 
   ngOnInit() {
 
-    this.id = +this._activatedRoute.snapshot.paramMap.get('id'); 
+    this.id = +this._activatedRoute.snapshot.paramMap.get('id');
 
-    this._report.getReportById(this.id).then(result=>{
-      this.reports = result;
-    })
+    //Comprobamos si el id se pasa por parámetro, me dará el id del reporte que seleccionemos, si no, 
+    //nos dará todos los reportes 
+    if(this.id) {
+      console.log("HOLA2");
+      this._report.getReportById(this.id).then(result=>{
+        this.reports = result;
+      })
+    } else {
+      this._report.getReports().then(result =>{
+        this.reports = result;
+      })
+    }
+
 
     //IT WORKS 
     /*this._report.reportByChild(this.id).then(result =>{
       this.reports = result;
     })*/
   }
+
 
 }
