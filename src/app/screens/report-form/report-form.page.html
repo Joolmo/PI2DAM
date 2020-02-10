@@ -22,6 +22,15 @@
       <!--<ion-input type="password" [(ngModel)]="contraTexto"></ion-input>
       <ion-button (click)="(CambiarInput())" color="secondary">Mostrar/Ocultar</ion-button>-->
     </ion-item>
+    <ion-item>
+      <div style="float: right; margin-bottom: 5px;">
+        <ion-button size="small" color="secondary" class="shadow-red" shape="round" 
+        [routerLink]="['/profile-screen']" expand="block">Atrás</ion-button>
+      </div>
+      <div style="float: left; margin-bottom: 5px;">
+        <ion-button size="small" color="secondary" class="shadow-red" shape="round" [routerLink]="['/report-form']" expand="block">create a report</ion-button>
+      </div>
+    </ion-item>
   </div>
 
 </ion-content>
