@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'reports-screen', pathMatch: 'full' },
+  { path: '', redirectTo: 'report-form', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./screens/home/home.module').then( m => m.HomePageModule)},
   {
     path: 'login-screen',
@@ -20,6 +20,11 @@ const routes: Routes = [
     path: 'pregunta1-p2',
     loadChildren: () => import('./screens/pregunta1-p2/pregunta1-p2.module').then( m => m.Pregunta1P2PageModule)
   },
+  {
+    path: 'report-form',
+    loadChildren: () => import('./screens/report-form/report-form.module').then( m => m.ReportFormPageModule)
+  },
+
 ];
 
 @NgModule({
