@@ -24,7 +24,10 @@ const routes: Routes = [
     path: 'settings-profile-screen/:id',
     loadChildren: () => import('./screens/settings-profile-screen/settings-profile-screen.module').then( m => m.SettingsProfileScreenPageModule)
   },
-
+  {
+    path: 'register-alumno',
+    loadChildren: () => import('./register-alumno/register-alumno.module').then( m => m.RegisterAlumnoPageModule)
+  },
 ];
 
 @NgModule({
