@@ -9,9 +9,6 @@ import ReportsService from 'src/app/services/reports.service';
   styleUrls: ['./reports-screen.page.scss'],
 })
 export class ReportsScreenPage implements OnInit {
-
-  //report: IReports = {"id": 1, "description": "It was a figth. He punched me. So painfully", "childrenId": 1};
-  //report: IReports;
   reports: IReports[]=[];
   id: number;
   description: string; 
@@ -23,9 +20,16 @@ export class ReportsScreenPage implements OnInit {
 
   ngOnInit() {
 
-    this._report.reportByChild(1).then(result =>{
+    this.id = +this._activatedRoute.snapshot.paramMap.get('id'); 
+
+    this._report.getReportById(this.id).then(result=>{
       this.reports = result;
     })
+
+    //IT WORKS 
+    /*this._report.reportByChild(this.id).then(result =>{
+      this.reports = result;
+    })*/
   }
 
 }
