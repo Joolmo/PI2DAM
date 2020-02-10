@@ -12,7 +12,9 @@ export default class UserProvider extends UserService {
         throw new Error("Method not implemented.");
     }
     async registerChildren(children: IChildren): Promise<boolean> {
-        throw new Error("Method not implemented.");
+        //throw new Error("Method not implemented.");
+        let result = HardCodeDataSource.child.push(children);
+        return true; 
     }
 
     async getChildrenById(id: number): Promise<IChildren> {

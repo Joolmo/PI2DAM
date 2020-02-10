@@ -17,6 +17,10 @@ const routes: Routes = [
     loadChildren: () => import('./screens/reports-screen/reports-screen.module').then( m => m.ReportsScreenPageModule)
   },
   {
+    path: 'reports-screen',
+    loadChildren: () => import('./screens/reports-screen/reports-screen.module').then( m => m.ReportsScreenPageModule)
+  },
+  {
     path: 'pregunta1-p2',
     loadChildren: () => import('./screens/pregunta1-p2/pregunta1-p2.module').then( m => m.Pregunta1P2PageModule)
   },
