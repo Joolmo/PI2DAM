@@ -23,3 +23,8 @@ export interface IReports {
     "description" : string,
     "childrenId" : number, 
 }
+
+export interface IServerResponse{
+    "response": boolean,
+    "data": any
+}
