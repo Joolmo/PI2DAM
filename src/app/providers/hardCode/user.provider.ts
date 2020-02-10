@@ -14,7 +14,17 @@ export default class UserProvider extends UserService {
     async registerChildren(children: IChildren): Promise<boolean> {
         throw new Error("Method not implemented.");
     }
+
+    async getChildrenById(id: number): Promise<IChildren> {
+        let result = HardCodeDataSource.child.filter(e => e.id == id);
+        return result[0];
+    }
+    
     getCurrentUser(): IUsers {
         throw new Error("Method not implemented.");
     }
+
+    /*async modifyChildrenById(id: number, children: IChildren): Promise <IChildren>{
+
+    }*/
 }

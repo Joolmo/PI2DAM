@@ -7,4 +7,7 @@ export default abstract class UserService {
     abstract registerTeacher(teacher: ITeacher): Promise <boolean>;
     abstract registerChildren(children: IChildren): Promise <boolean>;
     abstract getCurrentUser(): IUsers;
+    abstract getChildrenById(id: number): Promise<IChildren>;
+    //abstract saveChildrenById(children: IChildren): Promise <IChildren>;
+    
 }

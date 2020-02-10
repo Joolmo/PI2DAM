@@ -11,6 +11,11 @@ export default class ReportsProvider extends ReportsService {
         return result;
     }
 
+    async getReportById(id: number): Promise<IReports[]>{
+        let result = HardCodeDataSource.reports.filter(e => e.id == id);
+        return result;
+    }
+
     //TO DO
     /*async reportByClassRoom(id: number): Promise<IReports[]> {
         let result = HardCodeDataSource.reports.filter(e => e.id == id);

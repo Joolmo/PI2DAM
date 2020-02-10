@@ -24,7 +24,16 @@ export default {
             description : "caca",
             childrenId : 1, 
         }
-    ]
+    ], 
+
+    child: [
+        {
+            id: 1,
+            name: "Cristina",
+            surname: "Gonzalez"
+        }
+    ],
+
 
 
 

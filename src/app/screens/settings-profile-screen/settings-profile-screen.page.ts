@@ -33,8 +33,5 @@ export class SettingsProfileScreenPage implements OnInit {
 
   }
 
-  save(id: number, name:string, surname: string){
-
-  }
 
 }
