@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title text-center class="negrita">Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card *ngFor="let child of children">
+
+      <ion-item>
+          <ion-input placeholder="name" [(ngModel)]="child.name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input placeholder="surname" [(ngModel)]="child.surname"></ion-input>
+        </ion-item>
+
+        <div style="float: right; margin-bottom: 5px;">
+          <ion-button color="secondary" class="shadow-red" shape="round" (click)="save()">Guardar</ion-button>
+        </div>
+    </ion-card>
+
+</ion-content>
