@@ -8,14 +8,15 @@
   <p class="negrita" style="text-align: center;">DATOS ALUMNO</p>
   <ion-item>
     <ion-label position="floating">Nombre</ion-label>
-    <ion-input>
+    <ion-input [(ngModel)]="nombre">
     </ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Apellidos</ion-label>
-    <ion-input>
+    <ion-input [(ngModel)]="apellidos">
     </ion-input>
   </ion-item>
-  
+  <ion-button expand="block" (onclick)="introducirDatos()" color="secondary">
+    <ion-label>Introducir</ion-label></ion-button>
 </ion-content>
 

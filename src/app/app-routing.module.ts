@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login-screen', pathMatch: 'full' },
+  { path: '', redirectTo: 'register-alumno', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./screens/home/home.module').then( m => m.HomePageModule)},
   {
     path: 'login-screen',

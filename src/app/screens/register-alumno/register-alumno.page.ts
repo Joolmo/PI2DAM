@@ -9,7 +9,12 @@ export class RegisterAlumnoPage implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  nombre: string;
+  apellidos: string;
+  introducirDatos(){
+
+  }
+  ngOnInit(){
   }
 
 }

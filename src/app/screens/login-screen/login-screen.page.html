@@ -15,12 +15,12 @@
     </ion-item>
     <ion-item *ngIf="contrasenya==true"> 
       <ion-label position="floating" >Password</ion-label>
-      <ion-input type="password" [(ngModel)]="contraTexto"></ion-input>
+      <ion-input type="password" [(ngModel)]="contraTexto"  value={{contraTexto}}></ion-input>
       <ion-button (click)="(CambiarInput())" color="secondary">Mostrar/Ocultar</ion-button>
     </ion-item>
     <ion-item *ngIf="contrasenya==false">
       <ion-label position="floating">Password</ion-label>
-      <ion-input></ion-input>
+      <ion-input [(ngModel)]="contraTexto" value={{contraTexto}}></ion-input>
       <ion-button (click)="(CambiarInput())" color="secondary">Mostrar/Ocultar</ion-button>
     </ion-item>
     <br>
