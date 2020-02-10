@@ -19,7 +19,11 @@ const routes: Routes = [
   {
     path: 'pregunta1-p2',
     loadChildren: () => import('./screens/pregunta1-p2/pregunta1-p2.module').then( m => m.Pregunta1P2PageModule)
+  },  {
+    path: 'register-alumno',
+    loadChildren: () => import('./register-alumno/register-alumno.module').then( m => m.RegisterAlumnoPageModule)
   },
+
 ];
 
 @NgModule({
