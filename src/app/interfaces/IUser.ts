@@ -25,6 +25,6 @@ export interface IReports {
 }
 
 export interface IServerResponse{
-    "response": boolean,
+    "result": boolean,
     "data": any
 }

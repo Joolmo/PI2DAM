@@ -19,7 +19,7 @@ export default class UserProvider extends UserService{
             }
         })
 
-        if (result.response == true) {
+        if (result.result == true) {
             this.currentUser = result.data[0]
             return true
         }

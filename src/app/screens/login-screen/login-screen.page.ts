@@ -14,7 +14,7 @@ export class LoginScreenPage implements OnInit {
   userTexto : string;
   contraTexto : string;
   contrasenya  =  true;
-  //textoContra : string;
+  
   async presentToast() {
     const toast = await this.toastController.create({
       message: 'Alerta.',
@@ -22,24 +22,21 @@ export class LoginScreenPage implements OnInit {
     });
     toast.present();
   }
+
   CambiarInput(){
     this.contrasenya = !this.contrasenya;
   }
-  Implementar(){
+
+  Implementar() {
     this._userService.login(this.userTexto,this.contraTexto).then(result => {
       if(result) {
         this._route.navigateByUrl("/profile-screen")
-        
       }
       else {
         this.presentToast();
       }
     })
   }
-  ngOnInit() {
 
-
-  }
-
-
+  ngOnInit() { }
 }

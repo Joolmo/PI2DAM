@@ -25,22 +25,23 @@ export default class ApiRestSrc {
         }
 
         let result = await fetch(`${this.baseUrl}${path}`, {
-            body: params,
+            body: JSON.stringify(params),
             headers: this.headers,
             method: method,
             mode: 'cors'
         })
+
         if(result.ok) {
             let json = await result.json()
             return {
-                response: json.Response,
+                result: json.Result,
                 data: json.Data
             }
         }
         else {
             return {
-                response: false,
-                data: `Status Code: ${result.status}`
+                result: false,
+                data: result.status
             }
         }
     }
