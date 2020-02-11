@@ -8,5 +8,6 @@ export default abstract class UserService {
     abstract registerChildren(children: IChildren): Promise <boolean>;
     abstract getCurrentUser(): IUsers;
     abstract getChildrenById(id: number): Promise<IChildren>;
+    abstract getUserById(id: number): Promise<IUsers>;
     
 }
