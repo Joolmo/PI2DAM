@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IReports } from 'src/app/interfaces/IUser';
+import { IReport } from 'src/app/interfaces/IUser';
 import { ActivatedRoute } from '@angular/router';
 import ReportsService from 'src/app/services/reports.service';
 
@@ -9,12 +9,11 @@ import ReportsService from 'src/app/services/reports.service';
   styleUrls: ['./reports-screen.page.scss'],
 })
 export class ReportsScreenPage implements OnInit {
-  reports: IReports[]=[];
+  
+  reports: IReport[]=[];
   id: number;
   description: string; 
   childrenId: number;
-
-  
 
   constructor(private _report: ReportsService, private _activatedRoute: ActivatedRoute) { }
 
@@ -30,7 +29,7 @@ export class ReportsScreenPage implements OnInit {
         this.reports = result;
       })
     } else {
-      this._report.getReports().then(result =>{
+      this._report.getReportsByTeacher().then(result =>{
         this.reports = result;
       })
     }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IChildren, IUsers } from 'src/app/interfaces/IUser';
+import { IChild, IUser } from 'src/app/interfaces/IUser';
 import ReportsService from 'src/app/services/reports.service';
 import UserService from 'src/app/services/user.service';
 import { ActivatedRoute } from '@angular/router';
@@ -16,8 +16,8 @@ export class SettingsProfileScreenPage implements OnInit {
   password: string;
   isTeacher: boolean;
   typePerson: string;
-  children: IChildren[]=[];
-  user: IUsers= {
+  children: IChild[]=[];
+  user: IUser= {
     id: 0,
     userName: "",
     password: "",
@@ -36,7 +36,7 @@ export class SettingsProfileScreenPage implements OnInit {
       console.log(result);
     })*/
 
-    this._user.getUserById(this.id).then(result => {
+    this._user.getChildById(this.id).then(result => {
       this.user = result;
       console.log(result);
     })

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IUsers, IReports, IChildren } from 'src/app/interfaces/IUser';
+import { IUser, IReport, IChild } from 'src/app/interfaces/IUser';
 import ReportsService from 'src/app/services/reports.service';
 import UserService from 'src/app/services/user.service';
 import { ActivatedRoute } from '@angular/router';
@@ -20,11 +20,14 @@ export class ProfileScreenPage implements OnInit {
   password: string;
   isTeacher: boolean;
   typePerson: string;
-  reports: IReports[]=[];
-  child: IChildren = {
+  reports: IReport[]=[];
+  child: IChild = {
     id: 0,
     name: "",
-    surname: ""
+    surname: "",
+    userName: "",
+    password: "",
+    isTeacher: false,
   }
   
   constructor(private _report: ReportsService, private _user: UserService, 
@@ -34,13 +37,11 @@ export class ProfileScreenPage implements OnInit {
     this.isTeacher = this._activatedRoute.snapshot.paramMap.get('userType') == "teacher"
     this.id = +this._activatedRoute.snapshot.paramMap.get('id');
 
-    this._report.reportByChild(1).then(result =>{
-      this.reports = result;
-    })
+    this.reports = await this._report.reportByChild(1)
 
     if(!this.isTeacher) {
       console.log(this.id)
-      this.child = await this._user.getChildrenById(this.id)
+      this.child = await this._user.getChildById(this.id)
     }
   }
 }

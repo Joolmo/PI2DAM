@@ -8,7 +8,6 @@ export default {
             isTeacher: false
         }
     ],
-
     reports: [
         {
             id : 1,
@@ -31,28 +30,14 @@ export default {
             childrenId : 2, 
         }
     ], 
-
     child: [
         {
-            id: 1,
+            id: 1, 
             name: "Cristina",
-            surname: "Gonzalez"
-        },
-
-        {
-            id: 2,
-            name: "Aurelio",
-            surname: "Benito"
-        },
-
-        {
-            id: 3, 
-            name: "Pepito",
-            surname: "Gomez",
+            surname: "Gonzalez",
+            userName: "pepitoGo",
+            password: "1234",
+            isTeacher: false
         }
     ],
-
-
-
-
 }

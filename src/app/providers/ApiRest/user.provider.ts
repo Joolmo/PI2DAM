@@ -1,9 +1,9 @@
 import UserService from 'src/app/services/user.service';
-import { ITeacher, IChildren, IUsers } from 'src/app/interfaces/IUser';
+import { ITeacher, IChild, IUser } from 'src/app/interfaces/IUser';
 import ApiRestSrc from './apiRest-dataSource';
 
 export default class UserProvider extends UserService{
-    currentUser: IUsers
+    currentUser: IUser
     
     constructor(private _source: ApiRestSrc) {
         super();
@@ -35,15 +35,15 @@ export default class UserProvider extends UserService{
         throw new Error("Method not implemented.");
     }
     
-    registerChildren(children: IChildren): Promise<boolean> {
+    registerChildren(children: IChild): Promise<boolean> {
         throw new Error("Method not implemented.");
     }
 
-    getCurrentUser(): IUsers {
+    getCurrentUser(): IUser {
         return this.currentUser
     }
     
-    async getChildrenById(id: number): Promise<IChildren> {
+    async getChildById(id: number): Promise<IChild> {
         let result = await this._source.makeRequest({
             path: "child",
             params: {
@@ -60,18 +60,21 @@ export default class UserProvider extends UserService{
         }
     }
 
-    fromResponseToChild(response: any): IChildren {
+    fromResponseToChild(response: any): IChild {
         return {
             id: response.Id,
             name: response.Name,
-            surname: response.Surname
+            surname: response.Surname,
+            userName: response.UserName,
+            password: response.Password,
+            isTeacher: false
         }
     }
 
-    fromResponseToUser(response: any): IUsers {
+    fromResponseToUser(response: any): IUser {
         return {
             id: response.Id,
-            user : response.UserName,
+            userName : response.UserName,
             password : response.Password,
             isTeacher : response.IsTeacher,
         }
