@@ -44,6 +44,11 @@ export default class ApiRestSrc {
         })
 
         if(result.ok) {
+            if(method == "POST") return {
+                result: true,
+                data: []    
+            }
+
             let json = await result.json()
             return {
                 result: json.Result,
