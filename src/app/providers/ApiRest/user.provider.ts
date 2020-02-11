@@ -20,11 +20,14 @@ export default class UserProvider extends UserService{
         })
 
         if (result.result == true) {
-            this.currentUser = result.data[0]
+            this._source.addAuth(result.data[0].Token)
+            this.currentUser = this.fromResponseToUser(result.data[0])
+
             return true
         }
         else {
             this.currentUser = undefined
+            
             return false
         }
     }
@@ -37,9 +40,38 @@ export default class UserProvider extends UserService{
     getCurrentUser(): IUsers {
         return this.currentUser
     }
-    getChildrenById(id: number): Promise<IChildren> {
-        throw new Error("Method not implemented.");
+    
+    async getChildrenById(id: number): Promise<IChildren> {
+        let result = await this._source.makeRequest({
+            path: "child",
+            params: {
+                id: id
+            },
+            method: "GET"
+        })
+
+        if (result.result == true) {
+            return this.fromResponseToChild(result.data[0])
+        }
+        else {
+            return undefined
+        }
     }
 
-    
+    fromResponseToChild(response: any): IChildren {
+        return {
+            id: response.Id,
+            name: response.Name,
+            surname: response.Surname
+        }
+    }
+
+    fromResponseToUser(response: any): IUsers {
+        return {
+            id: response.Id,
+            user : response.UserName,
+            password : response.Password,
+            isTeacher : response.IsTeacher,
+        }
+    }
 }

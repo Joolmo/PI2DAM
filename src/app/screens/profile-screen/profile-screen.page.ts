@@ -33,9 +33,8 @@ export class ProfileScreenPage implements OnInit {
       this.reports = result;
     })
 
-    this._user.getChildrenById(1).then(result => {
+    this._user.getChildrenById(2).then(result => {
       this.children[0] = result;
-      console.log(result);
     })
 
 
