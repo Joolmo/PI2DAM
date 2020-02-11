@@ -33,9 +33,24 @@ export class ProfileScreenPage implements OnInit {
   constructor(private _report: ReportsService, private _user: UserService, 
     private _activatedRoute: ActivatedRoute) { }
 
+<<<<<<< HEAD
   async ngOnInit() {
     this.isTeacher = this._activatedRoute.snapshot.paramMap.get('userType') == "teacher"
     this.id = +this._activatedRoute.snapshot.paramMap.get('id');
+=======
+  ngOnInit() {
+
+    this.id = +this._activatedRoute.snapshot.paramMap.get('id');
+
+    this._report.reportByChild(this.id).then(result =>{
+      this.reports = result;
+    })
+
+    this._user.getChildrenById(this.id).then(result => {
+      this.children[0] = result;
+      console.log(result);
+    })
+>>>>>>> Sergio
 
     this.reports = await this._report.reportByChild(1)
 

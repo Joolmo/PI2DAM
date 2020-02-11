@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import UserService from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-
 @Component({
   selector: 'app-login-screen',
   templateUrl: './login-screen.page.html',
@@ -31,15 +30,28 @@ export class LoginScreenPage implements OnInit {
   Implementar() {
     this._userService.login(this.userTexto,this.contraTexto).then(result => {
       if(result) {
+<<<<<<< HEAD
         this._route.navigateByUrl(
           `/profile-screen/${this._userService.getCurrentUser().isTeacher ? "teacher" : "children"}/${this._userService.getCurrentUser().id}`
         )
+=======
+        this._route.navigateByUrl("/profile-screen/,user.id")
+>>>>>>> Sergio
       }
       else {
         this.presentToast();
       }
     })
   }
+<<<<<<< HEAD
+=======
+ 
+  ngOnInit() {
+
+
+  }
+
+>>>>>>> Sergio
 
   ngOnInit() { }
 }
