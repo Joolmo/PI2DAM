@@ -1,6 +1,6 @@
 export interface IUsers {
     "id" : number,
-    "user" : string,
+    "userName" : string,
     "password" : string,
     "isTeacher" : boolean,
 } 
