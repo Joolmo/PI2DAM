@@ -21,23 +21,26 @@ export class ProfileScreenPage implements OnInit {
   isTeacher: boolean;
   typePerson: string;
   reports: IReports[]=[];
-  children: IChildren[]=[];
-
+  child: IChildren = {
+    id: 0,
+    name: "",
+    surname: ""
+  }
   
   constructor(private _report: ReportsService, private _user: UserService, 
     private _activatedRoute: ActivatedRoute) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.isTeacher = this._activatedRoute.snapshot.paramMap.get('userType') == "teacher"
+    this.id = +this._activatedRoute.snapshot.paramMap.get('id');
 
     this._report.reportByChild(1).then(result =>{
       this.reports = result;
     })
 
-    this._user.getChildrenById(2).then(result => {
-      this.children[0] = result;
-    })
-
-
+    if(!this.isTeacher) {
+      console.log(this.id)
+      this.child = await this._user.getChildrenById(this.id)
+    }
   }
-
 }

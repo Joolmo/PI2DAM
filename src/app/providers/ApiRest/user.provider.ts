@@ -27,16 +27,18 @@ export default class UserProvider extends UserService{
         }
         else {
             this.currentUser = undefined
-            
+
             return false
         }
     }
     registerTeacher(teacher: ITeacher): Promise<boolean> {
         throw new Error("Method not implemented.");
     }
+    
     registerChildren(children: IChildren): Promise<boolean> {
         throw new Error("Method not implemented.");
     }
+
     getCurrentUser(): IUsers {
         return this.currentUser
     }

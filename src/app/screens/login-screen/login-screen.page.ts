@@ -11,13 +11,14 @@ import { ToastController } from '@ionic/angular';
 export class LoginScreenPage implements OnInit {
   
   constructor(private _userService: UserService, private _route: Router, public toastController: ToastController) { }
+  
   userTexto : string;
   contraTexto : string;
   contrasenya  =  true;
   
   async presentToast() {
     const toast = await this.toastController.create({
-      message: 'Alerta.',
+      message: 'El usuario o contraseña son incorrectos.',
       duration: 2000
     });
     toast.present();
@@ -30,7 +31,9 @@ export class LoginScreenPage implements OnInit {
   Implementar() {
     this._userService.login(this.userTexto,this.contraTexto).then(result => {
       if(result) {
-        this._route.navigateByUrl("/profile-screen")
+        this._route.navigateByUrl(
+          `/profile-screen/${this._userService.getCurrentUser().isTeacher ? "teacher" : "children"}/${this._userService.getCurrentUser().id}`
+        )
       }
       else {
         this.presentToast();

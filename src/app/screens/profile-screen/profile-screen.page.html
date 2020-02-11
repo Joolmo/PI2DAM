@@ -1,4 +1,3 @@
-
 <ion-header>
   <ion-toolbar color="secondary">
     <ion-title text-center class="negrita">Profile</ion-title>
@@ -8,13 +7,11 @@
 
 <ion-content padding>
     <img src="../../../assets/fusion.png">
-
-      <ion-card *ngFor="let child of children">
-        <ion-card-title text-center class="negrita">Welcome {{child.name}}</ion-card-title>
-        <!--<p text-center>{{person.isTeacher ? "Teacher": Student}}-->
-        <ion-button color="secondary" class="shadow-red" shape="round" size="small" style="float: right;" [routerLink]="['/settings-profile-screen/', child.id]">Settings</ion-button>
-      </ion-card>
-
+    <ion-card>
+      <ion-card-title text-center class="negrita">Welcome {{child.name}}</ion-card-title>
+      <!--<p text-center>{{person.isTeacher ? "Teacher": Student}}-->
+      <ion-button color="secondary" class="shadow-red" shape="round" size="small" style="float: right;" [routerLink]="['/settings-profile-screen/', child.id]">Settings</ion-button>
+    </ion-card>
 </ion-content>
 
 <ion-content>

@@ -9,7 +9,7 @@ const routes: Routes = [
     loadChildren: () => import('./screens/login-screen/login-screen.module').then( m => m.LoginScreenPageModule)
   },
   {
-    path: 'profile-screen',
+    path: 'profile-screen/:userType/:id',
     loadChildren: () => import('./screens/profile-screen/profile-screen.module').then( m => m.ProfileScreenPageModule)
   },
   {
