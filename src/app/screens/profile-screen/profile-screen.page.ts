@@ -29,11 +29,13 @@ export class ProfileScreenPage implements OnInit {
 
   ngOnInit() {
 
-    this._report.reportByChild(1).then(result =>{
+    this.id = +this._activatedRoute.snapshot.paramMap.get('id');
+
+    this._report.reportByChild(this.id).then(result =>{
       this.reports = result;
     })
 
-    this._user.getChildrenById(1).then(result => {
+    this._user.getChildrenById(this.id).then(result => {
       this.children[0] = result;
       console.log(result);
     })
