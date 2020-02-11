@@ -2,7 +2,8 @@ export default {
 
     user: [
         {
-            userName: "pepito",
+            id: 1, 
+            userName: "pepitoGo",
             password: "1234",
             isTeacher: false
         }
@@ -42,6 +43,12 @@ export default {
             id: 2,
             name: "Aurelio",
             surname: "Benito"
+        },
+
+        {
+            id: 3, 
+            name: "Pepito",
+            surname: "Gomez",
         }
     ],
 
