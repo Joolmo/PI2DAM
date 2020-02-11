@@ -35,7 +35,11 @@ const routes: Routes = [
   {
     path: 'report-form',
     loadChildren: () => import('./screens/report-form/report-form.module').then( m => m.ReportFormPageModule)
+  },  {
+    path: 'class-list-screen',
+    loadChildren: () => import('./screens/class-list-screen/class-list-screen.module').then( m => m.ClassListScreenPageModule)
   }
+
 ];
 
 @NgModule({

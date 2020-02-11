@@ -45,6 +45,19 @@ export default {
         }
     ],
 
+    classRoom: [
+        {
+            id: 1,
+            name: "ClaseAlumno1",
+            surname: "Apellido"
+        },
+
+        {
+            id: 1000,
+            name: "ClaseAlumno1000",
+            surname: "Apellido000"
+        }
+    ]
 
 
 
