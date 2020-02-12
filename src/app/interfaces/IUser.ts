@@ -1,5 +1,5 @@
 export interface IUser {
-    id: number,
+    id: string,
     userName: string,
     password: string,
     isTeacher: boolean,
@@ -16,12 +16,12 @@ export interface IChild extends IUser {
 }
 
 export interface IClassroom {
-    id: number,
+    id: string,
     name: string,
 }
 
 export interface IReport {
-    id: number,
+    id: string,
     description: string,
     childrenId: number, 
 }
