@@ -15,14 +15,14 @@ export class ProfileScreenPage implements OnInit {
   //person: IUsers = {"id": 1, "user": "Pepito", "password": "holi", "isTeacher": true};
 
 
-  id:number;
+  id:string;
   user:string;
   password: string;
   isTeacher: boolean;
   typePerson: string;
   reports: IReport[]=[];
   child: IChild = {
-    id: 0,
+    id: "0",
     name: "",
     surname: "",
     userName: "",
@@ -34,8 +34,8 @@ export class ProfileScreenPage implements OnInit {
     private _activatedRoute: ActivatedRoute) { }
 
   async ngOnInit() {
-    this.isTeacher = this._activatedRoute.snapshot.paramMap.get('userType') == "teacher"
-    this.id = +this._activatedRoute.snapshot.paramMap.get('id');
+    this.isTeacher = this._activatedRoute.snapshot.paramMap.get('userType') == "teacher";
+    this.id = this._activatedRoute.snapshot.paramMap.get('id');
 
     this.reports = await this._report.reportByChild(1)
 

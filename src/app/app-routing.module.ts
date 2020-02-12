@@ -9,7 +9,7 @@ const routes: Routes = [
     loadChildren: () => import('./screens/login-screen/login-screen.module').then( m => m.LoginScreenPageModule)
   },
   {
-    path: 'profile-screen/:userType/:id',
+    path: 'profile-screen',
     loadChildren: () => import('./screens/profile-screen/profile-screen.module').then( m => m.ProfileScreenPageModule)
   },
   {
@@ -35,8 +35,16 @@ const routes: Routes = [
   {
     path: 'report-form',
     loadChildren: () => import('./screens/report-form/report-form.module').then( m => m.ReportFormPageModule)
-  }
-];
+  },
+  { path: 'home', loadChildren: () => import('./screens/home/home.module').then( m => m.HomePageModule)},
+  {
+    path: 'profile-screen/:userType/:id',
+    loadChildren: () => import('./screens/profile-screen/profile-screen.module').then( m => m.ProfileScreenPageModule)
+  },
+  {
+    path: 'class-list-screen',
+    loadChildren: () => import('./screens/class-list-screen/class-list-screen.module').then( m => m.ClassListScreenPageModule)
+  }]
 
 @NgModule({
   imports: [

@@ -17,7 +17,6 @@ export class RegisterAlumnoPage implements OnInit {
   password: string; 
   isTeacher: false;
 
-
   constructor(private _report: ReportsService, private _user: UserService, 
     private _activatedRoute: ActivatedRoute) { }
 
@@ -30,7 +29,7 @@ export class RegisterAlumnoPage implements OnInit {
     let child: (IChild);
 
     child = {
-      "id": 0,
+      "id": "0",
       "name": this.name,
       "surname": this.surname,
       "userName": this.userName,

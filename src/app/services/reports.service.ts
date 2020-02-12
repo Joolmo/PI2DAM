@@ -3,8 +3,8 @@ import { IReport } from '../interfaces/IUser';
 
 @Injectable()
 export default abstract class ReportsService {
-    abstract getReportsByTeacher(): Promise <IReport[]>;
-    abstract reportByChild(childId: number): Promise<IReport[]>;
-    abstract getReportById(id: number): Promise<IReport[]>;
-    
+    abstract getReportsByTeacher(idTeacher: string): Promise<IReport[]>;
+    abstract reportByChild(childId: string): Promise<IReport[]>;
+    abstract getReportById(id: string): Promise<IReport[]>;
+    abstract addReport(report: IReport): Promise<void>
 }

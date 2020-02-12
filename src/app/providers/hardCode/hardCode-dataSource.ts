@@ -2,8 +2,8 @@ export default {
 
     user: [
         {
-            id: 1, 
-            userName: "pepitoGo",
+            id: 3, 
+            userName: "pepito",
             password: "1234",
             isTeacher: false
         }
@@ -34,12 +34,15 @@ export default {
         {
             id: 1, 
             name: "Cristina",
-            surname: "Gonzalez",
-            userName: "pepitoGo",
-            password: "1234",
-            isTeacher: false
+            surname: "Gonzalez"
+        },
+        {
+            id: 2,
+            name: "Aurelio",
+            surname: "Benito"
         }
     ],
+<<<<<<< HEAD
     classroom: [
         {
             id: 1, 
@@ -53,4 +56,28 @@ export default {
     ], 
     
 
+=======
+
+    classRoom: [
+        {
+            id: 1,
+            name: "ClaseAlumno1",
+            surname: "Apellido"
+        },
+
+        {
+            id: 1000,
+            name: "ClaseAlumno1000",
+            surname: "Apellido000"
+        },
+
+        {
+            id: 3,
+            name: "pepito",
+            surname: "Gomez"
+        }
+
+
+    ],
+>>>>>>> f0ccbb5776c9a25068a1ea93646ff4aae0570f06
 }

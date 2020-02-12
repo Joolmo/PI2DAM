@@ -31,11 +31,20 @@ export default class UserProvider extends UserService{
             return false
         }
     }
-    registerTeacher(teacher: ITeacher): Promise<boolean> {
-        throw new Error("Method not implemented.");
+
+    async registerTeacher(teacher: ITeacher): Promise<void> {
+        let result = await this._source.makeRequest({
+            path: "teacher",
+            params: teacher,
+            method: "POST"
+        })
+
+        if(!result.result) {
+            // error
+        }
     }
     
-    registerChildren(children: IChild): Promise<boolean> {
+    registerChildren(children: IChild): Promise<void> {
         throw new Error("Method not implemented.");
     }
 
