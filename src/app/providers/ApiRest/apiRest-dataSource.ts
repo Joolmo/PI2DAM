@@ -45,6 +45,9 @@ export default class ApiRestSrc {
         if(result.ok) {
             let json = await result.json()
 
+            if(method == "GET" && json.Result == undefined) {
+                throw "Unparseable response"
+            }
             if(method != "GET" && json.Result == undefined)
                 return {
                     result: true,

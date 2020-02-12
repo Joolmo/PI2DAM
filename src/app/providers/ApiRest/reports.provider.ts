@@ -63,7 +63,11 @@ export default class ReportsProvider extends ReportsService {
             result = await this._source.makeRequest({
                 path: this.reportsPath,
                 method: "POST",
-                params: report
+                params: {
+                    Id: report.id,
+                    ChildrenId: report.childrenId,
+                    Description: report.description
+                }
             })
         }
         
