@@ -9,7 +9,6 @@ interface IProps {
 export default class ApiRestSrc {
     baseUrl = "https://backendpi.azurewebsites.net/api/"
     headers: any = {
-        //'Access-Control-Allow-Origin':'*',
         'Content-Type': 'application/json'
     }
 
@@ -44,22 +43,21 @@ export default class ApiRestSrc {
         })
 
         if(result.ok) {
-            if(method == "POST") return {
-                result: true,
-                data: []    
-            }
-
             let json = await result.json()
-            return {
-                result: json.Result,
-                data: json.Data
-            }
+
+            if(method != "GET" && json.Result == undefined)
+                return {
+                    result: true,
+                    data: []    
+                }
+            else
+                return {
+                    result: json.Result,
+                    data: json.Data
+                }
         }
         else {
-            return {
-                result: false,
-                data: result.status
-            }
+            throw result.status
         }
     }
 }
