@@ -2,12 +2,12 @@ export default {
 
     user: [
         {
+            id: 3, 
             userName: "pepito",
             password: "1234",
             isTeacher: false
         }
     ],
-
     reports: [
         {
             id : 1,
@@ -30,14 +30,12 @@ export default {
             childrenId : 2, 
         }
     ], 
-
     child: [
         {
-            id: 1,
+            id: 1, 
             name: "Cristina",
             surname: "Gonzalez"
         },
-
         {
             id: 2,
             name: "Aurelio",
@@ -56,9 +54,14 @@ export default {
             id: 1000,
             name: "ClaseAlumno1000",
             surname: "Apellido000"
+        },
+
+        {
+            id: 3,
+            name: "pepito",
+            surname: "Gomez"
         }
-    ]
 
 
-
+    ],
 }

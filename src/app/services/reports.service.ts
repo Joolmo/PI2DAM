@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import { IReports } from '../interfaces/IUser';
+import { IReport } from '../interfaces/IUser';
 
 @Injectable()
 export default abstract class ReportsService {
-    abstract getReports(): Promise <IReports[]>;
-    abstract reportByChild(childId: number): Promise<IReports[]>;
-    abstract getReportById(id: number): Promise<IReports[]>;
-    
+    abstract getReportsByTeacher(idTeacher: string): Promise<IReport[]>;
+    abstract reportByChild(childId: string): Promise<IReport[]>;
+    abstract getReportById(id: string): Promise<IReport[]>;
+    abstract addReport(report: IReport): Promise<void>
 }

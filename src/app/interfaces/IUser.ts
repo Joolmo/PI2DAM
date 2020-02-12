@@ -1,25 +1,32 @@
-export interface IUsers {
-    "id" : number,
-    "user" : string,
-    "password" : string,
-    "isTeacher" : boolean,
-} 
-export interface ITeacher {
-    "id" : number,
-    "surname" : string,
-    "name" : string,
+export interface IUser {
+    id: number,
+    userName: string,
+    password: string,
+    isTeacher: boolean,
 }
+
+export interface ITeacher extends IUser {
+    surname: string,
+    name: string,
+}
+
+export interface IChild extends IUser {
+    name: string,
+    surname: string,
+}
+
 export interface IClassroom {
-    "id" : number,
-    "name" : string,
+    id: number,
+    name: string,
 }
-export interface IChildren {
-    "id" : number,
-    "name" : string,
-    "surname" : string,
+
+export interface IReport {
+    id: number,
+    description: string,
+    childrenId: number, 
 }
-export interface IReports {
-    "id" : number,
-    "description" : string,
-    "childrenId" : number, 
+
+export interface IServerResponse{
+    result: boolean,
+    data: any
 }

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterAlumnoPage implements OnInit {
 
-  constructor() { }
+  constructor(_) { }
 
   nombre: string;
   apellidos: string;

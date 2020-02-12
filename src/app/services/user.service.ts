@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import { ITeacher, IChildren, IUsers } from '../interfaces/IUser';
+import { ITeacher, IChild, IUser } from '../interfaces/IUser';
 
 @Injectable()
 export default abstract class UserService {
     abstract login(userName: string, password: string): Promise <boolean>;
-    abstract registerTeacher(teacher: ITeacher): Promise <boolean>;
-    abstract registerChildren(children: IChildren): Promise <boolean>;
-    abstract getCurrentUser(): IUsers;
-    abstract getChildrenById(id: number): Promise<IChildren>;
-    
+    abstract registerTeacher(teacher: ITeacher): Promise <void>;
+    abstract registerChildren(children: IChild): Promise <void>;
+    abstract getCurrentUser(): IUser;
+    abstract getChildById(id: string): Promise<IChild>;
+    abstract getChildrenByClass(idClass: string): Promise<IChild[]>
 }
