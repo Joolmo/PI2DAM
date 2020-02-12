@@ -40,7 +40,36 @@ export default {
             id: 2,
             name: "Aurelio",
             surname: "Benito"
-        }, 
+        }
+    ],
+<<<<<<< HEAD
+    classroom: [
+        {
+            id: 1, 
+            name: "Science"
+        },
+        {
+            id: 2, 
+            name: "Maths"
+        },
+
+    ], 
+    
+
+=======
+
+    classRoom: [
+        {
+            id: 1,
+            name: "ClaseAlumno1",
+            surname: "Apellido"
+        },
+
+        {
+            id: 1000,
+            name: "ClaseAlumno1000",
+            surname: "Apellido000"
+        },
 
         {
             id: 3,
@@ -50,4 +79,5 @@ export default {
 
 
     ],
+>>>>>>> f0ccbb5776c9a25068a1ea93646ff4aae0570f06
 }
