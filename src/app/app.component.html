@@ -7,8 +7,7 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-button color="secondary" expand="full" [routerLink]="['/home']" (click)="(CloseCustom())"><ion-item color="secondary">Home Page</ion-item></ion-button>
-        <ion-button color="secondary" expand="full"><ion-item color="secondary" [routerLink]="['/profile-screen']">Profile</ion-item></ion-button>
+        <ion-button color="secondary" expand="full"><ion-item color="secondary" [routerLink]="['/profile-screen']" (click)="(CloseCustom())">Profile</ion-item></ion-button>
         <ion-button color="secondary" expand="full" [routerLink]="['/register-alumno']" (click)="(CloseCustom())"><ion-item color="secondary">Add a student</ion-item></ion-button>
         <ion-button menuclose color="secondary" expand="full" [routerLink]="['/pregunta1-p2']" (click)="(CloseCustom())"><ion-item color="secondary">Create a report</ion-item></ion-button>
         <ion-button color="secondary" expand="full" [routerLink]="['/reports-screen']" (click)="(CloseCustom())"><ion-item color="secondary">Reports</ion-item></ion-button>

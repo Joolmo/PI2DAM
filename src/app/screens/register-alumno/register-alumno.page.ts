@@ -3,6 +3,7 @@ import ReportsService from 'src/app/services/reports.service';
 import UserService from 'src/app/services/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { IChild } from 'src/app/interfaces/IUser';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register-alumno',
@@ -18,7 +19,7 @@ export class RegisterAlumnoPage implements OnInit {
   isTeacher: false;
 
   constructor(private _report: ReportsService, private _user: UserService, 
-    private _activatedRoute: ActivatedRoute) { }
+    private _activatedRoute: ActivatedRoute, private menuCtrl: MenuController) { }
 
 
   ngOnInit(){
@@ -40,6 +41,9 @@ export class RegisterAlumnoPage implements OnInit {
     console.log("HOLA");
 
     this._user.registerChildren(child);
+  }
+  toggleMenu(){
+    this.menuCtrl.toggle();
   }
 
 }
