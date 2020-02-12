@@ -40,4 +40,17 @@ export default {
             isTeacher: false
         }
     ],
+    classroom: [
+        {
+            id: 1, 
+            name: "Science"
+        },
+        {
+            id: 2, 
+            name: "Maths"
+        },
+
+    ], 
+    
+
 }
