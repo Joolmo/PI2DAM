@@ -33,7 +33,6 @@ export class LoginScreenPage implements OnInit {
         this._route.navigateByUrl(
           `/profile-screen/${this._userService.getCurrentUser().isTeacher ? "teacher" : "children"}/${this._userService.getCurrentUser().id}`
         )
-        this._route.navigateByUrl("/profile-screen/,user.id")
       }
       else {
         this.presentToast();
