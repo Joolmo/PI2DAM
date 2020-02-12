@@ -113,7 +113,6 @@ export default class UserProvider extends UserService{
                 method: "GET"
             })   
         }
-
         catch(error) {
             console.warn(error)
             throw error
