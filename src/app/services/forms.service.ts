@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import { IReport } from '../interfaces/IUser';
 
 
 @Injectable()

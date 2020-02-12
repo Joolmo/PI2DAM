@@ -5,5 +5,5 @@ import { IReport } from '../interfaces/IUser';
 export default abstract class ReportsService {
     abstract getReportsByTeacher(idTeacher: string): Promise<IReport[]>;
     abstract reportByChild(childId: string): Promise<IReport[]>;
-    abstract addReport(report: IReport): Promise<void>
+    abstract addReport(report: IReport): Promise<void>;
 }

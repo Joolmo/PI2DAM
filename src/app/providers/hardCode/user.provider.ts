@@ -1,8 +1,11 @@
-import HardCodeDataSource from './hardCode-dataSource';
+/*import HardCodeDataSource from './hardCode-dataSource';
 import UserService from 'src/app/services/user.service';
 import { IChild, ITeacher, IUser } from 'src/app/interfaces/IUser';
 
 export default class UserProvider extends UserService {
+    getChildrenByClass(idClass: string): Promise<IChild[]> {
+        throw new Error("Method not implemented.");
+    }
     async login(userName: string, password: string): Promise<boolean> {
         let result = HardCodeDataSource.user.filter(e => e.password === password && e.userName === userName);
         return result.length > 0;
@@ -31,7 +34,7 @@ export default class UserProvider extends UserService {
         throw new Error("Method not implemented.");
     }
 
-    /*async modifyChildrenById(id: number, children: IChildren): Promise <IChildren>{
+    async modifyChildrenById(id: number, children: IChildren): Promise <IChildren>{
 
-    }*/
-}
+    }
+}*/

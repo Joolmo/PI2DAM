@@ -12,13 +12,13 @@ import { ActivatedRoute } from '@angular/router';
 export class SettingsProfileScreenPage implements OnInit {
 
   
-  id:number;
+  id:string;
   password: string;
   isTeacher: boolean;
   typePerson: string;
   children: IChild[]=[];
   user: IUser= {
-    id: 0,
+    id: "0",
     userName: "",
     password: "",
     isTeacher: false
@@ -29,7 +29,7 @@ export class SettingsProfileScreenPage implements OnInit {
 
   ngOnInit() {
 
-    this.id = +this._activatedRoute.snapshot.paramMap.get('id');
+    this.id = this._activatedRoute.snapshot.paramMap.get('id');
 
     /*this._user.getChildrenById(this.id).then(result => {
       this.children[0] = result;

@@ -37,7 +37,7 @@ export class ProfileScreenPage implements OnInit {
     this.isTeacher = this._activatedRoute.snapshot.paramMap.get('userType') == "teacher";
     this.id = this._activatedRoute.snapshot.paramMap.get('id');
 
-    this.reports = await this._report.reportByChild(1)
+    this.reports = await this._report.reportByChild(this.id)
 
     if(!this.isTeacher) {
       console.log(this.id)

@@ -11,7 +11,7 @@ import ReportsService from 'src/app/services/reports.service';
 export class ReportsScreenPage implements OnInit {
   
   reports: IReport[]=[];
-  id: number;
+  id: string;
   description: string; 
   childrenId: number;
 
@@ -19,17 +19,17 @@ export class ReportsScreenPage implements OnInit {
 
   ngOnInit() {
 
-    this.id = +this._activatedRoute.snapshot.paramMap.get('id');
+    this.id = this._activatedRoute.snapshot.paramMap.get('id');
 
     //Comprobamos si el id se pasa por parámetro, me dará el id del reporte que seleccionemos, si no, 
     //nos dará todos los reportes 
     if(this.id) {
       console.log("HOLA2");
-      this._report.getReportById(this.id).then(result=>{
+      this._report.reportByChild(this.id).then(result=>{
         this.reports = result;
       })
     } else {
-      this._report.getReportsByTeacher().then(result =>{
+      this._report.getReportsByTeacher(this.id).then(result =>{
         this.reports = result;
       })
     }

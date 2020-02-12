@@ -44,7 +44,12 @@ const routes: Routes = [
   {
     path: 'class-list-screen',
     loadChildren: () => import('./screens/class-list-screen/class-list-screen.module').then( m => m.ClassListScreenPageModule)
-  }]
+  },  
+  {
+    path: 'add-classrom-screen',
+    loadChildren: () => import('./screens/add-classrom-screen/add-classrom-screen.module').then( m => m.AddClassromScreenPageModule)
+  }
+]
 
 @NgModule({
   imports: [

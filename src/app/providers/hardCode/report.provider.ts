@@ -1,4 +1,4 @@
-import HardCodeDataSource from './hardCode-dataSource';
+/*import HardCodeDataSource from './hardCode-dataSource';
 import ReportsService from 'src/app/services/reports.service';
 import { IReport } from 'src/app/interfaces/IUser';
 import hardCodeDataSource from './hardCode-dataSource';
@@ -26,7 +26,7 @@ export default class ReportsProvider extends ReportsService {
     /*async reportByClassRoom(id: number): Promise<IReports[]> {
         let result = HardCodeDataSource.reports.filter(e => e.id == id);
         return result;
-    }*/
+    }
 
 
-}
+}*/

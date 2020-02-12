@@ -30,28 +30,20 @@ export class LoginScreenPage implements OnInit {
   Implementar() {
     this._userService.login(this.userTexto,this.contraTexto).then(result => {
       if(result) {
-<<<<<<< HEAD
         this._route.navigateByUrl(
           `/profile-screen/${this._userService.getCurrentUser().isTeacher ? "teacher" : "children"}/${this._userService.getCurrentUser().id}`
         )
-=======
         this._route.navigateByUrl("/profile-screen/,user.id")
->>>>>>> Sergio
       }
       else {
         this.presentToast();
       }
     })
   }
-<<<<<<< HEAD
-=======
+
  
   ngOnInit() {
 
 
   }
-
->>>>>>> Sergio
-
-  ngOnInit() { }
 }
