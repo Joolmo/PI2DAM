@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AddClassromScreenPage } from './add-classrom-screen.page';
+import { AddClassroomScreenPage } from './add-classroom-screen.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: AddClassromScreenPage
+    component: AddClassroomScreenPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AddClassromScreenPageRoutingModule {}
+export class AddClassroomScreenPageRoutingModule {}
