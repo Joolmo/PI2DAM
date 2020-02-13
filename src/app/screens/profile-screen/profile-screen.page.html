@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar color="secondary">
+  <ion-toolbar color="danger">
     <ion-title text-center class="negrita">Profile</ion-title>
-    <ion-button color="secondary" (click)="toggleMenu()">
+    <ion-button color="danger" (click)="toggleMenu()">
       <ion-icon slot="icon-only" name="menu"></ion-icon>
     </ion-button>
   </ion-toolbar>
@@ -13,7 +13,7 @@
     <ion-card>
       <ion-card-title text-center class="negrita">Welcome {{child.name}}</ion-card-title>
       <!--<p text-center>{{person.isTeacher ? "Teacher": Student}}-->
-      <ion-button color="secondary" class="shadow-red" shape="round" size="small" style="float: right;" [routerLink]="['/settings-profile-screen/', child.id]">Settings</ion-button>
+      <ion-button color="danger" class="shadow-red" shape="round" size="small" style="float: right;" [routerLink]="['/settings-profile-screen/', child.id]">Settings</ion-button>
     </ion-card>
 </ion-content>
 
@@ -40,11 +40,11 @@
   
     </ion-card-content>
     <div style="float: right; margin-bottom: 5px;">
-      <ion-button size="small" color="secondary" class="shadow-red" shape="round" 
+      <ion-button size="small" color="danger" class="shadow-red" shape="round" 
       routerLink="/reports-screen">all reports</ion-button>
     </div>
     <div style="float: left; margin-bottom: 5px;">
-      <ion-button size="small" color="secondary" class="shadow-red" shape="round" [routerLink]="['/report-form']">create a report</ion-button>
+      <ion-button size="small" color="danger" class="shadow-red" shape="round" [routerLink]="['/report-form']">create a report</ion-button>
     </div>
     </ion-card>
 

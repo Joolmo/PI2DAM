@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="secondary">
+  <ion-toolbar color="danger">
     <ion-title text-center class="negrita">
       Log in
     </ion-title>
@@ -17,18 +17,18 @@
     <ion-item *ngIf="contrasenya==true"> 
       <ion-label position="floating" >Password</ion-label>
       <ion-input type="password" [(ngModel)]="contraTexto"  value={{contraTexto}}></ion-input>
-      <ion-button (click)="(CambiarInput())" color="secondary">Mostrar/Ocultar</ion-button>
+      <ion-button (click)="(CambiarInput())" color="danger">Mostrar/Ocultar</ion-button>
     </ion-item>
     <ion-item *ngIf="contrasenya==false">
       <ion-label position="floating">Password</ion-label>
       <ion-input [(ngModel)]="contraTexto" value={{contraTexto}}></ion-input>
-      <ion-button (click)="(CambiarInput())" color="secondary">Mostrar/Ocultar</ion-button>
+      <ion-button (click)="(CambiarInput())" color="danger">Mostrar/Ocultar</ion-button>
     </ion-item>
     <br>
-    <p>Remember me<ion-checkbox class="pene"></ion-checkbox></p>
+    <p>Remember me<ion-checkbox color="danger" class="pene"></ion-checkbox></p>
     <ion-item class="margen">
     </ion-item>
-    <ion-button color="secondary" class="shadow-red" shape="round"  size="large" expand="full" (click)="(Implementar())">Sign in</ion-button>
+    <ion-button color="danger" class="shadow-red" shape="round"  size="large" expand="full" (click)="(Implementar())">Sign in</ion-button>
   </div>
   
 </ion-content>
