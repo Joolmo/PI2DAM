@@ -3,7 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login-screen', pathMatch: 'full' },
-  
   {
     path: 'login-screen',
     loadChildren: () => import('./screens/login-screen/login-screen.module').then( m => m.LoginScreenPageModule)
@@ -36,30 +35,26 @@ const routes: Routes = [
     path: 'report-form',
     loadChildren: () => import('./screens/report-form/report-form.module').then( m => m.ReportFormPageModule)
   },
-  //{ path: 'home', loadChildren: () => import('./screens/home/home.module').then( m => m.HomePageModule)},
   {
     path: 'profile-screen/:userType/:id',
     loadChildren: () => import('./screens/profile-screen/profile-screen.module').then( m => m.ProfileScreenPageModule)
   },
   {
-    path: 'class-list-screen',
+    path: 'class-list-screen/:myClassrooms',
     loadChildren: () => import('./screens/class-list-screen/class-list-screen.module').then( m => m.ClassListScreenPageModule)
   }, 
   {
-<<<<<<< HEAD
     path: 'add-classroom-screen',
     loadChildren: () => import('./screens/add-classroom-screen/add-classroom-screen.module').then( m => m.AddClassroomScreenPageModule)
   },  
-=======
-    path: 'add-classrom-screen',
-    loadChildren: () => import('./screens/add-classrom-screen/add-classrom-screen.module').then( m => m.AddClassromScreenPageModule)
-  },
   {
     path: 'list-alumnos/:id',
     loadChildren: () => import('./screens/list-alumnos/list-alumnos.module').then( m => m.ListAlumnosPageModule)
-  }
->>>>>>> Sergio
-
+  },
+   {
+    path: 'all-classrooms-list-screen',
+    loadChildren: () => import('./screens/all-classrooms-list-screen/all-classrooms-list-screen.module').then( m => m.AllClassroomsListScreenPageModule)
+  },
 ]
 
 @NgModule({

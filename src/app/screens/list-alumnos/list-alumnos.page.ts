@@ -14,7 +14,8 @@ export class ListAlumnosPage implements OnInit {
   alumnos : IChild[] = [];
   id: string;
   
-  constructor(private menuCtrl: MenuController, private _clase: ClassroomService,private _User : UserService, private _activatedRoute: ActivatedRoute,) { }
+  constructor(private menuCtrl: MenuController, private _clase: ClassroomService,
+    private _User : UserService, private _activatedRoute: ActivatedRoute,) { }
   //nombre y apellidos 
 
   ngOnInit() {
