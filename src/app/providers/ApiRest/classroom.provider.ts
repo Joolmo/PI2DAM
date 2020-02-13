@@ -6,7 +6,7 @@ import ApiRestSrc from './apiRest-dataSource';
 
 @Injectable()
 export default class ClassroomsProvider extends ClassroomService {
-    readonly classroomsPath = "classroom"
+    readonly classroomsPath = "classrooms"
 
     constructor(private _source: ApiRestSrc) {
         super()
@@ -19,7 +19,7 @@ export default class ClassroomsProvider extends ClassroomService {
                 path: this.classroomsPath,
                 method: "GET",
                 params: {
-                    teacher: idTeacher
+                    idTeacher: idTeacher
                 }
             })
         }
@@ -40,7 +40,6 @@ export default class ClassroomsProvider extends ClassroomService {
                 path: this.classroomsPath,
                 method: "POST",
                 params: {
-                    Id: classroom.id,
                     Name: classroom.name
                 }
             })

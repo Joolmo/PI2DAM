@@ -77,24 +77,25 @@ export default class UserProvider extends UserService{
             return false
         }
     }
-
-    async registerTeacher(teacher: ITeacher): Promise<void> {
+    
+    async registerChildren(children: IChild): Promise<void> {
         let result: IServerResponse
         try {
             result = await this._source.makeRequest({
-                path: "teacher",
-                params: teacher,
+                path: this.childrenPath,
+                params: {
+                    UserName: children.userName,
+                    Password: children.password,
+                    Surname: children.surname,
+                    Name: children.name,
+                },
                 method: "POST"
             })
         }
         catch(error) {
             console.warn(error)
             throw error
-        }
-    }
-    
-    registerChildren(children: IChild): Promise<void> {
-        throw new Error("Method not implemented.");
+        } 
     }
 
     getCurrentUser(): IUser | undefined {
@@ -120,6 +121,10 @@ export default class UserProvider extends UserService{
 
         if (result.result == true) return this.fromResponseToChild(result.data[0])
         else return undefined
+    }
+
+    async logOff() {
+        this._source.removeAuth()
     }
 
     fromResponseToChild(response: any): IChild {

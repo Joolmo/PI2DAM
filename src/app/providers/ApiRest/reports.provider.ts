@@ -20,7 +20,7 @@ export default class ReportsProvider extends ReportsService {
                 path: this.reportsPath,
                 method: "GET",
                 params: {
-                    teacher: idTeacher
+                    idTeacher: idTeacher
                 }
             })
         }
@@ -42,7 +42,7 @@ export default class ReportsProvider extends ReportsService {
                 path: this.reportsPath,
                 method: "GET",
                 params: {
-                    child: childId
+                    idChild: childId
                 }
             })
         }
@@ -64,7 +64,6 @@ export default class ReportsProvider extends ReportsService {
                 path: this.reportsPath,
                 method: "POST",
                 params: {
-                    Id: report.id,
                     ChildrenId: report.childrenId,
                     Description: report.description
                 }

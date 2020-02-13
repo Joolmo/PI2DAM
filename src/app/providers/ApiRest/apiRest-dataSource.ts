@@ -31,7 +31,7 @@ export default class ApiRestSrc {
 
     async makeRequest({path, method, params}: IProps): Promise<IServerResponse> {
         if(method === "GET") {
-            path += this.convertParamsToGet(params)
+            path += params ? this.convertParamsToGet(params) : ""
             params = undefined
         }
 
