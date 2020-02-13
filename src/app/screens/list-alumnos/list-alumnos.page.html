@@ -10,11 +10,14 @@
 <ion-content>
 <ion-card *ngFor="let Item of alumnos">
   <ion-card-header>
-    <ion-card-title>Alumno</ion-card-title>
+    <ion-card-title>Student</ion-card-title>
   </ion-card-header>
   <ion-item>
     {{Item.name}}
     {{Item.surname}}
   </ion-item>
 </ion-card>
+<div style="float: left"> <!--me voy a la pantalla de addclassroomscreen-->
+  <ion-button size="small" color="secondary" class="shadow-red" shape="round" [routerLink]="['/add-child-screen']">add new student</ion-button>
+</div>
 </ion-content>

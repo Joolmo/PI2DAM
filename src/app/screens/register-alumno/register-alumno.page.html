@@ -1,14 +1,12 @@
 <ion-header>
-  <ion-toolbar color="danger">
-    <ion-title>Registro Usuario</ion-title>
-    <ion-button color="danger" (click)="toggleMenu()">
+    <ion-title>User Register</ion-title>
+    <ion-button color="secondary" (click)="toggleMenu()">
       <ion-icon slot="icon-only" name="menu"></ion-icon>
     </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <p class="negrita" style="text-align: center;">DATOS ALUMNO</p>
   <ion-item>
     <ion-label position="floating">Name</ion-label>
     <ion-input [(ngModel)]="name">
