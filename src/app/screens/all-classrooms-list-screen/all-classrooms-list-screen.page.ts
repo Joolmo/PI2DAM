@@ -1,38 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { IClassroom } from 'src/app/interfaces/IUser';
 import { ActivatedRoute } from '@angular/router';
 import ClassroomService from 'src/app/services/classroom.service';
 import UserService from 'src/app/services/user.service';
+import { IClassroom } from 'src/app/interfaces/IUser';
 
 @Component({
-  selector: 'app-class-list-screen',
-  templateUrl: './class-list-screen.page.html',
-  styleUrls: ['./class-list-screen.page.scss'],
+  selector: 'app-all-classrooms-list-screen',
+  templateUrl: './all-classrooms-list-screen.page.html',
+  styleUrls: ['./all-classrooms-list-screen.page.scss'],
 })
-export class ClassListScreenPage implements OnInit {
-  classrooms: IClassroom[]=[];
-  idTeacher: string = ""
-  id: string = "";
-  name: string = "2";
-  myClassrooms: boolean = false
+export class AllClassroomsListScreenPage implements OnInit {
 
+  classrooms: IClassroom[]=[];
+  myClassrooms: boolean = false
+  
   constructor(private _activatedRoute: ActivatedRoute, 
     private _class: ClassroomService,
     private _userService: UserService) { }
 
   ngOnInit() {
 
-    this.myClassrooms = this._activatedRoute.snapshot.paramMap.get('myClassrooms') == "true";
+    this.myClassrooms = this._activatedRoute.snapshot.paramMap.get('myClassrooms') == "false";
 
     if(this.myClassrooms) {
-      this._class.getClassroomsByTeacher(this._userService.getCurrentUser().id).then(result=>{
-        this.classrooms = result;
-      })
-    } else {
       this._class.getClassrooms().then(result =>{
         this.classrooms = result;
-      })
-    }
+    })}
+  
   }
 
 }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'register-alumno', pathMatch: 'full' },
+  { path: '', redirectTo: 'login-screen', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./screens/home/home.module').then( m => m.HomePageModule)},
   {
     path: 'login-screen',
@@ -42,13 +42,17 @@ const routes: Routes = [
     loadChildren: () => import('./screens/profile-screen/profile-screen.module').then( m => m.ProfileScreenPageModule)
   },
   {
-    path: 'class-list-screen',
+    path: 'class-list-screen/:myClassrooms',
     loadChildren: () => import('./screens/class-list-screen/class-list-screen.module').then( m => m.ClassListScreenPageModule)
   }, 
   {
     path: 'add-classroom-screen',
     loadChildren: () => import('./screens/add-classroom-screen/add-classroom-screen.module').then( m => m.AddClassroomScreenPageModule)
-  },  
+  },   {
+    path: 'all-classrooms-list-screen',
+    loadChildren: () => import('./screens/all-classrooms-list-screen/all-classrooms-list-screen.module').then( m => m.AllClassroomsListScreenPageModule)
+  },
+ 
 
 ]
 

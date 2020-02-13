@@ -6,16 +6,15 @@
 <ion-content>
       <div class="ion-padding">
         <ion-card *ngFor="let classroom of classrooms">
-          <ion-card-header>
-            <ion-card-title>id: {{classroom.id}}</ion-card-title>
-            <ion-card-subtitle>child: {{classroom.name}}</ion-card-subtitle>
-          </ion-card-header>
+          <ion-item>
+            <ion-label>Name: {{classroom.id}} {{classroom.name}}</ion-label>
+          </ion-item>
         </ion-card>
       </div>
       <div style="float: left"> <!--me voy a la pantalla de addclassroomscreen-->
         <ion-button size="small" color="secondary" class="shadow-red" shape="round" [routerLink]="['/add-classroom-screen']">add new classroom</ion-button>
       </div>
       <div style="float: right">
-        <ion-button size="small" color="secondary" class="shadow-red" shape="round">add to existing classroom</ion-button>
+        <ion-button size="small" color="secondary" class="shadow-red" shape="round" [routerLink]="['/all-classrooms-list-screen']">add to existing classroom</ion-button>
       </div>
 </ion-content>
