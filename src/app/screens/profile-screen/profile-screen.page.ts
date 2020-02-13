@@ -3,6 +3,7 @@ import { IUser, IReport, IChild } from 'src/app/interfaces/IUser';
 import ReportsService from 'src/app/services/reports.service';
 import UserService from 'src/app/services/user.service';
 import { ActivatedRoute } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 
 @Component({
@@ -31,7 +32,7 @@ export class ProfileScreenPage implements OnInit {
   }
   
   constructor(private _report: ReportsService, private _user: UserService, 
-    private _activatedRoute: ActivatedRoute) { }
+    private _activatedRoute: ActivatedRoute, private menuCtrl: MenuController) { }
 
   async ngOnInit() {
     this.isTeacher = this._activatedRoute.snapshot.paramMap.get('userType') == "teacher";
@@ -43,5 +44,8 @@ export class ProfileScreenPage implements OnInit {
       console.log(this.id)
       this.child = await this._user.getChildById(this.id)
     }
+  }
+  toggleMenu(){
+    this.menuCtrl.toggle();
   }
 }

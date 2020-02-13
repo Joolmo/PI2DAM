@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IReport } from 'src/app/interfaces/IUser';
 import { ActivatedRoute } from '@angular/router';
 import ReportsService from 'src/app/services/reports.service';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-reports-screen',
@@ -12,10 +13,8 @@ export class ReportsScreenPage implements OnInit {
   
   reports: IReport[]=[];
   id: string;
-  description: string; 
-  childrenId: number;
 
-  constructor(private _report: ReportsService, private _activatedRoute: ActivatedRoute) { }
+  constructor(private _report: ReportsService, private _activatedRoute: ActivatedRoute,private menuCtrl: MenuController) { }
 
   ngOnInit() {
 
@@ -23,22 +22,20 @@ export class ReportsScreenPage implements OnInit {
 
     //Comprobamos si el id se pasa por parámetro, me dará el id del reporte que seleccionemos, si no, 
     //nos dará todos los reportes 
-    if(this.id) {
-      console.log("HOLA2");
-      this._report.reportByChild(this.id).then(result=>{
-        this.reports = result;
-      })
-    } else {
-      this._report.getReportsByTeacher(this.id).then(result =>{
-        this.reports = result;
-      })
-    }
+
+    this._report.getReportsByTeacher(this.id).then(result =>{
+      this.reports = result;
+    })
+    
 
 
     //IT WORKS 
     /*this._report.reportByChild(this.id).then(result =>{
       this.reports = result;
     })*/
+  }
+  toggleMenu(){
+    this.menuCtrl.toggle();
   }
 
 

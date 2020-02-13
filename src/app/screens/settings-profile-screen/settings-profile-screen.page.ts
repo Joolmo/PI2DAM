@@ -10,8 +10,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./settings-profile-screen.page.scss'],
 })
 export class SettingsProfileScreenPage implements OnInit {
-
-  
   id:string;
   password: string;
   isTeacher: boolean;
