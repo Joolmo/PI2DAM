@@ -12,7 +12,10 @@
           </ion-card-header>
         </ion-card>
       </div>
-      <div style="float: left; margin-bottom: 5px;">
-        <ion-button size="small" color="secondary" class="shadow-red" shape="round">add child</ion-button>
+      <div style="float: left"> <!--me voy a la pantalla de addclassroomscreen-->
+        <ion-button size="small" color="secondary" class="shadow-red" shape="round" [routerLink]="['/add-classroom-screen']">add new classroom</ion-button>
+      </div>
+      <div style="float: right">
+        <ion-button size="small" color="secondary" class="shadow-red" shape="round">add to existing classroom</ion-button>
       </div>
 </ion-content>
