@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'register-alumno', pathMatch: 'full' },
+  { path: '', redirectTo: 'login-screen', pathMatch: 'full' },
   
   {
     path: 'login-screen',
@@ -48,7 +48,12 @@ const routes: Routes = [
   {
     path: 'add-classrom-screen',
     loadChildren: () => import('./screens/add-classrom-screen/add-classrom-screen.module').then( m => m.AddClassromScreenPageModule)
+  },
+  {
+    path: 'list-alumnos/:id',
+    loadChildren: () => import('./screens/list-alumnos/list-alumnos.module').then( m => m.ListAlumnosPageModule)
   }
+
 ]
 
 @NgModule({

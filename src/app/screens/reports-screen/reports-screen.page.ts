@@ -13,8 +13,6 @@ export class ReportsScreenPage implements OnInit {
   
   reports: IReport[]=[];
   id: string;
-  description: string; 
-  childrenId: number;
 
   constructor(private _report: ReportsService, private _activatedRoute: ActivatedRoute,private menuCtrl: MenuController) { }
 
@@ -24,16 +22,11 @@ export class ReportsScreenPage implements OnInit {
 
     //Comprobamos si el id se pasa por parámetro, me dará el id del reporte que seleccionemos, si no, 
     //nos dará todos los reportes 
-    if(this.id) {
-      console.log("HOLA2");
-      this._report.reportByChild(this.id).then(result=>{
-        this.reports = result;
-      })
-    } else {
-      this._report.getReportsByTeacher(this.id).then(result =>{
-        this.reports = result;
-      })
-    }
+
+    this._report.getReportsByTeacher(this.id).then(result =>{
+      this.reports = result;
+    })
+    
 
 
     //IT WORKS 
