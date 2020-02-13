@@ -20,10 +20,10 @@ export class ListAlumnosPage implements OnInit {
 
   ngOnInit() {
     this.id = this._activatedRoute.snapshot.paramMap.get('id');
-    //this.id = this._clase.getClassrooms
-    let result = this._User.getChildrenByClass(this.id);
-    /*this.name = this._activatedRoute.snapshot.paramMap.get('name');
-    this.surname  = this._activatedRoute.snapshot.paramMap.get('surname');*/
+
+    this._User.getChildrenByClass(this.id).then(result=>{
+      this.alumnos = result;
+    });
   }
 
   toggleMenu(){
