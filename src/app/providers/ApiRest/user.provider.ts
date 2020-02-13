@@ -28,7 +28,7 @@ export default class UserProvider extends UserService{
                 path: this.childrenPath,
                 method: "GET",
                 params: {
-                    classroom: idClass
+                    idClass: idClass
                 }
             })
         }
