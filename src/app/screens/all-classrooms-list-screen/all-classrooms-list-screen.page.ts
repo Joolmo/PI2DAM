@@ -13,19 +13,21 @@ export class AllClassroomsListScreenPage implements OnInit {
 
   classrooms: IClassroom[]=[];
   myClassrooms: boolean = false
+  idTeacher: string;
+  idClassroom: string;
   
   constructor(private _activatedRoute: ActivatedRoute, 
     private _class: ClassroomService,
     private _userService: UserService) { }
 
   ngOnInit() {
+    this._class.getClassrooms().then(result =>{
+      this.classrooms = result;
+    })
+  }
 
-    this.myClassrooms = this._activatedRoute.snapshot.paramMap.get('myClassrooms') == "false";
-
-    if(this.myClassrooms) {
-      this._class.getClassrooms().then(result =>{
-        this.classrooms = result;
-    })}
+  anyadirAclase(){
+    this._class.addClassroomToTeacher(this.idClassroom, this.idTeacher)
   
   }
 
