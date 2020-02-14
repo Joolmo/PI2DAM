@@ -77,8 +77,8 @@ export default class ClassroomsProvider extends ClassroomService {
                 path: this.classTeacherPath,
                 method: "POST",
                 params: {
-                    IdClass: idClass,
-                    IdTeacher: idTeacher
+                    ClassroomId: idClass,
+                    TeacherId: idTeacher
                 }
             })
         }
