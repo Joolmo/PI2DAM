@@ -54,12 +54,15 @@ const routes: Routes = [
    {
     path: 'all-classrooms-list-screen',
     loadChildren: () => import('./screens/all-classrooms-list-screen/all-classrooms-list-screen.module').then( m => m.AllClassroomsListScreenPageModule)
+  },  
+  {
+    path: 'home',
+    loadChildren: () => import('./screens/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: 'add-child-screen',
     loadChildren: () => import('./screens/add-child-screen/add-child-screen.module').then( m => m.AddChildScreenPageModule)
   },
-
 ]
 
 @NgModule({

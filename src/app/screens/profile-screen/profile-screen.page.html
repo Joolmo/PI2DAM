@@ -9,44 +9,42 @@
 
 
 <ion-content padding>
-    <img src="../../../assets/fusion.png">
-    <ion-card>
-      <ion-card-title text-center class="negrita">Welcome {{child.name}}</ion-card-title>
-      <!--<p text-center>{{person.isTeacher ? "Teacher": Student}}-->
-      <ion-button color="danger" class="shadow-red" shape="round" size="small" style="float: right;" [routerLink]="['/settings-profile-screen/', child.id]">Settings</ion-button>
-    </ion-card>
+  <img src="../../../assets/fusion.png">
+  <ion-card>
+    <ion-card-title text-center class="negrita">Welcome {{child.name}}</ion-card-title>
+    <!--<p text-center>{{person.isTeacher ? "Teacher": Student}}-->
+    <ion-button color="secondary" class="shadow-red" shape="round" size="small" style="float: right;"
+      [routerLink]="['/settings-profile-screen/', child.id]">Settings</ion-button>
+  </ion-card>
 </ion-content>
 
 <ion-content>
-  
+
   <div class="ion-padding">
 
     <ion-card>
       <ion-card-header>
         <div>
-          <ion-card-title text-center class="negrita">Last reports</ion-card-title>   
+          <ion-card-title text-center class="negrita">Last reports</ion-card-title>
         </div>
         <div>
           <img style="width: 20%; float: right;" src="../../../assets/x-11-512.png">
         </div>
       </ion-card-header>
 
-    <ion-card-content>
-      <ion-list *ngFor="let report of reports">
-        <ion-item>
-          <ion-label [routerLink]="['/reports-screen/', report.id]">{{report.description}} {{report.id}}</ion-label>
-        </ion-item>
-      </ion-list>
-  
-    </ion-card-content>
-    <div style="float: right; margin-bottom: 5px;">
-      <ion-button size="small" color="danger" class="shadow-red" shape="round" 
-      routerLink="/reports-screen">all reports</ion-button>
-    </div>
-    <div style="float: left; margin-bottom: 5px;">
-      <ion-button size="small" color="danger" class="shadow-red" shape="round" [routerLink]="['/report-form']">create a report</ion-button>
-    </div>
-    </ion-card>
+      <ion-card-content>
+        <ion-list *ngFor="let report of reports">
+          <ion-item>
+            <ion-label [routerLink]="['/reports-screen/', report.id]">{{report.description}} {{report.id}}</ion-label>
+          </ion-item>
+        </ion-list>
 
+      </ion-card-content>
+
+    </ion-card>
+    <div style="float: right; margin-bottom: 5px;">
+      <ion-button size="small" color="secondary" class="shadow-red" shape="round" routerLink="/reports-screen">all
+        reports</ion-button>
+    </div>
   </div>
 </ion-content>
