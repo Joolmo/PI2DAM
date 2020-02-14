@@ -26,8 +26,8 @@ export class AllClassroomsListScreenPage implements OnInit {
     })
   }
 
-  anyadirAclase(){
-    this._class.addClassroomToTeacher(this.idClassroom, this.idTeacher)
+  anyadirAclase(id: string){
+    this._class.addClassroomToTeacher(id, this._userService.getCurrentUser().id)
   
   }
 

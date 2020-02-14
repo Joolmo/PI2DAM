@@ -1,27 +1,28 @@
 <ion-header>
   <ion-toolbar color="danger">
-    <ion-title text-center class="negrita">Profile</ion-title>
-    <ion-button color="danger" (click)="toggleMenu()">
-      <ion-icon slot="icon-only" name="menu"></ion-icon>
-    </ion-button>
+    <ion-title text-center class="negrita">
+      Profile
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 
-<ion-content padding>
-  <img src="../../../assets/fusion.png">
-  <ion-card>
-    <ion-card-title text-center class="negrita">Welcome {{child.name}}</ion-card-title>
-    <!--<p text-center>{{person.isTeacher ? "Teacher": Student}}-->
-    <ion-button color="secondary" class="shadow-red" shape="round" size="small" style="float: right;"
-      [routerLink]="['/settings-profile-screen/', child.id]">Settings</ion-button>
-  </ion-card>
+
+<ion-content>
+  <div style="margin: 15px;">
+    <img style="margin-left: 40px;"src="../../../assets/logo3.png">
+  </div>
+  <div>
+    <ion-card-title text-center class="font">Welcome {{child.name}}</ion-card-title>
+  </div>
+      <!--<p text-center>{{person.isTeacher ? "Teacher": Student}}-->
+  <div>
+    <input style="float: right;" type=image src="../../../assets/unnamed.png" width="50" height="50" [routerLink]="['/settings-profile-screen/', child.id]"/>
+  </div>
 </ion-content>
 
 <ion-content>
-
   <div class="ion-padding">
-
     <ion-card>
       <ion-card-header>
         <div>

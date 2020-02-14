@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="danger">
     <ion-title text-center class="negrita">
-      Nuevo Reporte
+      New Report
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,27 +9,24 @@
 <ion-content>
   <div class="ion-padding">
     <br>
-    <ion-label class="font">Título</ion-label>
+    <ion-label class="font">Tittle</ion-label>
     <ion-item>
       <br>
-      <ion-input placeholder="Titulo..."></ion-input>
-      <!--<ion-input [(ngModel)]="reportName"></ion-input>-->
+      <ion-input placeholder="Tittle..."></ion-input>
     </ion-item>
     <br>
-    <ion-label class="font">Descripción</ion-label>
+    <ion-label class="font">Description</ion-label>
     <ion-item>
-      <ion-textarea rows="15" cols="20" placeholder="Escriba algo aquí..."></ion-textarea>
-      <!--<ion-input type="password" [(ngModel)]="contraTexto"></ion-input>
-      <ion-button (click)="(CambiarInput())" color="secondary">Mostrar/Ocultar</ion-button>-->
+      <ion-textarea rows="15" cols="20" placeholder="Write the report description here..."></ion-textarea>
     </ion-item>
     <ion-item>
       <div style="width: 100%;">
-        <div style="float: left; margin-bottom: 5px;">
-          <ion-button size="small" color="secondary" class="shadow-red" shape="round" [routerLink]="['/reports-screen']"
-            expand="block">Atrás</ion-button>
+        <div style="float: left">
+          <ion-button color="danger" class="shadow-red" shape="round" [routerLink]="['/profile-screen']"
+            expand="block">Back</ion-button>
         </div>
-        <div style="float: right; margin-bottom: 5px;">
-          <ion-button size="small" color="danger" class="shadow-red" shape="round">Create a report</ion-button>
+        <div style="float: right">
+          <ion-button shape="round" color="danger" class="shadow-red" shape="round">Create a report</ion-button>
         </div>
       </div>
     </ion-item>
