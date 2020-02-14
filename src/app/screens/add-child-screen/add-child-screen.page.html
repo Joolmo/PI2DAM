@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>Add a student</ion-title>
+    <ion-button color="secondary" (click)="toggleMenu()">
+      <ion-icon slot="icon-only" name="menu"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Student Name</ion-label>
+    <ion-input [(ngModel)]="name">
+    </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Student Surname</ion-label>
+    <ion-input [(ngModel)]="surname">
+    </ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="introducirDatos()" color="secondary">
+    <ion-label>Add</ion-label></ion-button>
+</ion-content>

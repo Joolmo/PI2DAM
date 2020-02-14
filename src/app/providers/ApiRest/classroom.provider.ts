@@ -7,6 +7,8 @@ import ApiRestSrc from './apiRest-dataSource';
 @Injectable()
 export default class ClassroomsProvider extends ClassroomService {
     readonly classroomsPath = "classrooms"
+    readonly classTeacherPath = `${this.classroomsPath}/teachers`
+    readonly classChildrenPath = `${this.classroomsPath}/children`
 
     constructor(private _source: ApiRestSrc) {
         super()
@@ -72,11 +74,30 @@ export default class ClassroomsProvider extends ClassroomService {
 
         try {
             result = await this._source.makeRequest({
-                path: this.classroomsPath,
+                path: this.classTeacherPath,
                 method: "POST",
                 params: {
                     IdClass: idClass,
                     IdTeacher: idTeacher
+                }
+            })
+        }
+        catch(error) {
+            console.warn(error)
+            throw error
+        }
+    }
+
+    async addChildrenToClassroom(idClass: string, idChild: string): Promise<void> {
+        let result: IServerResponse
+
+        try {
+            result = await this._source.makeRequest({
+                path: this.classChildrenPath,
+                method: "POST",
+                params: {
+                    IdClass: idClass,
+                    IdChild: idChild
                 }
             })
         }

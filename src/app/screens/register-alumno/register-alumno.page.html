@@ -1,6 +1,5 @@
 <ion-header>
-  <ion-toolbar color="secondary">
-    <ion-title>Registro Usuario</ion-title>
+    <ion-title>User Register</ion-title>
     <ion-button color="secondary" (click)="toggleMenu()">
       <ion-icon slot="icon-only" name="menu"></ion-icon>
     </ion-button>
@@ -8,7 +7,6 @@
 </ion-header>
 
 <ion-content>
-  <p class="negrita" style="text-align: center;">DATOS ALUMNO</p>
   <ion-item>
     <ion-label position="floating">Name</ion-label>
     <ion-input [(ngModel)]="name">
@@ -29,7 +27,7 @@
     <ion-input [(ngModel)]="password">
     </ion-input>
   </ion-item>
-  <ion-button expand="block" (click)="introducirDatos()" color="secondary">
+  <ion-button expand="block" (click)="introducirDatos()" color="danger">
     <ion-label>Insert</ion-label></ion-button>
 </ion-content>
 

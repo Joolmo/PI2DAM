@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="secondary">
+  <ion-toolbar color="danger">
     <ion-title text-center text-center class="negrita">All Classrooms</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -7,7 +7,7 @@
       <div class="ion-padding">
         <ion-card *ngFor="let classroom of classrooms">
           <ion-item>
-            <ion-label [routerLink]="['/reports-screen/', report.id]">{{classroom.id}} {{classroom.name}}</ion-label>
+            <ion-label (click)="anyadirAclase()">{{classroom.id}} {{classroom.name}}</ion-label>
           </ion-item>
         </ion-card>
       </div>
