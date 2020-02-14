@@ -9,7 +9,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class LoginScreenPage implements OnInit {
   
-  constructor(private _userService: UserService, private _route: Router, public toastController: ToastController) { }
+  constructor(private _userService: UserService, private _route: Router, private toastController: ToastController) { }
   
   userTexto : string;
   contraTexto : string;

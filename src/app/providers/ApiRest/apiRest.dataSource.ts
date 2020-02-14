@@ -43,7 +43,18 @@ export default class ApiRestSrc {
         })
 
         if(result.ok) {
-            let json = await result.json()
+            let json
+            
+            // Temporal
+            try { json = await result.json() }
+            catch(error) {
+                console.warn("Seguro que no tiene que devolver un json?:-) " + error)
+                return {
+                    result: true,
+                    data: []    
+                }
+            }
+            // Fin temporal
 
             if(method == "GET" && json.Result == undefined) {
                 throw "Unparseable response"

@@ -8,5 +8,9 @@ export default abstract class UserService {
     abstract registerChildren(children: IChild): Promise <void>;
     abstract getCurrentUser(): IUser | undefined;
     abstract getChildById(id: string): Promise<IChild | undefined>;
-    abstract getChildrenByClass(idClass: string): Promise<IChild[]>
+    abstract getTeacherById(id: string): Promise<ITeacher | undefined>;
+    abstract getChildrenByClass(idClass: string): Promise<IChild[]>;
+    abstract modifyChild(IChild): Promise <void>;
+    abstract modifyTeacher(ITeacher): Promise <void>;
+
 }

@@ -3,6 +3,7 @@ import { IReport } from 'src/app/interfaces/interfaces';
 import { ActivatedRoute } from '@angular/router';
 import ReportsService from 'src/app/services/reports.service';
 import { MenuController } from '@ionic/angular';
+import UserService from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-reports-screen',
@@ -12,31 +13,26 @@ import { MenuController } from '@ionic/angular';
 export class ReportsScreenPage implements OnInit {
   
   reports: IReport[]=[];
-  id: string;
 
-  constructor(private _report: ReportsService, private _activatedRoute: ActivatedRoute,private menuCtrl: MenuController) { }
+  constructor(private _report: ReportsService, private _activatedRoute: ActivatedRoute,
+    private menuCtrl: MenuController, private _user: UserService) { }
 
   ngOnInit() {
-
-    this.id = this._activatedRoute.snapshot.paramMap.get('id');
-
-    //Comprobamos si el id se pasa por parámetro, me dará el id del reporte que seleccionemos, si no, 
-    //nos dará todos los reportes 
-
-    this._report.getReportsByTeacher(this.id).then(result =>{
-      this.reports = result;
-    })
-    
-
-
-    //IT WORKS 
-    /*this._report.reportByChild(this.id).then(result =>{
-      this.reports = result;
-    })*/
+    if(this.isTeacher()) {
+      this._report.getReportsByTeacher(this._user.getCurrentUser().id).then(result =>{
+        this.reports = result;
+      })
+    }
+    else {
+      this._report.reportByChild(this._user.getCurrentUser().id).then(result =>{
+        this.reports = result;
+      })
+    }    
   }
+
+  isTeacher=()=>this._user.getCurrentUser().isTeacher;
+  
   toggleMenu(){
     this.menuCtrl.toggle();
   }
-
-
 }

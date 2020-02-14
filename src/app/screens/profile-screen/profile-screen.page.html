@@ -13,7 +13,8 @@
     <img class="imagenSize" src="../../../assets/logo3.png">
   </div>
   <div>
-    <ion-card-title text-center class="font">Welcome {{child.name}}</ion-card-title>
+    <ion-card-title *ngIf="user.isTeacher" text-center class="font">Welcome {{teacher.name}}</ion-card-title>
+    <ion-card-title *ngIf="!user.isTeacher" text-center class="font">Welcome {{child.name}}</ion-card-title>
   </div>
       <!--<p text-center>{{person.isTeacher ? "Teacher": Student}}-->
   <div class="settingsIcon">

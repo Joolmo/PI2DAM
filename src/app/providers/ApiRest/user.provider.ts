@@ -11,6 +11,7 @@ import ApiRestSrc from './apiRest.dataSource';
     si se enctra el recurso o lista de de recursos => se devuelve noramalmente
 */
 export default class UserProvider extends UserService{
+
     currentUser: IUser
     readonly childrenPath = "child"
     readonly teachersPath = "teacher"
@@ -123,9 +124,72 @@ export default class UserProvider extends UserService{
         else return undefined
     }
 
-    async logOff() {
-        this._source.removeAuth()
+    async getTeacherById(id: string): Promise<ITeacher> {
+        let result: IServerResponse
+
+        try {
+            result = await this._source.makeRequest({
+                path: this.teachersPath,
+                params: {
+                    id: id
+                },
+                method: "GET"
+            })   
+        }
+        catch(error) {
+            console.warn(error)
+            throw error
+        }
+
+        if (result.result == true) return this.fromResponseToTeacher(result.data[0])
+        else return undefined
     }
+
+    async logOff() {
+        this._source.removeAuth();
+        this.currentUser = undefined;
+    }
+
+    async modifyChild(child: IChild): Promise<void> {
+        let result: IServerResponse
+        try {
+            result = await this._source.makeRequest({
+                path: this.childrenPath,
+
+                //DE MOMENTO SOLO CAMBIA EL PASSWORD
+                params: {
+                    Id: child.id, 
+                    Password: child.password,
+                },
+                method: "PUT"
+            })
+        }
+        catch(error) {
+            console.warn(error)
+            throw error
+        } 
+    }
+
+    async modifyTeacher(teacher: ITeacher): Promise<void> {
+        let result: IServerResponse
+        try {
+            result = await this._source.makeRequest({
+                path: this.teachersPath,
+
+                //DE MOMENTO SOLO CAMBIA EL PASSWORD
+                params: {
+                    Id: teacher.id, 
+                    Password: teacher.password,
+                },
+                method: "PUT"
+            })
+        }
+        catch(error) {
+            console.warn(error)
+            throw error
+        } 
+    }
+
 
     fromResponseToChild(response: any): IChild {
         return {
@@ -138,6 +202,17 @@ export default class UserProvider extends UserService{
         }
     }
 
+    fromResponseToTeacher(response: any): ITeacher {
+        return {
+            id: response.Id,
+            name: response.Name,
+            surname: response.Surname,
+            userName: response.UserName,
+            password: response.Password,
+            isTeacher: true
+        }
+    }
+
     fromResponseToUser(response: any): IUser {
         return {
             id: response.Id,
@@ -146,4 +221,6 @@ export default class UserProvider extends UserService{
             isTeacher : response.IsTeacher,
         }
     }
+
+
 }

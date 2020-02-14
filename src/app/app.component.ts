@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { Platform, MenuController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import UserService from './services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -15,9 +17,16 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private menu: MenuController,
+    private _user: UserService,
+    private _route: Router
   ) {
     this.initializeApp();
   }
+
+  
+  isTeacher=()=>this._user.getCurrentUser().isTeacher;
+
+  isLogged=()=>this._user.getCurrentUser() != undefined;
 
   initializeApp() {
     this.platform.ready().then(() => {
@@ -25,7 +34,20 @@ export class AppComponent {
       this.splashScreen.hide();
     });
   }
-  CloseCustom() {
+
+  closeCustom() {
     this.menu.close();
+  }
+
+  logOff(){
+    this.closeCustom();
+    this._user.logOff();
+  }
+
+  profile(){
+    this.closeCustom();
+    this._route.navigateByUrl(
+      `/profile-screen/${this._user.getCurrentUser().isTeacher ? "teacher" : "children"}/${this._user.getCurrentUser().id}`
+    )
   }
 }

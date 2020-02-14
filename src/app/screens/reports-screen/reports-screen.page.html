@@ -28,7 +28,7 @@
         </ion-card-content>
         </ion-card>
       </div>
-  <ion-footer> <ion-fab vertical="end" horizontal="end" edge slot="fixed">
+  <ion-footer> <ion-fab *ngIf="!isTeacher()" vertical="end" horizontal="end" edge slot="fixed">
     <ion-fab-button color="danger">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
