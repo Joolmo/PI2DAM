@@ -1,11 +1,21 @@
-<ion-header>
-  <ion-toolbar color="danger">
+<!--<ion-header>
+  <ion-toolbar style="padding-top: 20px;"color="danger">
     <ion-title text-center text-center class="negrita">Reports</ion-title>
     <ion-button color="danger" (click)="toggleMenu()">
       <ion-icon slot="icon-only" name="menu"></ion-icon>
     </ion-button>
   </ion-toolbar>
+</ion-header>-->
+
+
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title text-center class="negrita">
+      All Reports
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
+
 <ion-content>
       <div class="ion-padding">
         <ion-card *ngFor="let report of reports">
@@ -19,7 +29,7 @@
         </ion-card>
       </div>
   <ion-footer> <ion-fab vertical="end" horizontal="end" edge slot="fixed">
-    <ion-fab-button>
+    <ion-fab-button color="danger">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab></ion-footer>

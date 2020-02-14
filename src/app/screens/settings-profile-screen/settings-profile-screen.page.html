@@ -6,14 +6,13 @@
 
 <ion-content padding>
 
-    <ion-card>
-      <ion-item>
-          <ion-input placeholder="new password" [(ngModel)]="user.password"></ion-input>
-        </ion-item>
-
-        <div style="float: right; margin-bottom: 5px;">
-          <ion-button color="danger" class="shadow-red" shape="round" (click)="save()">Save</ion-button>
-        </div>
-    </ion-card>
-
+  <div style="margin-top: 30px; padding-left: 15px;">
+    <ion-label class="font">New password</ion-label>
+    <ion-input placeholder="New password" [(ngModel)]="user.password"></ion-input>
+  </div>
+  <div style="text-align: center; margin-top: 50px;">
+    <ion-button class="shadow-red" shape="round" (click)="save()" color="danger">
+      <ion-label>Save</ion-label>
+    </ion-button>
+  </div>
 </ion-content>

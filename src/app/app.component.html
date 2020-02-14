@@ -1,7 +1,7 @@
 <ion-app>
   <ion-menu auto-hide="true" side="start" menuId="first" contentId="principal">
     <ion-header>
-      <ion-toolbar color="medium">
+      <ion-toolbar color="danger">
         <ion-title>Menu</ion-title>
       </ion-toolbar>
     </ion-header>
@@ -9,7 +9,7 @@
       <ion-list>
         <ion-button color="danger" expand="full"><ion-item color="danger" [routerLink]="['/profile-screen']" (click)="(CloseCustom())">Profile</ion-item></ion-button>
         <ion-button color="danger" expand="full" [routerLink]="['/register-alumno']" (click)="(CloseCustom())"><ion-item color="danger">Add a student</ion-item></ion-button>
-        <ion-button menuclose color="danger" expand="full" [routerLink]="['/pregunta1-p2']" (click)="(CloseCustom())"><ion-item color="danger">Create a report</ion-item></ion-button>
+        <ion-button menuclose color="danger" expand="full" [routerLink]="['/report-form']" (click)="(CloseCustom())"><ion-item color="danger">Create a report</ion-item></ion-button>
         <ion-button color="danger" expand="full" [routerLink]="['/reports-screen']" (click)="(CloseCustom())"><ion-item color="danger">Reports</ion-item></ion-button>
         <ion-button color="danger" expand="full" [routerLink]="['/add-classroom-screen']" (click)="(CloseCustom())"><ion-item color="danger">Add new classroom</ion-item></ion-button>
         <ion-button color="danger" expand="full" [routerLink]="['/class-list-screen/','true']" (click)="(CloseCustom())"><ion-item color="danger">My classrooms</ion-item></ion-button>
