@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IUser, IReport, IChild } from 'src/app/interfaces/IUser';
+import { IUser, IReport, IChild } from 'src/app/interfaces/interfaces';
 import ReportsService from 'src/app/services/reports.service';
 import UserService from 'src/app/services/user.service';
 import { ActivatedRoute } from '@angular/router';

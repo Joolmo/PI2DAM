@@ -1,7 +1,7 @@
 import ReportsService from 'src/app/services/reports.service';
-import { IReport, IServerResponse } from '../../interfaces/IUser'
+import { IReport, IServerResponse } from '../../interfaces/interfaces'
 import { Injectable } from '@angular/core';
-import ApiRestSrc from './apiRest-dataSource';
+import ApiRestSrc from './apiRest.dataSource';
 
 
 @Injectable()

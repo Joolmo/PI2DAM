@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IReport } from 'src/app/interfaces/IUser';
+import { IReport } from 'src/app/interfaces/interfaces';
 import { ActivatedRoute } from '@angular/router';
 import ReportsService from 'src/app/services/reports.service';
 import { MenuController } from '@ionic/angular';

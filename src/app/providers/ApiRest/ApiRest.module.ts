@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import UserService from 'src/app/services/user.service';
 import UserProvider from './user.provider';
-import ApiRestSrc from './apiRest-dataSource';
+import ApiRestSrc from './apiRest.dataSource';
 import ReportsProvider from './reports.provider';
 import ReportsService from 'src/app/services/reports.service';
 import ClassroomService from 'src/app/services/classroom.service';

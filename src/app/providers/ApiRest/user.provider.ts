@@ -1,6 +1,6 @@
 import UserService from 'src/app/services/user.service';
-import { ITeacher, IChild, IUser, IServerResponse } from 'src/app/interfaces/IUser';
-import ApiRestSrc from './apiRest-dataSource';
+import { ITeacher, IChild, IUser, IServerResponse } from 'src/app/interfaces/interfaces';
+import ApiRestSrc from './apiRest.dataSource';
 
 
 /* 

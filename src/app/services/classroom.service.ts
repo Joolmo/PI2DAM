@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IClassroom } from '../interfaces/IUser';
+import { IClassroom } from '../interfaces/interfaces';
 
 
 @Injectable()

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import UserService from 'src/app/services/user.service';
-import { IChild } from 'src/app/interfaces/IUser';
+import { IChild } from 'src/app/interfaces/interfaces';
 import { ActivatedRoute } from '@angular/router';
 import ClassroomService from 'src/app/services/classroom.service'
 

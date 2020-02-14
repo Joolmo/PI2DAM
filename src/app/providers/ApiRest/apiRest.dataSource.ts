@@ -1,4 +1,4 @@
-import { IServerResponse } from 'src/app/interfaces/IUser'
+import { IServerResponse } from 'src/app/interfaces/interfaces'
 
 interface IProps {
     path: string,

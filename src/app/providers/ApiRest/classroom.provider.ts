@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import ClassroomService from 'src/app/services/classroom.service';
-import {IClassroom, IServerResponse} from '../../interfaces/IUser'
-import ApiRestSrc from './apiRest-dataSource';
+import {IClassroom, IServerResponse} from '../../interfaces/interfaces'
+import ApiRestSrc from './apiRest.dataSource';
 
 
 @Injectable()

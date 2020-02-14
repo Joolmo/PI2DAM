@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import { ITeacher, IChild, IUser } from '../interfaces/IUser';
+import { ITeacher, IChild, IUser } from '../interfaces/interfaces';
 
 @Injectable()
 export default abstract class UserService {

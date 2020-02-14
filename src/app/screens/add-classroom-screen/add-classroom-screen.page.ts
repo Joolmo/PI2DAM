@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import ClassroomService from 'src/app/services/classroom.service';
-import { IClassroom } from 'src/app/interfaces/IUser';
+import { IClassroom } from 'src/app/interfaces/interfaces';
 
 
 @Component({
