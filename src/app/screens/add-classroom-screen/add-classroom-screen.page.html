@@ -5,11 +5,13 @@
 </ion-header>
 
 <ion-content>
-  <div style="margin-top: 30px;padding-left: 15px;">
-    <ion-label class="font">Classroom Name</ion-label>
-    <ion-input placeholder="Name" [(ngModel)]="name"></ion-input>
-  </div>
-  <div style="text-align: center; margin-top: 50px;">
+  <br>
+  <ion-item>
+    <ion-label class="font" position="floating">Classroom Name</ion-label>
+    <ion-input [(ngModel)]="name"></ion-input>
+  </ion-item>
+  <br>
+  <div class="buttonInsert">
     <ion-button color="danger" class="shadow-red" shape="round" (click)="introducirDatos()" color="danger">
       <ion-label>Add</ion-label>
     </ion-button>

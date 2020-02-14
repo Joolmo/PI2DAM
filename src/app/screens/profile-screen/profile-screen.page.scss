@@ -6,3 +6,24 @@
     font-weight: bold;
     font-size: 20px;
 }
+
+.imagen{
+    display:  flex;
+    justify-content: center;
+}
+
+.imagenSize {
+    width: 250px;
+}
+
+.settingsIcon {
+    display: flex; 
+    justify-content:flex-end;
+    margin-right: 10px;
+
+}
+
+.buttonReports {
+    float: right; 
+    margin-bottom: 5px;
+}

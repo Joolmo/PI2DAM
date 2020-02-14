@@ -1,4 +1,15 @@
 .shadow-red{
-    box-shadow: 0px 14px 25px #5798C7;
-    --border-radius: 5px;
+    border-radius: 50%;
+    box-shadow: 0px 10px 15px #800000;
+}
+
+
+.font{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.buttonSignIn {
+    text-align: center; 
+    margin-top: 50px;
 }

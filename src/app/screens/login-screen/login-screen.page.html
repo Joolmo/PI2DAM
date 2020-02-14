@@ -9,26 +9,24 @@
 
 <ion-content>
   <div class="ion-padding">
-    <br>
     <ion-item>
-      <ion-label position="floating" >Username</ion-label>
+      <ion-label class="font" position="floating" >Username</ion-label>
       <ion-input [(ngModel)]="userTexto"></ion-input>
     </ion-item>
     <ion-item *ngIf="contrasenya==true"> 
-      <ion-label position="floating" >Password</ion-label>
+      <ion-label class="font" position="floating" >Password</ion-label>
       <ion-input type="password" [(ngModel)]="contraTexto"  value={{contraTexto}}></ion-input>
       <ion-button (click)="(CambiarInput())" color="danger">Mostrar/Ocultar</ion-button>
     </ion-item>
     <ion-item *ngIf="contrasenya==false">
-      <ion-label position="floating">Password</ion-label>
+      <ion-label class="font" position="floating">Password</ion-label>
       <ion-input [(ngModel)]="contraTexto" value={{contraTexto}}></ion-input>
-      <ion-button (click)="(CambiarInput())" color="danger">Mostrar/Ocultar</ion-button>
+      <ion-button (click)="(CambiarInput())" color="danger" class="shadow-red" shape="round">Mostrar/Ocultar</ion-button>
     </ion-item>
-    <br>
-    <p>Remember me<ion-checkbox color="danger" class="pene"></ion-checkbox></p>
-    <ion-item class="margen">
-    </ion-item>
-    <ion-button color="danger" class="shadow-red" shape="round"  size="large" expand="full" (click)="(Implementar())">Sign in</ion-button>
+    <p>Remember me<ion-checkbox color="danger" class="font"></ion-checkbox></p>
+    <div class="buttonSignIn">
+      <ion-button color="danger" class="shadow-red" shape="round" (click)="(Implementar())">Sign in</ion-button>
+    </div>
   </div>
   
 </ion-content>

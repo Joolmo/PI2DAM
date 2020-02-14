@@ -7,15 +7,17 @@
 </ion-header>
 
 <ion-content>
-  <div style="margin-top: 30px; padding-left: 15px;">
+  <br>
+  <div class="labels">
     <ion-label class="font">Student Name</ion-label>
     <ion-input placeholder="Name" [(ngModel)]="name"></ion-input>
   </div>
-  <div style="margin-top: 10px; padding-left: 15px;">
+  <br>
+  <div class="labels">
     <ion-label  class="font">Student Surname</ion-label>
     <ion-input placeholder="Surname" [(ngModel)]="surname"></ion-input>
   </div>
-  <div style="text-align: center; margin-top: 50px;">
+  <div class="buttonAdd">
     <ion-button class="shadow-red" shape="round" (click)="introducirDatos()" color="danger">
       <ion-label>Add</ion-label>
     </ion-button>

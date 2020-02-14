@@ -6,22 +6,22 @@
 
 <ion-content>
   <ion-item>
-    <ion-label position="floating">Name</ion-label>
+    <ion-label class="font" position="floating">Name</ion-label>
     <ion-input [(ngModel)]="name"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label position="floating">Surname</ion-label>
+    <ion-label class="font" position="floating">Surname</ion-label>
     <ion-input [(ngModel)]="surname"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label position="floating">Username</ion-label>
+    <ion-label class="font" position="floating">Username</ion-label>
     <ion-input [(ngModel)]="username"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label position="floating">Password</ion-label>
+    <ion-label class="font" position="floating">Password</ion-label>
     <ion-input [(ngModel)]="password"></ion-input>
   </ion-item>
-  <div style="text-align: center; margin-top: 50px;">
+  <div class="buttonInsert">
     <ion-button color="danger" class="shadow-red" shape="round" (click)="introducirDatos()" color="danger">
       <ion-label>Insert</ion-label>
     </ion-button>

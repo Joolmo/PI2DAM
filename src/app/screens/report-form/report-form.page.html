@@ -19,17 +19,14 @@
     <ion-item>
       <ion-textarea rows="15" cols="20" placeholder="Write the report description here..."></ion-textarea>
     </ion-item>
-    <ion-item>
-      <div style="width: 100%;">
-        <div style="float: left">
-          <ion-button color="danger" class="shadow-red" shape="round" [routerLink]="['/profile-screen']"
-            expand="block">Back</ion-button>
-        </div>
-        <div style="float: right">
-          <ion-button shape="round" color="danger" class="shadow-red" shape="round">Create a report</ion-button>
-        </div>
-      </div>
-    </ion-item>
+    <div class="buttonBack">
+      <ion-button color="danger" class="shadow-red" shape="round" [routerLink]="['/profile-screen']">
+        Back</ion-button>
+    </div>
+    <div class="buttonCreate">
+      <ion-button shape="round" color="danger" class="shadow-red" shape="round">
+        Create a report</ion-button>
+    </div>
   </div>
 
 </ion-content>
