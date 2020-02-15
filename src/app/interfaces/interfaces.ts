@@ -30,3 +30,28 @@ export interface IServerResponse{
     result: boolean,
     data: any
 }
+
+export interface IFormStruct {
+    name: string,
+    teacherId: string,
+    classesIds: string[],
+    fields: IFormField[]
+}
+
+interface IFormField {
+    label: string,
+    requiered: boolean,
+    type: "y/n" | "text" | "radio",
+}
+
+interface IFormResponseField {
+    type: "y/n" | "text" | "radio",
+    response: string
+}
+
+interface IFormResponse {
+    idFormStruct: string,
+    idChild: string,
+    fields: IFormResponseField[]
+}
+

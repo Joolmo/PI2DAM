@@ -24,10 +24,6 @@ const routes: Routes = [
     loadChildren: () => import('./screens/settings-profile-screen/settings-profile-screen.module').then( m => m.SettingsProfileScreenPageModule)
   },
   {
-    path: 'register-alumno',
-    loadChildren: () => import('./screens/register-alumno/register-alumno.module').then( m => m.RegisterAlumnoPageModule)
-  },
-  {
     path: 'report-form',
     loadChildren: () => import('./screens/report-form/report-form.module').then( m => m.ReportFormPageModule)
   },
@@ -54,6 +50,10 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./screens/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'add-child-screen/:idClass',
+    loadChildren: () => import('./screens/add-child-screen/add-child-screen.module').then( m => m.AddChildScreenPageModule)
   },
   {
     path: 'add-child-screen',

@@ -17,14 +17,14 @@
     <br>
     <ion-label class="font">Description</ion-label>
     <ion-item>
-      <ion-textarea rows="15" cols="20" placeholder="Write the report description here..."></ion-textarea>
+      <ion-textarea rows="15" cols="20" [(ngModel)]="report.description" placeholder="Write the report description here..."></ion-textarea>
     </ion-item>
     <div class="buttonBack">
       <ion-button color="danger" class="shadow-red" shape="round" [routerLink]="['/profile-screen']">
         Back</ion-button>
     </div>
     <div class="buttonCreate">
-      <ion-button shape="round" color="danger" class="shadow-red" shape="round">
+      <ion-button shape="round" color="danger" class="shadow-red" (click)="save()" shape="round">
         Create a report</ion-button>
     </div>
   </div>

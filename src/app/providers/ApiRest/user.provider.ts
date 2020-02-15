@@ -1,6 +1,8 @@
 import UserService from 'src/app/services/user.service';
 import { ITeacher, IChild, IUser, IServerResponse } from 'src/app/interfaces/interfaces';
 import ApiRestSrc from './apiRest.dataSource';
+import {createHash} from 'crypto';
+
 
 
 /* 
@@ -47,6 +49,8 @@ export default class UserProvider extends UserService{
     async login(userName: string, password: string): Promise<boolean> {
         let result: IServerResponse
         try {
+            // Hashear password
+            //createHash('sha256').update('alice', 'utf8').digest().toString()
             result = await this._source.makeRequest({
                 path: this.loginPath,
                 method: "POST",

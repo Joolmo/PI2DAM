@@ -42,17 +42,17 @@ export class ProfileScreenPage implements OnInit {
   constructor(private _report: ReportsService, private _user: UserService, 
     private _activatedRoute: ActivatedRoute, private menuCtrl: MenuController) { }
 
-  async ngOnInit() {
+  ngOnInit() {
     this.user.isTeacher = this._activatedRoute.snapshot.paramMap.get('userType') == "teacher";
     this.user.id = this._activatedRoute.snapshot.paramMap.get('id');
 
 
     if(!this.user.isTeacher) {
-      this.reports = await this._report.reportByChild(this.user.id)
-      this.child = await this._user.getChildById(this.user.id)
+      this._report.reportByChild(this.user.id).then(result => this.reports = result)
+      this._user.getChildById(this.user.id).then(result => this.child = result)
     } else {
-      this.reports = await this._report.getReportsByTeacher(this.user.id)
-      this.teacher = await this._user.getTeacherById(this.user.id)
+      this._report.getReportsByTeacher(this.user.id).then(result => this.reports = result)
+      this._user.getTeacherById(this.user.id).then(result => this.teacher = result)
     }
   }
 

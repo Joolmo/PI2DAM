@@ -64,7 +64,7 @@ export default class ReportsProvider extends ReportsService {
                 path: this.reportsPath,
                 method: "POST",
                 params: {
-                    ChildrenId: report.childrenId,
+                    ChildId: report.childrenId,
                     Description: report.description
                 }
             })

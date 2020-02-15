@@ -23,17 +23,15 @@ export class AppComponent {
     this.initializeApp();
   }
 
-  
-  isTeacher=()=>this._user.getCurrentUser().isTeacher;
-
-  isLogged=()=>this._user.getCurrentUser() != undefined;
-
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
   }
+
+  isTeacher=()=>this._user.getCurrentUser().isTeacher;
+  isLogged=()=>this._user.getCurrentUser() != undefined;
 
   closeCustom() {
     this.menu.close();
