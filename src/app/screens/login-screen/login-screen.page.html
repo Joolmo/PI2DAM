@@ -9,6 +9,11 @@
 
 <ion-content>
   <div class="ion-padding">
+
+    <div class="imagen">
+      <img style="width: 300px;" src='../assets/logoPi.png'>
+    </div>
+  
     <ion-item>
       <ion-label class="font" position="floating" >Username</ion-label>
       <ion-input [(ngModel)]="userTexto"></ion-input>
@@ -16,16 +21,16 @@
     <ion-item *ngIf="contrasenya==true"> 
       <ion-label class="font" position="floating" >Password</ion-label>
       <ion-input type="password" [(ngModel)]="contraTexto"  value={{contraTexto}}></ion-input>
-      <ion-button (click)="(CambiarInput())" color="danger">Mostrar/Ocultar</ion-button>
+      <ion-button (click)="(CambiarInput())" color="danger" class="shadow-red" shape="round">Show/Hide</ion-button>
     </ion-item>
     <ion-item *ngIf="contrasenya==false">
       <ion-label class="font" position="floating">Password</ion-label>
       <ion-input [(ngModel)]="contraTexto" value={{contraTexto}}></ion-input>
-      <ion-button (click)="(CambiarInput())" color="danger" class="shadow-red" shape="round">Mostrar/Ocultar</ion-button>
+      <ion-button (click)="(CambiarInput())" color="danger" class="shadow-red" shape="round">Show/Hide</ion-button>
     </ion-item>
     <p>Remember me<ion-checkbox color="danger" class="font"></ion-checkbox></p>
     <div class="buttonSignIn">
-      <ion-button color="danger" class="shadow-red" shape="round" (click)="(Implementar())">Sign in</ion-button>
+      <ion-button color="danger" class="shadow-redSecond" shape="round" (click)="(Implementar())">Sign in</ion-button>
     </div>
   </div>
   

@@ -1,8 +1,8 @@
-.shadow-red{
+.shadow-redSecond {
     border-radius: 50%;
     box-shadow: 0px 10px 15px #800000;
+    font-size: 20px;
 }
-
 .font{
     font-weight: bold;
     font-size: 20px;
@@ -10,6 +10,11 @@
 
 .buttonInsert {
     text-align: center; 
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
+.imagen{
+    display:  flex;
+    justify-content: center;
+    margin-top: 30px;
+}

@@ -10,6 +10,10 @@
 
 <ion-header>
   <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button
+        text="back" icon="add"></ion-back-button>
+    </ion-buttons>
     <ion-title text-center class="negrita">
       All Reports
     </ion-title>
@@ -19,17 +23,17 @@
 <ion-content>
 
   <div class="imagen">
-    <img style="width: 200px;" src='../assets/logoPi.png'>
+    <img style="width: 300px;" src='../assets/logoPi.png'>
   </div>
       <div class="ion-padding">
         <ion-card *ngFor="let report of reports">
           <ion-card-header>
-            <ion-card-title class="negrita">id: {{report.id}}</ion-card-title>
-            <ion-card-subtitle class="negrita">child: {{report.childrenId}}</ion-card-subtitle>
+            <ion-card-title class="font">id: {{report.id}}</ion-card-title>
+            <ion-card-title class="font">Description: {{report.description}}</ion-card-title>
           </ion-card-header>
-        <ion-card-content class="negrita">
+        <!--<ion-card-content class="negrita">
           Description:{{report.description}}
-        </ion-card-content>
+        </ion-card-content>-->
         </ion-card>
       </div>
   <ion-footer> <ion-fab *ngIf="!isTeacher()" vertical="end" horizontal="end" edge slot="fixed">

@@ -5,17 +5,20 @@
 </ion-header>
 
 <ion-content>
+  <div class="imagen">
+    <img style="width: 300px;" src='../assets/logoPi.png'>
+  </div>
       <div class="ion-padding">
         <ion-card *ngFor="let classroom of classrooms">
           <ion-item>
-            <ion-label [routerLink]="['/list-alumnos/', classroom.id]">Name: {{classroom.id}} {{classroom.name}}</ion-label>
+            <ion-label class="font" [routerLink]="['/list-alumnos/', classroom.id]">Course: {{classroom.name}}</ion-label>
           </ion-item>
         </ion-card>
       </div>
-      <div style="float: left"> <!--me voy a la pantalla de addclassroomscreen-->
-        <ion-button size="small" color="danger" class="shadow-red" shape="round" [routerLink]="['/add-classroom-screen']">add new classroom</ion-button>
+      <div class="butt"> <!--me voy a la pantalla de addclassroomscreen-->
+        <ion-button color="danger" class="shadow-redSecond" shape="round" [routerLink]="['/add-classroom-screen']">add new classroom</ion-button>
       </div>
-      <div style="float: right">
-        <ion-button size="small" color="danger" class="shadow-red" shape="round" [routerLink]="['/all-classrooms-list-screen']">add to existing classroom</ion-button>
+      <div class="butt">
+        <ion-button color="danger" class="shadow-redSecond" shape="round" [routerLink]="['/all-classrooms-list-screen']">add to existing classroom</ion-button>
       </div>
 </ion-content>

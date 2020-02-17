@@ -28,11 +28,11 @@
   <ion-card-content>
     <ion-list *ngFor="let report of reports">
       <ion-item>
-        <ion-label [routerLink]="['/reports-screen/', report.id]">{{report.description}} {{report.id}}</ion-label>
+        <ion-label class="fontLabel" [routerLink]="['/reports-screen/', report.id]">{{report.description}} {{report.id}}</ion-label>
       </ion-item>
     </ion-list>
   </ion-card-content>
-  <div class="buttonReports">
+  <div class="butt">
     <ion-button color="danger" class="shadow-red" shape="round" routerLink="/reports-screen">all
       reports</ion-button>
   </div>

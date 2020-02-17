@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IReport } from 'src/app/interfaces/interfaces';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import ReportsService from 'src/app/services/reports.service';
 import { MenuController } from '@ionic/angular';
 import UserService from 'src/app/services/user.service';
@@ -9,10 +9,13 @@ import UserService from 'src/app/services/user.service';
   selector: 'app-reports-screen',
   templateUrl: './reports-screen.page.html',
   styleUrls: ['./reports-screen.page.scss'],
+
 })
 export class ReportsScreenPage implements OnInit {
   
   reports: IReport[]=[];
+ 
+  isTeacher=()=>this._user.getCurrentUser().isTeacher;
 
   constructor(private _report: ReportsService, private _activatedRoute: ActivatedRoute,
     private menuCtrl: MenuController, private _user: UserService) { }
@@ -30,9 +33,5 @@ export class ReportsScreenPage implements OnInit {
     }    
   }
 
-  isTeacher=()=>this._user.getCurrentUser().isTeacher;
   
-  toggleMenu(){
-    this.menuCtrl.toggle();
-  }
 }

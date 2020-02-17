@@ -5,6 +5,7 @@ import { IChild } from 'src/app/interfaces/interfaces';
 import UserService from 'src/app/services/user.service';
 import { ActivatedRoute } from '@angular/router';
 import ApiRestSrc from 'src/app/providers/ApiRest/apiRest.dataSource';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-add-child-screen',
@@ -23,7 +24,17 @@ export class AddChildScreenPage implements OnInit {
     isTeacher: false,
   }
 
-  constructor(private _class: ClassroomService, private _user: UserService, private _activatedRoute: ActivatedRoute, private temporal: ApiRestSrc) { }
+  constructor(private _class: ClassroomService, private _user: UserService, 
+    private _activatedRoute: ActivatedRoute, 
+    private temporal: ApiRestSrc, private toastController: ToastController) { }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'A new student has been registred',
+      duration: 2000
+    });
+    toast.present();
+  }
 
   ngOnInit() {
     this.id = this._activatedRoute.snapshot.paramMap.get('idClass')
@@ -41,5 +52,7 @@ export class AddChildScreenPage implements OnInit {
     // fin temporal, urgente de arreglar
 
     if(this.id) this._class.addChildrenToClassroom(id, this.id)
+
+    this.presentToast();
   }
 }

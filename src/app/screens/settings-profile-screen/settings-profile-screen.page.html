@@ -5,13 +5,24 @@
 </ion-header>
 
 <ion-content padding>
-
-  <div style="margin-top: 30px; padding-left: 15px;">
-    <ion-label class="font">New password</ion-label>
-    <ion-input placeholder="New password" [(ngModel)]="password"></ion-input>
+  <div class="imagen">
+    <img style="width: 300px;" src='../assets/logoPi.png'>
   </div>
-  <div style="text-align: center; margin-top: 50px;">
-    <ion-button class="shadow-red" shape="round" (click)="save()" color="danger">
+
+  <ion-item class="itemStyle" *ngIf="contrasenya==true"> 
+    <ion-label class="font" position="floating" >New password</ion-label>
+    <ion-input type="password" [(ngModel)]="contraTexto" value={{contraTexto}}></ion-input>
+    <ion-button (click)="(CambiarInput())" color="danger" class="shadow-red" shape="round">Show/Hide</ion-button>
+  </ion-item>
+
+  <ion-item class="itemStyle" *ngIf="contrasenya==false">
+    <ion-label class="font" position="floating">New password</ion-label>
+    <ion-input [(ngModel)]="contraTexto" value={{contraTexto}}></ion-input>
+    <ion-button (click)="(CambiarInput())" color="danger" class="shadow-red" shape="round">Show/Hide</ion-button>
+  </ion-item>
+
+  <div class="butt">
+    <ion-button class="shadow-redSecond" shape="round" (click)="save()" color="danger">
       <ion-label>Save</ion-label>
     </ion-button>
   </div>

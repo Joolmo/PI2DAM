@@ -23,7 +23,7 @@ export interface IClassroom {
 export interface IReport {
     id: string,
     description: string,
-    childrenId: string, 
+    childrenId: number, 
 }
 
 export interface IServerResponse{

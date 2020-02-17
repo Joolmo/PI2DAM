@@ -12,6 +12,8 @@ import { ToastController } from '@ionic/angular';
 })
 export class SettingsProfileScreenPage implements OnInit {
   password: string = "";
+  contrasenya  =  true;
+  contraTexto : string;
 
   constructor(private _report: ReportsService, private _user: UserService, 
     private _activatedRoute: ActivatedRoute, private _toast: ToastController) { }
@@ -27,6 +29,10 @@ export class SettingsProfileScreenPage implements OnInit {
       duration: 2000
     });
     toast.present();
+  }
+
+  CambiarInput(){
+    this.contrasenya = !this.contrasenya;
   }
 
 

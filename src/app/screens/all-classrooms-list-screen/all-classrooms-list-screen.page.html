@@ -6,9 +6,12 @@
 
 <ion-content>
       <div class="ion-padding">
+        <div class="imagen">
+          <img style="width: 300px;" src='../assets/logoPi.png'>
+        </div>
         <ion-card *ngFor="let classroom of classrooms">
           <ion-item>
-            <ion-label (click)="anyadirAclase(classroom.id)">{{classroom.id}} {{classroom.name}}</ion-label>
+            <ion-label class="font" (click)="anyadirAclase(classroom.id)">{{classroom.id}} {{classroom.name}}</ion-label>
           </ion-item>
         </ion-card>
       </div>

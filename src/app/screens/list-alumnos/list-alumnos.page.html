@@ -1,23 +1,20 @@
 <ion-header>
   <ion-toolbar color="danger">
-    <ion-title>list-alumnos</ion-title>
-    <ion-button color="danger" (click)="toggleMenu()">
-      <ion-icon slot="icon-only" name="menu"></ion-icon>
-    </ion-button>
+    <ion-title text-center text-center class="negrita">Students</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<ion-card *ngFor="let Item of alumnos">
-  <ion-card-header>
-    <ion-card-title>Student</ion-card-title>
-  </ion-card-header>
+  <div class="imagen">
+    <img style="width: 300px;" src='../assets/logoPi.png'>
+  </div>
+  <ion-card *ngFor="let Item of alumnos">
   <ion-item>
-    {{Item.name}}
-    {{Item.surname}}
+    <ion-label class="font">Student Name: {{Item.name}} {{Item.surname}}</ion-label>
   </ion-item>
+
 </ion-card>
-<div style="float: left"> <!--me voy a la pantalla de addclassroomscreen-->
-  <ion-button size="small" color="secondary" class="shadow-red" shape="round" [routerLink]="['/add-child-screen/', id]">add new student</ion-button>
+<div class="butt"> <!--me voy a la pantalla de addclassroomscreen-->
+  <ion-button color="danger" class="shadow-red" shape="round" [routerLink]="['/add-child-screen/', id]">add new student</ion-button>
 </div>
 </ion-content>

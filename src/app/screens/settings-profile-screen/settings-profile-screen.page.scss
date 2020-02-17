@@ -1,9 +1,27 @@
-.shadow-red{
+.shadow-redSecond {
     border-radius: 50%;
     box-shadow: 0px 10px 15px #800000;
+    font-size: 20px;
 }
+
 
 .font{
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
+}
+
+.imagen{
+    display:  flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.itemStyle {
+    margin-top: 30px; 
+    padding-left: 15px;
+}
+
+.butt{
+    text-align: center;
+    margin-top: 100px;
 }

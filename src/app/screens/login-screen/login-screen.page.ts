@@ -17,7 +17,7 @@ export class LoginScreenPage implements OnInit {
   
   async presentToast() {
     const toast = await this.toastController.create({
-      message: 'El usuario o contraseña son incorrectos.',
+      message: 'The user name or password is incorrect',
       duration: 2000
     });
     toast.present();

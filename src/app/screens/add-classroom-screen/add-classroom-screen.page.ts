@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import ClassroomService from 'src/app/services/classroom.service';
 import { IClassroom } from 'src/app/interfaces/interfaces';
 import UserService from 'src/app/services/user.service';
+import { ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -16,7 +17,17 @@ export class AddClassroomScreenPage implements OnInit {
   name: string;
 
 
-  constructor(private _activatedRoute: ActivatedRoute, private _class: ClassroomService, private _user: UserService) { }
+  constructor(private _activatedRoute: ActivatedRoute, private toastController: ToastController, 
+    private _class: ClassroomService, private _user: UserService) { }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Your classroom has been added.',
+      duration: 2000
+    });
+    toast.present();
+  }
+  
 
   ngOnInit() {
   }
@@ -42,6 +53,7 @@ export class AddClassroomScreenPage implements OnInit {
     })
     .then(() => {
       // Toast
+      this.presentToast();
     })
   }
 

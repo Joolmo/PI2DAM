@@ -1,9 +1,14 @@
 .shadow-red{
     border-radius: 50%;
     box-shadow: 0px 10px 15px #800000;
+    font-size: 20px;
 }
 .font{
     font-weight: bold;
+    font-size: 25px;
+}
+
+.fontLabel {
     font-size: 20px;
 }
 
@@ -23,7 +28,13 @@
 
 }
 
-.buttonReports {
+/*.buttonReports {
     float: right; 
+    margin-right: 10px;
     margin-bottom: 5px;
+}*/
+
+.butt{
+    text-align: center;
+    margin-top: 50px;
 }
