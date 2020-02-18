@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IReport } from 'src/app/interfaces/interfaces';
 import { ActivatedRoute} from '@angular/router';
 import ReportsService from 'src/app/services/reports.service';
-import { MenuController } from '@ionic/angular';
+import { MenuController} from '@ionic/angular';
 import UserService from 'src/app/services/user.service';
 
 @Component({
@@ -21,6 +21,7 @@ export class ReportsScreenPage implements OnInit {
     private menuCtrl: MenuController, private _user: UserService) { }
 
   ngOnInit() {
+
     if(this.isTeacher()) {
       this._report.getReportsByTeacher(this._user.getCurrentUser().id).then(result =>{
         this.reports = result;
