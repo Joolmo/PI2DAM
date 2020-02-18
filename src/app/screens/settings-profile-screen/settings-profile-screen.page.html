@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button text="back"></ion-back-button>
+    </ion-buttons>
     <ion-title text-center class="negrita">Settings</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,17 +12,24 @@
     <img style="width: 300px;" src='../assets/logoPi.png'>
   </div>
 
-  <ion-item class="itemStyle" *ngIf="contrasenya==true"> 
+  <div class="itemStyle">
+    <ion-label class="font">New password</ion-label>
+    <ion-input placeholder="New password" [(ngModel)]="password"></ion-input>
+  </div>
+
+
+  <!--ESTA FORMA NO FUNCIONA ASI QUE LO HE DEJADO COMO ARRIBA-->
+  <!--<ion-item class="itemStyle" *ngIf="contrasenya==true"> 
     <ion-label class="font" position="floating" >New password</ion-label>
-    <ion-input type="password" [(ngModel)]="contraTexto" value={{contraTexto}}></ion-input>
+    <ion-input type="password" [(ngModel)]="user.password" value={{password}}></ion-input>
     <ion-button (click)="(CambiarInput())" color="danger" class="shadow-red" shape="round">Show/Hide</ion-button>
   </ion-item>
 
   <ion-item class="itemStyle" *ngIf="contrasenya==false">
     <ion-label class="font" position="floating">New password</ion-label>
-    <ion-input [(ngModel)]="contraTexto" value={{contraTexto}}></ion-input>
+    <ion-input [(ngModel)]="user.password" value={{password}}></ion-input>
     <ion-button (click)="(CambiarInput())" color="danger" class="shadow-red" shape="round">Show/Hide</ion-button>
-  </ion-item>
+  </ion-item>-->
 
   <div class="butt">
     <ion-button class="shadow-redSecond" shape="round" (click)="save()" color="danger">

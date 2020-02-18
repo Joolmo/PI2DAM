@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IChild, IUser } from 'src/app/interfaces/interfaces';
 import ReportsService from 'src/app/services/reports.service';
 import UserService from 'src/app/services/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -12,11 +12,11 @@ import { ToastController } from '@ionic/angular';
 })
 export class SettingsProfileScreenPage implements OnInit {
   password: string = "";
-  contrasenya  =  true;
+  //password  =  true;
   contraTexto : string;
 
   constructor(private _report: ReportsService, private _user: UserService, 
-    private _activatedRoute: ActivatedRoute, private _toast: ToastController) { }
+    private _activatedRoute: ActivatedRoute, private _route: Router, private _toast: ToastController) { }
 
   ngOnInit() {
 
@@ -31,17 +31,14 @@ export class SettingsProfileScreenPage implements OnInit {
     toast.present();
   }
 
-  CambiarInput(){
-    this.contrasenya = !this.contrasenya;
-  }
 
-
+  //NO FUNCIONA. COGE PASSWORD COMO UNDEFINED O VACIO 
   save(){
 
     if(this.password == undefined || this.password == "") {
       this.presentToast("you have to write a password");
       return
-    } 
+    }
 
     if(this._user.getCurrentUser().isTeacher) {
       this._user.modifyTeacher({
@@ -56,6 +53,10 @@ export class SettingsProfileScreenPage implements OnInit {
     }
 
     this.presentToast("your password has been changed");
+
+    this._route.navigateByUrl(
+      `/profile-screen/${this._user.getCurrentUser().isTeacher ? "teacher" : "children"}/${this._user.getCurrentUser().id}`
+    )
   }
 
 

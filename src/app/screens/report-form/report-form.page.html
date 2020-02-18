@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button text="back"></ion-back-button>
+    </ion-buttons>
     <ion-title text-center class="negrita">
       New Report
     </ion-title>
@@ -12,17 +15,13 @@
     <ion-label class="font">Tittle</ion-label>
     <ion-item>
       <br>
-      <ion-input placeholder="Tittle..."></ion-input>
+      <ion-input [(ngModel)]="title" placeholder="Tittle..."></ion-input>
     </ion-item>
     <br>
     <ion-label class="font">Description</ion-label>
     <ion-item>
       <ion-textarea rows="15" cols="20" [(ngModel)]="report.description" placeholder="Write the report description here..."></ion-textarea>
     </ion-item>
-    <div class="buttonBack">
-      <ion-button color="danger" class="shadow-red" shape="round" [routerLink]="['/profile-screen']">
-        Back</ion-button>
-    </div>
     <div class="buttonCreate">
       <ion-button shape="round" color="danger" class="shadow-red" (click)="save()" shape="round">
         Create a report</ion-button>

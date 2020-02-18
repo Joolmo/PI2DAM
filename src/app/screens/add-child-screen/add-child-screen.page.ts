@@ -3,7 +3,7 @@ import ClassroomService from 'src/app/services/classroom.service';
 import UserProvider from 'src/app/providers/ApiRest/user.provider';
 import { IChild } from 'src/app/interfaces/interfaces';
 import UserService from 'src/app/services/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import ApiRestSrc from 'src/app/providers/ApiRest/apiRest.dataSource';
 import { ToastController } from '@ionic/angular';
 
@@ -26,7 +26,8 @@ export class AddChildScreenPage implements OnInit {
 
   constructor(private _class: ClassroomService, private _user: UserService, 
     private _activatedRoute: ActivatedRoute, 
-    private temporal: ApiRestSrc, private toastController: ToastController) { }
+    private temporal: ApiRestSrc, private toastController: ToastController, 
+    private _route: Router) { }
 
   async presentToast() {
     const toast = await this.toastController.create({
@@ -54,5 +55,8 @@ export class AddChildScreenPage implements OnInit {
     if(this.id) this._class.addChildrenToClassroom(id, this.id)
 
     this.presentToast();
+    this._route.navigateByUrl(
+      `/profile-screen/${this._user.getCurrentUser().isTeacher ? "teacher" : "children"}/${this._user.getCurrentUser().id}`
+    )
   }
 }
