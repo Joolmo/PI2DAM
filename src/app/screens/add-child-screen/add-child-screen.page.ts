@@ -26,22 +26,30 @@ export class AddChildScreenPage implements OnInit {
 
   constructor(private _class: ClassroomService, private _user: UserService, 
     private _activatedRoute: ActivatedRoute, 
-    private temporal: ApiRestSrc, private toastController: ToastController, 
+    private temporal: ApiRestSrc, private _toast: ToastController, 
     private _route: Router) { }
 
-  async presentToast() {
-    const toast = await this.toastController.create({
-      message: 'A new student has been registred',
-      duration: 2000
-    });
-    toast.present();
-  }
-
+    async presentToast(message: string) {
+      const toast = await this._toast.create({
+        message: message,
+        duration: 2000
+      });
+      toast.present();
+    }
   ngOnInit() {
     this.id = this._activatedRoute.snapshot.paramMap.get('idClass')
   }
 
   async save() {
+   
+
+    if(this.child.name == undefined || this.child.name == "" || this.child.surname == undefined
+    || this.child.surname == "" || this.child.userName == undefined || this.child.userName == ""
+    || this.child.password == undefined || this.child.password == "") {
+      this.presentToast("you have to write all parameters required to register a student");
+      return
+    } 
+
     await this._user.registerChildren(this.child);
 
     // temporal el post de register children deberia de devolver un objeto child con la nueva clave introducida en el server
@@ -54,7 +62,7 @@ export class AddChildScreenPage implements OnInit {
 
     if(this.id) this._class.addChildrenToClassroom(id, this.id)
 
-    this.presentToast();
+    this.presentToast("New student has been added");
     this._route.navigateByUrl(
       `/profile-screen/${this._user.getCurrentUser().isTeacher ? "teacher" : "children"}/${this._user.getCurrentUser().id}`
     )
