@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SplashScreen} from '@ionic-native/splash-screen/ngx';
 
 
 @Component({
@@ -8,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
+  constructor(private _splash: SplashScreen) { }
 
   ngOnInit() {
+
+    this._splash.show();
+    this._splash.hide();
   }
 
 }

@@ -1,15 +1,15 @@
 <ion-header>
   <ion-toolbar color="danger">
     <ion-buttons slot="start">
-      <ion-back-button text="back" defaultHref="/"></ion-back-button>
+      <ion-back-button text="back"></ion-back-button>
     </ion-buttons>
-    <ion-title text-center text-center class="negrita">Your Classrooms</ion-title>
+    <ion-title class="negrita">Your Classrooms</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="imagen">
-    <img style="width: 300px;" src='../assets/logoPi.png'>
+    <img class="imagenTamanyo" src='../assets/logoPi.png'>
   </div>
       <div class="ion-padding">
         <ion-card *ngFor="let classroom of classrooms">

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import ClassroomService from 'src/app/services/classroom.service';
 import UserService from 'src/app/services/user.service';
 import { IClassroom } from 'src/app/interfaces/interfaces';
+import { ToastController } from '@ionic/angular';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-all-classrooms-list-screen',
@@ -18,7 +20,9 @@ export class AllClassroomsListScreenPage implements OnInit {
   
   constructor(private _activatedRoute: ActivatedRoute, 
     private _class: ClassroomService,
-    private _userService: UserService) { }
+    private _toast: ToastController,
+    private _userService: UserService,
+    private _route: Router) { }
 
   ngOnInit() {
     this._class.getClassrooms().then(result =>{
@@ -26,8 +30,23 @@ export class AllClassroomsListScreenPage implements OnInit {
     })
   }
 
-  anyadirAclase(id: string){
+  async presentToast(message: string) {
+    const toast = await this._toast.create({
+      message: message,
+      duration: 2000
+    });
+    toast.present();
+  }
+
+
+  addClassroom(id: string){
+
+
     this._class.addClassroomToTeacher(id, this._userService.getCurrentUser().id)
+    this.presentToast("You haven been added in a new classroom");
+    this._route.navigateByUrl(
+      `/profile-screen/${this._userService.getCurrentUser().isTeacher ? "teacher" : "children"}/${this._userService.getCurrentUser().id}`
+    )
   
   }
 

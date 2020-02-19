@@ -1,12 +1,15 @@
 <ion-header>
   <ion-toolbar color="danger">
-    <ion-title text-center text-center class="negrita">Students</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text="back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="negrita">Students</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="imagen">
-    <img style="width: 300px;" src='../assets/logoPi.png'>
+    <img class="imagenTamanyo" src='../assets/logoPi.png'>
   </div>
   <ion-card *ngFor="let Item of alumnos">
   <ion-item>
