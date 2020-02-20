@@ -12,5 +12,6 @@ export default abstract class UserService {
     abstract getChildrenByClass(idClass: string): Promise<IChild[]>;
     abstract modifyChild(IChild): Promise <void>;
     abstract modifyTeacher(ITeacher): Promise <void>;
+    abstract deleteChild(id: string): Promise <void>;
 
 }

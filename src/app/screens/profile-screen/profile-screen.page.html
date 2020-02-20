@@ -17,8 +17,11 @@
     <ion-card-title *ngIf="!user.isTeacher" text-center class="font">Welcome {{child.name}}</ion-card-title>
   </div>
       <!--<p text-center>{{person.isTeacher ? "Teacher": Student}}-->
-  <div class="settingsIcon">
+  <div style="justify-content: space-around; display: flex;">
     <input type=image src="../../../assets/unnamed.png" width="50" height="50" [routerLink]="['/settings-profile-screen/', child.id]"/>
+    
+    
+    <input *ngIf='currentUserIsTeacher()' type=image src="../../../assets/delete.png" width="50" height="50" (click)=deleteChild()/>
   </div>
   <ion-card-header>
     <div>

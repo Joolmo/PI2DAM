@@ -12,9 +12,6 @@ export class HomePage implements OnInit {
   constructor(private _splash: SplashScreen) { }
 
   ngOnInit() {
-
-    this._splash.show();
-    this._splash.hide();
   }
 
 }

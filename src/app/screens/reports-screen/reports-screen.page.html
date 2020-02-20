@@ -36,7 +36,7 @@
     <ion-icon name="battery-full-outline"></ion-icon>
   <ion-fab *ngIf="!isTeacher()" vertical="end" horizontal="end" edge slot="fixed">
     <ion-fab-button color="danger" >
-      <ion-label class="botonLabel" routerLink="/report-form">+</ion-label>
+      <ion-label class="botonLabel" [routerLink]="['/report-form']">+</ion-label>
     </ion-fab-button>
   </ion-fab>
 </ion-footer>

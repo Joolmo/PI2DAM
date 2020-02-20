@@ -17,7 +17,7 @@ export class ClassListScreenPage implements OnInit {
     private _userService: UserService) { }
 
   ngOnInit() {
-    this._class.getClassrooms().then(result => {
+    this._class.getClassroomsByTeacher(this._userService.getCurrentUser().id).then(result => {
       this.classrooms = result;
     })
   }

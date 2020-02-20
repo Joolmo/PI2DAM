@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import UserService from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { NgZone } from '@angular/core';
+
 @Component({
   selector: 'app-login-screen',
   templateUrl: './login-screen.page.html',
@@ -9,7 +11,9 @@ import { ToastController } from '@ionic/angular';
 })
 export class LoginScreenPage implements OnInit {
   
-  constructor(private _userService: UserService, private _route: Router, private toastController: ToastController) { }
+
+  constructor(private _userService: UserService, private _route: Router,
+     private toastController: ToastController) { }
   
   userTexto : string;
   contraTexto : string;
@@ -45,4 +49,7 @@ export class LoginScreenPage implements OnInit {
 
 
   }
+
+  
+
 }

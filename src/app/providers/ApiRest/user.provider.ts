@@ -227,4 +227,25 @@ export default class UserProvider extends UserService{
     }
 
 
+    async deleteChild(id: string): Promise<void> {
+        let result: IServerResponse
+        
+        try {
+            result = await this._source.makeRequest({
+                path: this.childrenPath,
+                method: "DELETE",
+                params: {
+                    id: id
+                }
+            })
+        }
+
+        catch(error) {
+            console.warn(error)
+            throw error
+        }
+    
+    }
+
+
 }

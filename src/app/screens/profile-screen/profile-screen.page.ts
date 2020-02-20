@@ -59,4 +59,11 @@ export class ProfileScreenPage implements OnInit {
   toggleMenu(){
     this.menuCtrl.toggle();
   }
+
+
+  currentUserIsTeacher = () => this._user.getCurrentUser().isTeacher && !this.user.isTeacher;
+
+  deleteChild(){
+    this._user.deleteChild(this.child.id);
+  }
 }
