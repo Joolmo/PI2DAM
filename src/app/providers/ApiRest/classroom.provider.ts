@@ -113,4 +113,23 @@ export default class ClassroomsProvider extends ClassroomService {
             name: response.Name
         }
     }
+
+    async deleteChildFromClassroom(idClass: string, idChild: string): Promise<void> {
+        let result: IServerResponse
+
+        try {
+            result = await this._source.makeRequest({
+                path: this.classChildrenPath,
+                method: "DELETE",
+                params: {
+                    ChildId: +idClass,
+                    ClassroomId: +idChild
+                }
+            })
+        }
+        catch(error) {
+            console.warn(error)
+            throw error
+        }
+    }
 }

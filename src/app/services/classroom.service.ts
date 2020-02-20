@@ -9,4 +9,5 @@ export default abstract class ClassroomService {
     abstract getClassrooms(): Promise<IClassroom[]>;
     abstract addClassroomToTeacher(idClass: string, idTeacher: string): Promise<void>;
     abstract addChildrenToClassroom(idClass: string, idChild: string): Promise <void>;
+    abstract deleteChildFromClassroom(idClass: string, idChild: string): Promise<void>;
 }
