@@ -44,6 +44,7 @@ export class ListAlumnosPage implements OnInit {
   }
 
   deleteChildFromClassroom(child: string){
+
     this._Classroom.deleteChildFromClassroom(this.id, child)
   }
 

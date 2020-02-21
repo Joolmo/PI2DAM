@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { IUser, IReport, IChild, ITeacher } from 'src/app/interfaces/interfaces';
 import ReportsService from 'src/app/services/reports.service';
 import UserService from 'src/app/services/user.service';
-import { ActivatedRoute } from '@angular/router';
-import { MenuController } from '@ionic/angular';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { MenuController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile-screen',
@@ -40,7 +39,8 @@ export class ProfileScreenPage implements OnInit {
   }
   
   constructor(private _report: ReportsService, private _user: UserService, 
-    private _activatedRoute: ActivatedRoute, private menuCtrl: MenuController) { }
+    private _activatedRoute: ActivatedRoute, private menuCtrl: MenuController,
+    private _toast: ToastController, private _route: Router) { }
 
   async ngOnInit() {
     /*this.user.isTeacher = this._activatedRoute.snapshot.paramMap.get('userType') == "teacher";
@@ -54,6 +54,14 @@ export class ProfileScreenPage implements OnInit {
       this._report.getReportsByTeacher(this.user.id).then(result => this.reports = result)
       this._user.getTeacherById(this.user.id).then(result => this.teacher = result)
     }*/
+  }
+
+  async presentToast(message: string) {
+    const toast = await this._toast.create({
+      message: message,
+      duration: 2000
+    });
+    toast.present();
   }
 
   async ionViewWillEnter(){
@@ -78,5 +86,10 @@ export class ProfileScreenPage implements OnInit {
 
   deleteChild(){
     this._user.deleteChild(this.child.id);
+    this.presentToast("This student has been deleted");
+    this._route.navigateByUrl(
+      `/profile-screen/${this._user.getCurrentUser().isTeacher ? "teacher" : "children"}/${this._user.getCurrentUser().id}`
+    )
+
   }
 }

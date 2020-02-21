@@ -14,7 +14,7 @@
         </div>
         <ion-card *ngFor="let classroom of classrooms">
           <ion-item>
-            <ion-label class="font" (click)="addClassroom(classroom.id)">{{classroom.id}} {{classroom.name}}</ion-label>
+            <ion-label class="font" (click)="addClassroom(classroom.id)">Course: {{classroom.name}}</ion-label>
           </ion-item>
         </ion-card>
       </div>
