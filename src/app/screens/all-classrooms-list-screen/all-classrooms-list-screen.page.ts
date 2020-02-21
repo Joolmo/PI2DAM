@@ -24,7 +24,13 @@ export class AllClassroomsListScreenPage implements OnInit {
     private _userService: UserService,
     private _route: Router) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    /*this._class.getClassrooms().then(result =>{
+      this.classrooms = result;
+    })*/
+  }
+
+  async ionViewWillEnter(){
     this._class.getClassrooms().then(result =>{
       this.classrooms = result;
     })

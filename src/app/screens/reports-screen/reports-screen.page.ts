@@ -20,8 +20,21 @@ export class ReportsScreenPage implements OnInit {
   constructor(private _report: ReportsService, private _activatedRoute: ActivatedRoute,
     private menuCtrl: MenuController, private _user: UserService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
 
+    /*if(this.isTeacher()) {
+      this._report.getReportsByTeacher(this._user.getCurrentUser().id).then(result =>{
+        this.reports = result;
+      })
+    }
+    else {
+      this._report.reportByChild(this._user.getCurrentUser().id).then(result =>{
+        this.reports = result;
+      })
+    }*/
+  }
+
+  async ionViewWillEnter(){
     if(this.isTeacher()) {
       this._report.getReportsByTeacher(this._user.getCurrentUser().id).then(result =>{
         this.reports = result;
@@ -31,8 +44,10 @@ export class ReportsScreenPage implements OnInit {
       this._report.reportByChild(this._user.getCurrentUser().id).then(result =>{
         this.reports = result;
       })
-    }    
+    }
   }
+
+  
 
   
 }

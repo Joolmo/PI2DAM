@@ -21,7 +21,15 @@ export class ListAlumnosPage implements OnInit {
     private _route: Router) { }
   //nombre y apellidos 
 
-  ngOnInit() {
+  async ngOnInit() {
+    /*this.id = this._activatedRoute.snapshot.paramMap.get('id');
+
+    this._User.getChildrenByClass(this.id).then(result=>{
+      this.alumnos = result;
+    });*/
+  }
+
+  async ionViewWillEnter(){
     this.id = this._activatedRoute.snapshot.paramMap.get('id');
 
     this._User.getChildrenByClass(this.id).then(result=>{
