@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, ToastController } from '@ionic/angular';
 import UserService from 'src/app/services/user.service';
 import { IChild } from 'src/app/interfaces/interfaces';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,7 +18,8 @@ export class ListAlumnosPage implements OnInit {
     private _User : UserService, 
     private _activatedRoute: ActivatedRoute,
     private _Classroom: ClassroomService,
-    private _route: Router) { }
+    private _route: Router,
+    private _toast: ToastController) { }
   //nombre y apellidos 
 
   async ngOnInit() {
@@ -28,6 +29,16 @@ export class ListAlumnosPage implements OnInit {
       this.alumnos = result;
     });*/
   }
+
+  
+  async presentToast(message: string) {
+    const toast = await this._toast.create({
+      message: message,
+      duration: 2000
+    });
+    toast.present();
+  }
+
 
   async ionViewWillEnter(){
     this.id = this._activatedRoute.snapshot.paramMap.get('id');
@@ -45,11 +56,16 @@ export class ListAlumnosPage implements OnInit {
 
   deleteChildFromClassroom(child: string){
 
-    this._Classroom.deleteChildFromClassroom(this.id, child)
+    this._Classroom.deleteChildFromClassroom(this.id, child);
+    this.presentToast("This student has been deleted from this classroom");
+    this._route.navigateByUrl(
+      `/profile-screen/${this._User.getCurrentUser().isTeacher ? "teacher" : "children"}/${this._User.getCurrentUser().id}`
+    )
   }
 
   toggleMenu(){
     this.menuCtrl.toggle();
+    
   }
   
 
