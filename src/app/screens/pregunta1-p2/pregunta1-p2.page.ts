@@ -15,9 +15,10 @@ export class Pregunta1P2Page implements OnInit {
 
   constructor(private menuCtrl: MenuController, private _formService: FormsService, private _userService: UserService) {}
 
+
   ngOnInit() {
-    this._formService.getFormsStructsByTeacher(this._userService.getCurrentUser().id).then(result => {
-      this.struct = result[0]
+    this._formService.getFormsStructsByTeacher("2").then(result => {
+      this.struct = result[0].value
     })
   }
 

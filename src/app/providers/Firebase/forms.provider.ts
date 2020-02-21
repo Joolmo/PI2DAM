@@ -1,7 +1,7 @@
 import FirebaseSrc from './firebase.dataSource'
 import FormsService from 'src/app/services/forms.service';
 import {Injectable} from '@angular/core';
-import { IFormStruct, IFormResponse } from '../../interfaces/interfaces';
+import { IFormStruct, IFormResponse, IFirebaseResponse } from '../../interfaces/interfaces';
 
 
 @Injectable()
@@ -10,19 +10,19 @@ export default class FormsProvider extends FormsService {
         super()
     }
 
-    async getFormsStructsByTeacher(idTeacher: string): Promise<IFormStruct[]> {
+    async getFormsStructsByTeacher(idTeacher: string): Promise<IFirebaseResponse<IFormStruct>[]> {
         let result = await this._src.makeRequest({
             action: "GET",
             path: `teachers/${idTeacher}/formStructs`
         })
 
-        let notVoid = result as unknown as {
-            value: any;
+        let notVoid = result as {
+            value: IFormStruct;
             key: string;
-        }
+        }[]
         
-        if(notVoid.value != undefined) {
-            return notVoid.value as IFormStruct[]
+        if(notVoid.length != undefined && notVoid.length > 0) {
+            return notVoid
         } else {
             return []
         }
@@ -60,19 +60,19 @@ export default class FormsProvider extends FormsService {
         }
     }
     
-    async getFormsResponseByChild(idChild: string): Promise<IFormResponse[]> {
+    async getFormsResponseByChild(idChild: string): Promise<IFirebaseResponse<IFormResponse>[]> {
         let result = await this._src.makeRequest({
             action: "GET",
             path: `children/${idChild}/formResponses`
         })
 
-        let notVoid = result as unknown as {
-            value: any;
+        let notVoid = result as {
+            value: IFormResponse;
             key: string;
-        }
+        }[]
         
-        if(notVoid.value != undefined) {
-            return notVoid.value as IFormResponse[]
+        if(notVoid.length != undefined && notVoid.length > 0) {
+            return notVoid
         } else {
             return []
         }

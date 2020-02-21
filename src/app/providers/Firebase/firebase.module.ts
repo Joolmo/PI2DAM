@@ -6,18 +6,20 @@ import FormsProvider from './forms.provider';
 import FirebaseSrc from './firebase.dataSource';
 
 
-export const firebaseConfig = {
-    apiKey: "AIzaSyAvYzM1bqFjoVi-VGMHeDbN0XwFsYDtLQ0",
-    authDomain: "demo104-60efc.firebaseapp.com",
-    databaseURL: "https://demo104-60efc.firebaseio.com",
-    projectId: "demo104-60efc",
-    storageBucket: "demo104-60efc.appspot.com",
-    messagingSenderId: "903778168776"
-  };
+var firebaseConfig = {
+    apiKey: "AIzaSyAVzekihDdVdb4w8qPRhGQIvjb5WjBM3Bc",
+    authDomain: "bullyapp-8c9fe.firebaseapp.com",
+    databaseURL: "https://bullyapp-8c9fe.firebaseio.com",
+    projectId: "bullyapp-8c9fe",
+    storageBucket: "bullyapp-8c9fe.appspot.com",
+    messagingSenderId: "337584106489",
+    appId: "1:337584106489:web:9946d8dfcc5b5c2b7ceb28",
+    measurementId: "G-7ZHXWGSMES"
+};
 
 @NgModule({
     imports: [
-        AngularFireModule.initializeApp(firebaseConfig,'demo104'),
+        AngularFireModule.initializeApp(firebaseConfig),
         AngularFireDatabaseModule
     ],
     providers: [

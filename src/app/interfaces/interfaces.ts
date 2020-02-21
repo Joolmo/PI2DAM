@@ -44,6 +44,11 @@ export interface IFormField {
     type: "y/n" | "text" | "radio",
 }
 
+export interface IFirebaseResponse<T = any> {
+    key: string,
+    value: T
+}
+
 export interface IFormResponseField {
     type: "y/n" | "text" | "radio",
     response: string

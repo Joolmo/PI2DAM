@@ -1,5 +1,6 @@
 import { AngularFireDatabase } from '@angular/fire/database';
 import { element } from 'protractor';
+import { IFirebaseResponse } from 'src/app/interfaces/interfaces';
 
 
 interface IProps {
@@ -9,13 +10,12 @@ interface IProps {
 }
 
 export default class FirebaseSrc {
-    readonly baseUrl = "http://localhost:8100/"
-
     constructor(private _db: AngularFireDatabase) {}
 
-    async makeRequest({action, path, params}: IProps): Promise<{value: any, key: string}[] | string> {
+    async makeRequest({action, path, params}: IProps): Promise<IFirebaseResponse[] | string> {
         if((action == "CREATE" || action == "MODIFY") && params == undefined) throw "BadRequest"
-        let ref = this._db.database.ref(`${this.baseUrl}${path}`)
+
+        let ref = this._db.database.ref(path)
         let result
 
         switch(action) {
@@ -27,11 +27,11 @@ export default class FirebaseSrc {
                 return ""
             case "GET":
                 result = [] 
-                ref.once("value").then(snap => {
+                await ref.once("value", snap => {
                     snap.forEach(element => {
                         result.push({
                             value: element.val(),
-                            key: snap.key
+                            key: element.key
                         })
                     })
                 })
