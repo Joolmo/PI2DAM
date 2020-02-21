@@ -13,19 +13,20 @@ export default class FirebaseSrc {
 
     constructor(private _db: AngularFireDatabase) {}
 
-    async makeRequest({action, path, params}: IProps): Promise<{value: any, key: string}[] | void> {
+    async makeRequest({action, path, params}: IProps): Promise<{value: any, key: string}[] | string> {
         if((action == "CREATE" || action == "MODIFY") && params == undefined) throw "BadRequest"
         let ref = this._db.database.ref(`${this.baseUrl}${path}`)
+        let result
 
         switch(action) {
             case "CREATE":
-                ref.push(params)
-                break;
+                result = await ref.push(params)
+                return result.key
             case "DELETE":
-                ref.remove()
-                break;
+                await ref.remove()
+                return ""
             case "GET":
-                let result = [] 
+                result = [] 
                 ref.once("value").then(snap => {
                     snap.forEach(element => {
                         result.push({
@@ -36,8 +37,8 @@ export default class FirebaseSrc {
                 })
                 return result
             case "MODIFY": 
-                ref.update(params)
-                break
+                await ref.update(params)
+                return ""
         }
     }
 }

@@ -35,10 +35,9 @@ export class ListAlumnosPage implements OnInit {
     )
   }
 
-  //TO DO
-  /*deleteChildFromClassroom(){
-    this._Classroom.deleteChildFromClassroom(this.id, this._Classroom.get)
-  }*/
+  deleteChildFromClassroom(child: string){
+    this._Classroom.deleteChildFromClassroom(this.id, child)
+  }
 
   toggleMenu(){
     this.menuCtrl.toggle();

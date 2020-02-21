@@ -14,7 +14,7 @@
   <ion-card *ngFor="let Item of alumnos">
   <ion-item>
     <ion-label (click)=go(Item.id) class="font">Student Name: {{Item.name}} {{Item.surname}}</ion-label>
-    <!--<ion-button color="danger" class="shadow-red" shape="round" (click)=deleteChildFromClassroom(Item.id)>Delete</ion-button>-->
+    <ion-button color="danger" class="shadow-red" shape="round" (click)=deleteChildFromClassroom(Item.id)>Delete</ion-button>
   </ion-item>
 
 </ion-card>

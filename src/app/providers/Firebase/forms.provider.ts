@@ -13,7 +13,7 @@ export default class FormsProvider extends FormsService {
     async getFormsStructsByTeacher(idTeacher: string): Promise<IFormStruct[]> {
         let result = await this._src.makeRequest({
             action: "GET",
-            path: `teachers/${idTeacher}/structs`
+            path: `teachers/${idTeacher}/formStructs`
         })
 
         let notVoid = result as unknown as {
@@ -27,16 +27,43 @@ export default class FormsProvider extends FormsService {
             return []
         }
     }
-    addFormStructure(form: IFormStruct): Promise<void> {
-        throw new Error("Method not implemented.");
+
+    async addFormStructure(form: IFormStruct): Promise<string> {
+        let result = await this._src.makeRequest({
+            action: "CREATE",
+            path: `teachers/${form.teacherId}/formStructs`,
+            params: form
+        })
+
+        let notVoid = result as string
+        
+        if(notVoid != undefined) {
+            return notVoid
+        } else {
+            return ""
+        }
     }
-    addFormRespose(form: IFormResponse): Promise<void> {
-        throw new Error("Method not implemented.");
+    
+    async addFormRespose(form: IFormResponse): Promise<string> {
+        let result = await this._src.makeRequest({
+            action: "CREATE",
+            path: `children/${form.idChild}/formResponses`,
+            params: form
+        })
+
+        let notVoid = result as string
+        
+        if(notVoid != undefined) {
+            return notVoid
+        } else {
+            return ""
+        }
     }
+    
     async getFormsResponseByChild(idChild: string): Promise<IFormResponse[]> {
         let result = await this._src.makeRequest({
             action: "GET",
-            path: `children/${idChild}/responses`
+            path: `children/${idChild}/formResponses`
         })
 
         let notVoid = result as unknown as {
@@ -45,9 +72,9 @@ export default class FormsProvider extends FormsService {
         }
         
         if(notVoid.value != undefined) {
-            return notVoid.value as IFormResponse
+            return notVoid.value as IFormResponse[]
         } else {
-            return undefined
+            return []
         }
     }
 }
