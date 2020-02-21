@@ -38,18 +38,23 @@ export interface IFormStruct {
     fields: IFormField[]
 }
 
-interface IFormField {
+export interface IFormField {
     label: string,
     requiered: boolean,
     type: "y/n" | "text" | "radio",
 }
 
-interface IFormResponseField {
+export interface IFirebaseResponse<T = any> {
+    key: string,
+    value: T
+}
+
+export interface IFormResponseField {
     type: "y/n" | "text" | "radio",
     response: string
 }
 
-interface IFormResponse {
+export interface IFormResponse {
     idFormStruct: string,
     idChild: string,
     fields: IFormResponseField[]

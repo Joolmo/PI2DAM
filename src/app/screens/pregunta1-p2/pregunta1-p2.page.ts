@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { IFormStruct } from 'src/app/interfaces/interfaces';
+import FormsService from 'src/app/services/forms.service';
+import UserService from 'src/app/services/user.service';
 
 
 @Component({
@@ -9,32 +11,17 @@ import { IFormStruct } from 'src/app/interfaces/interfaces';
   styleUrls: ['./pregunta1-p2.page.scss'],
 })
 export class Pregunta1P2Page implements OnInit {
+  struct: IFormStruct
 
-  constructor(private menuCtrl: MenuController) {
-    this.struct={
-      "name" : "Joolmo",
-      "teacherId" : "1",
-      "classesIds" : ["1","2","4"],
-      "fields" : [{
-        "label" : "hola",
-        "requiered" : true,
-        "type" : "text",
-      },
-    { "label" : "hola2",
-    "requiered" : true,
-    "type" : "radio",
-    },
-    { "label" : "hola3",
-    "requiered" : true,
-    "type" : "y/n",
-    }]
+  constructor(private menuCtrl: MenuController, private _formService: FormsService, private _userService: UserService) {}
 
-    }
-   }
-  struct: IFormStruct;
 
   ngOnInit() {
+    this._formService.getFormsStructsByTeacher("2").then(result => {
+      this.struct = result[0].value
+    })
   }
+
   toggleMenu(){
     this.menuCtrl.toggle();
   }

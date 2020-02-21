@@ -235,7 +235,7 @@ export default class UserProvider extends UserService{
                 path: this.childrenPath,
                 method: "DELETE",
                 params: {
-                    id: id
+                    childid: id
                 }
             })
         }

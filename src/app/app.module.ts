@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { /*HardCodeServicesModule,*/ ApiRestServicesModule } from './providers';
+import FirebaseServicesModule from './providers/Firebase/firebase.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { /*HardCodeServicesModule,*/ ApiRestServicesModule } from './providers';
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
-    ApiRestServicesModule //HardCodeServicesModule
+    ApiRestServicesModule, //HardCodeServicesModule
+    FirebaseServicesModule
   ],
   providers: [
     StatusBar,

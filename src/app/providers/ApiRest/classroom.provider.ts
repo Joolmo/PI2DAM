@@ -122,8 +122,8 @@ export default class ClassroomsProvider extends ClassroomService {
                 path: this.classChildrenPath,
                 method: "DELETE",
                 params: {
-                    ChildId: +idClass,
-                    ClassroomId: +idChild
+                    ChildId: +idChild,
+                    ClassroomId: +idClass
                 }
             })
         }

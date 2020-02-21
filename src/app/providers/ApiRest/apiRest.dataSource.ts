@@ -30,7 +30,15 @@ export default class ApiRestSrc {
     }
 
     async makeRequest({path, method, params}: IProps): Promise<IServerResponse> {
-        if(method === "GET" || method === "DELETE") {
+        let urlParams = false
+
+        if(method === "DELETE") {
+            if(Object.keys(params).length == 1) urlParams = true
+        }
+        else if(method === "GET") urlParams = true
+        
+        
+        if(urlParams) {
             path += params ? this.convertParamsToGet(params) : ""
             params = undefined
         }

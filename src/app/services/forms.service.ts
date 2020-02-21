@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import { IReport } from '../interfaces/interfaces';
+import { IFormStruct, IFormResponse, IFirebaseResponse } from '../interfaces/interfaces';
 
 
 @Injectable()
 export default abstract class FormsService {
-    abstract getFormsStructsByTeacher(idTeacher: string): Promise<IReport[]>;
-    abstract addFormStructure(childId: string): Promise<IReport[]>;
-    abstract addFormRespose(id: string): Promise<IReport[]>;
-    abstract getFormsResponseByChild(report: IReport): Promise<void>
+    abstract getFormsStructsByTeacher(idTeacher: string): Promise<IFirebaseResponse<IFormStruct>[]>;
+    abstract addFormStructure(form: IFormStruct): Promise<string>;
+    abstract addFormRespose(form: IFormResponse): Promise<string>;
+    abstract getFormsResponseByChild(idChild: string): Promise<IFirebaseResponse<IFormResponse>[]>
 }
