@@ -12,14 +12,11 @@ export default class FormsProvider extends FormsService {
 
     async getFormsStructsByTeacher(idTeacher: string): Promise<IFirebaseResponse<IFormStruct>[]> {
         let result = await this._src.makeRequest({
-            action: "GET",
+            action: "GET_COL",
             path: `teachers/${idTeacher}/formStructs`
         })
 
-        let notVoid = result as {
-            value: IFormStruct;
-            key: string;
-        }[]
+        let notVoid = result as IFirebaseResponse<IFormStruct>[]
         
         if(notVoid.length != undefined && notVoid.length > 0) {
             return notVoid
@@ -36,12 +33,13 @@ export default class FormsProvider extends FormsService {
         })
 
         let notVoid = result as string
-        
-        if(notVoid != undefined) {
-            return notVoid
-        } else {
-            return ""
-        }
+        this._src.makeRequest({
+            action: "PUT",
+            path: `formStructs/${notVoid}`,
+            params: form
+        })
+
+        return notVoid
     }
     
     async addFormRespose(form: IFormResponse): Promise<string> {
@@ -52,29 +50,57 @@ export default class FormsProvider extends FormsService {
         })
 
         let notVoid = result as string
+        this._src.makeRequest({
+            action: "PUT",
+            path: `formResponses/${notVoid}`,
+            params: form
+        })
         
-        if(notVoid != undefined) {
-            return notVoid
-        } else {
-            return ""
-        }
+        return notVoid
     }
     
     async getFormsResponseByChild(idChild: string): Promise<IFirebaseResponse<IFormResponse>[]> {
         let result = await this._src.makeRequest({
-            action: "GET",
+            action: "GET_COL",
             path: `children/${idChild}/formResponses`
         })
 
-        let notVoid = result as {
-            value: IFormResponse;
-            key: string;
-        }[]
+        let notVoid = result as IFirebaseResponse<IFormResponse>[]
         
         if(notVoid.length != undefined && notVoid.length > 0) {
             return notVoid
         } else {
             return []
+        }
+    }
+
+    async getFormResponseById(idForm: string): Promise<IFormResponse> {
+        let result = await this._src.makeRequest({
+            action: "GET_ONE",
+            path: `formResponses/${idForm}`
+        })
+
+        let notVoid = result as IFirebaseResponse<IFormResponse>[]
+
+        if(notVoid.length > 0) {
+            return notVoid[0].value
+        } else {
+            return undefined
+        }
+    }
+
+    async getFormStructById(idForm: string): Promise<IFormStruct> {
+        let result = await this._src.makeRequest({
+            action: "GET_ONE",
+            path: `formStructs/${idForm}`
+        })
+
+        let notVoid = result as IFirebaseResponse<IFormStruct>[]
+
+        if(notVoid.length > 0) {
+            return notVoid[0].value
+        } else {
+            return undefined
         }
     }
 }

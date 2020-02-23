@@ -4,7 +4,7 @@ import { IFirebaseResponse } from 'src/app/interfaces/interfaces';
 
 
 interface IProps {
-    action: "GET" | "CREATE" | "MODIFY" | "DELETE",
+    action: "GET_COL" | "CREATE" | "PUT" | "DELETE" | "GET_ONE",
     path: string,
     params?: any
 }
@@ -13,7 +13,7 @@ export default class FirebaseSrc {
     constructor(private _db: AngularFireDatabase) {}
 
     async makeRequest({action, path, params}: IProps): Promise<IFirebaseResponse[] | string> {
-        if((action == "CREATE" || action == "MODIFY") && params == undefined) throw "BadRequest"
+        if((action == "CREATE" || action == "PUT") && params == undefined) throw "BadRequest"
 
         let ref = this._db.database.ref(path)
         let result
@@ -25,7 +25,7 @@ export default class FirebaseSrc {
             case "DELETE":
                 await ref.remove()
                 return ""
-            case "GET":
+            case "GET_COL":
                 result = [] 
                 await ref.once("value", snap => {
                     snap.forEach(element => {
@@ -36,7 +36,10 @@ export default class FirebaseSrc {
                     })
                 })
                 return result
-            case "MODIFY": 
+            case "GET_ONE":
+                await ref.once("value", snap => result = {value: snap.val, key: snap.key})
+                return [result]
+            case "PUT": 
                 await ref.update(params)
                 return ""
         }
