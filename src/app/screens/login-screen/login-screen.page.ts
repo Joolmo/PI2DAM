@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import UserService from 'src/app/services/user.service';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { ToastController, LoadingController } from '@ionic/angular';
 import { NgZone } from '@angular/core';
 
 @Component({
@@ -15,12 +15,22 @@ export class LoginScreenPage implements OnInit {
   constructor(
     private _userService: UserService, 
     private _route: Router,
-    private toastController: ToastController) { }
+    private toastController: ToastController, 
+    private _loading: LoadingController) { }
   
   userTexto : string = "";
   contraTexto : string = "";
   contrasenya = true;
   
+  async presentLoading(){
+    const loading = await this._loading.create({
+      message: 'Waiting',
+      duration: 1000
+    })
+
+    return await loading.present();
+  }
+
   async presentToast() {
     const toast = await this.toastController.create({
       message: 'The user name or password is incorrect',
@@ -34,6 +44,8 @@ export class LoginScreenPage implements OnInit {
   }
 
   Implementar() {
+
+    this.presentLoading();
     this._userService.login(this.userTexto,this.contraTexto).then(result => {
       if(result) {
         this._route.navigateByUrl(

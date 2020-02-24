@@ -34,10 +34,10 @@
       </div>
   <ion-footer>
     <ion-icon name="battery-full-outline"></ion-icon>
-  <ion-fab *ngIf="!isTeacher()" vertical="end" horizontal="end" edge slot="fixed">
-    <ion-fab-button color="danger" >
-      <ion-label class="botonLabel" [routerLink]="['/report-form']">+</ion-label>
-    </ion-fab-button>
-  </ion-fab>
+    <ion-fab class="botonLabelDos" *ngIf="!isTeacher()" vertical="end" horizontal="end" edge>
+      <ion-fab-button color="danger"  [routerLink]="['/report-form']">
+        <ion-label class="botonLabel">+</ion-label>
+      </ion-fab-button>
+    </ion-fab>
 </ion-footer>
 </ion-content>

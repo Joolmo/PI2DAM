@@ -10,16 +10,7 @@ import { LoadingController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
 
-  constructor(private _loading: LoadingController) { }
-
-  async presentLoading(){
-    const loading = await this._loading.create({
-      message: 'Waiting',
-      duration: 2000
-    })
-
-    return await loading.present();
-  }
+  constructor() { }
 
   ngOnInit() {
   }

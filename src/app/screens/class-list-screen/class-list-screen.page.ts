@@ -3,6 +3,7 @@ import { IClassroom } from 'src/app/interfaces/interfaces';
 import { ActivatedRoute } from '@angular/router';
 import ClassroomService from 'src/app/services/classroom.service';
 import UserService from 'src/app/services/user.service';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-class-list-screen',
@@ -14,11 +15,32 @@ export class ClassListScreenPage implements OnInit {
 
   constructor(private _activatedRoute: ActivatedRoute, 
     private _class: ClassroomService,
-    private _userService: UserService) { }
+    private _userService: UserService,
+    private _loading: LoadingController) { }
+
+  
+    async presentLoading(){
+      const loading = await this._loading.create({
+        message: 'Waiting',
+        duration: 1000
+      })
+  
+      return await loading.present();
+    }
+  
 
   ngOnInit() {
+    /*this._class.getClassroomsByTeacher(this._userService.getCurrentUser().id).then(result => {
+      this.classrooms = result;
+    })*/
+  }
+
+  async ionViewWillEnter(){
+
+    this.presentLoading();
     this._class.getClassroomsByTeacher(this._userService.getCurrentUser().id).then(result => {
       this.classrooms = result;
     })
   }
+
 }
