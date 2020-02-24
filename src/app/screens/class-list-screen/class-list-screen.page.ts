@@ -30,9 +30,7 @@ export class ClassListScreenPage implements OnInit {
   
 
   ngOnInit() {
-    /*this._class.getClassroomsByTeacher(this._userService.getCurrentUser().id).then(result => {
-      this.classrooms = result;
-    })*/
+
   }
 
   async ionViewWillEnter(){

@@ -43,17 +43,6 @@ export class ProfileScreenPage implements OnInit {
     private _toast: ToastController, private _route: Router) { }
 
   async ngOnInit() {
-    /*this.user.isTeacher = this._activatedRoute.snapshot.paramMap.get('userType') == "teacher";
-    this.user.id = this._activatedRoute.snapshot.paramMap.get('id');
-
-
-    if(!this.user.isTeacher) {
-      this._report.reportByChild(this.user.id).then(result => this.reports = result)
-      this._user.getChildById(this.user.id).then(result => this.child = result)
-    } else {
-      this._report.getReportsByTeacher(this.user.id).then(result => this.reports = result)
-      this._user.getTeacherById(this.user.id).then(result => this.teacher = result)
-    }*/
   }
 
   async presentToast(message: string) {

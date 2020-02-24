@@ -21,14 +21,8 @@ export class ListAlumnosPage implements OnInit {
     private _route: Router,
     private _toast: ToastController,
     private _loading: LoadingController) { }
-  //nombre y apellidos 
 
   async ngOnInit() {
-    /*this.id = this._activatedRoute.snapshot.paramMap.get('id');
-
-    this._User.getChildrenByClass(this.id).then(result=>{
-      this.alumnos = result;
-    });*/
   }
 
   

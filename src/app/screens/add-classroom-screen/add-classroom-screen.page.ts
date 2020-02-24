@@ -58,7 +58,6 @@ export class AddClassroomScreenPage implements OnInit {
       return this._class.addClassroomToTeacher(idClass, idTeacher) 
     })
     .then(() => {
-      // Toast
       this.presentToast("Your classroom has been added");
       this._route.navigateByUrl(
         `/profile-screen/${this._user.getCurrentUser().isTeacher ? "teacher" : "children"}/${this._user.getCurrentUser().id}`
