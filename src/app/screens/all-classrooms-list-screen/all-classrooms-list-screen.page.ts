@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import ClassroomService from 'src/app/services/classroom.service';
 import UserService from 'src/app/services/user.service';
 import { IClassroom } from 'src/app/interfaces/interfaces';
-import { ToastController } from '@ionic/angular';
+import { ToastController, LoadingController } from '@ionic/angular';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
@@ -22,19 +22,28 @@ export class AllClassroomsListScreenPage implements OnInit {
     private _class: ClassroomService,
     private _toast: ToastController,
     private _userService: UserService,
-    private _route: Router) { }
+    private _route: Router, 
+    private _loading: LoadingController) { }
 
-  async ngOnInit() {
-    /*this._class.getClassrooms().then(result =>{
-      this.classrooms = result;
-    })*/
+  async ngOnInit() { }
+
+  async presentLoading(){
+    const loading = await this._loading.create({
+      message: 'Waiting',
+      duration: 1000
+    })
+
+    return await loading.present();
   }
 
+
   async ionViewWillEnter(){
+    this.presentLoading();
     this._class.getClassrooms().then(result =>{
       this.classrooms = result;
     })
   }
+
 
   async presentToast(message: string) {
     const toast = await this._toast.create({

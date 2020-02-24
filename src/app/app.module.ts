@@ -15,6 +15,7 @@ import FormsService from './services/forms.service';
 import FormsProvider from './providers/Firebase/forms.provider';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import FirebaseServicesModule from './providers/Firebase/firebase.module';
 
 
 @NgModule({
@@ -24,10 +25,8 @@ import { environment } from 'src/environments/environment';
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
-    ApiRestServicesModule, //HardCodeServicesModule
-    //FirebaseServicesModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig), 
-    AngularFireDatabaseModule
+    ApiRestServicesModule,
+    FirebaseServicesModule,
   ],
   providers: [
     StatusBar,

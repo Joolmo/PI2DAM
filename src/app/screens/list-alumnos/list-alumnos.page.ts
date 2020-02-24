@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController, ToastController } from '@ionic/angular';
+import { MenuController, ToastController, LoadingController } from '@ionic/angular';
 import UserService from 'src/app/services/user.service';
 import { IChild } from 'src/app/interfaces/interfaces';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,15 +19,10 @@ export class ListAlumnosPage implements OnInit {
     private _activatedRoute: ActivatedRoute,
     private _Classroom: ClassroomService,
     private _route: Router,
-    private _toast: ToastController) { }
-  //nombre y apellidos 
+    private _toast: ToastController,
+    private _loading: LoadingController) { }
 
   async ngOnInit() {
-    /*this.id = this._activatedRoute.snapshot.paramMap.get('id');
-
-    this._User.getChildrenByClass(this.id).then(result=>{
-      this.alumnos = result;
-    });*/
   }
 
   
@@ -39,8 +34,20 @@ export class ListAlumnosPage implements OnInit {
     toast.present();
   }
 
+    
+  async presentLoading(){
+    const loading = await this._loading.create({
+      message: 'Waiting',
+      duration: 1000
+    })
+
+    return await loading.present();
+  }
+
+
 
   async ionViewWillEnter(){
+    this.presentLoading();
     this.id = this._activatedRoute.snapshot.paramMap.get('id');
 
     this._User.getChildrenByClass(this.id).then(result=>{

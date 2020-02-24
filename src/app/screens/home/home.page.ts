@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
+import { LoadingController } from '@ionic/angular';
 
 
 @Component({
@@ -9,7 +10,7 @@ import {SplashScreen} from '@ionic-native/splash-screen/ngx';
 })
 export class HomePage implements OnInit {
 
-  constructor(private _splash: SplashScreen) { }
+  constructor() { }
 
   ngOnInit() {
   }
