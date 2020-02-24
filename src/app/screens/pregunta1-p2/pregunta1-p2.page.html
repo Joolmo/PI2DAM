@@ -14,10 +14,10 @@
       <div *ngIf="item.type =='text'">
         <p class="pene">{{item.label}}</p>
         <ion-item>
-          <ion-input [(ngModel)]="response.fields[i].response" placeholder="Introduce un texto"></ion-input>  
+          <ion-input [(ngModel)]="response.fields[i].response" placeholder="Introduce un texto" [disabled]="idFormResponse != undefined"></ion-input>  
         </ion-item>
       </div>
-      <ion-item *ngIf="item.type=='radio'">
+      <ion-item *ngIf="item.type=='radio'" [disabled]="idFormResponse != undefined">
         <ion-list>
           {{item.label}}
           <ion-grid>
@@ -56,7 +56,7 @@
       </ion-item>
       <ion-item *ngIf="item.type=='y/n'">
         <p>{{item.label}}</p>
-        <ion-checkbox color="danger" class="pene" [(ngModel)]="response.fields[i].response"></ion-checkbox>
+        <ion-checkbox color="danger" class="pene" [(ngModel)]="response.fields[i].response" [disabled]="idFormResponse != undefined"></ion-checkbox>
       </ion-item>
   </ion-list>
   <ion-button color="danger" class="shadow-redSecond" shape="round" (click)="submit()">Submit</ion-button>

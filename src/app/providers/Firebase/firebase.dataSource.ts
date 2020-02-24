@@ -37,7 +37,7 @@ export default class FirebaseSrc {
                 })
                 return result
             case "GET_ONE":
-                await ref.once("value", snap => result = {value: snap.val, key: snap.key})
+                await ref.once("value", snap => result = {value: snap.val(), key: snap.key})
                 return [result]
             case "PUT": 
                 await ref.update(params)

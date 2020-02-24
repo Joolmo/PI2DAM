@@ -26,6 +26,9 @@
           Add new classroom</ion-item></ion-button>
         <ion-button *ngIf="isTeacher()" color="danger" expand="full" [routerLink]="['/class-list-screen/','true']" (click)="(closeCustom())"><ion-item color="danger">
           My classrooms</ion-item></ion-button>
+        <ion-button color="danger" expand="full" [routerLink]="['/form-str-list']" (click)="(closeCustom())"><ion-item color="danger">
+          My Forms</ion-item></ion-button>
+
 
           <!--BOTH-->
         <ion-button color="danger" expand="full" [routerLink]="['/home']" (click)="(logOff())"><ion-item color="danger">Log Off</ion-item></ion-button>

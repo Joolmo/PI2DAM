@@ -12,8 +12,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./pregunta1-p2.page.scss'],
 })
 export class Pregunta1P2Page implements OnInit {
-  idFormStruct = ""
-  idFormResponse = ""
+  idFormStruct = undefined
+  idFormResponse = undefined
   struct: IFormStruct = {
     name: "",
     teacherId: "",
@@ -32,22 +32,20 @@ export class Pregunta1P2Page implements OnInit {
     private _activatedRoute: ActivatedRoute) {}
 
 
-  ngOnInit() {
+  async ngOnInit() {
     this.idFormStruct = this._activatedRoute.snapshot.paramMap.get('idForm')
-    this.idFormResponse = undefined
+    this.idFormResponse = this._activatedRoute.snapshot.paramMap.get('idResponse')
 
     this._formService.getFormStructById(this.idFormStruct)
     .then(result => this.struct = result)
     .then(() => {
       if(this.idFormResponse == undefined) {
-        this.response.idChild = this._userService.getCurrentUser().id,
+        this.response.idChild =this._userService.getCurrentUser().id,
         this.response.idFormStruct = this.idFormStruct
         this.response.fields = this.struct.fields.map(field => ({
           type: field.type,
           response: ""
         }))
-      } else {
-        // ...
       }
     })
   }

@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>formStrList</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let struct of structs">
+    <ion-item>
+      <ion-label class="font" (click)="navigate(struct.key)">Form: {{struct.value.name}}</ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>
