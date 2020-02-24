@@ -59,5 +59,10 @@
         <ion-checkbox color="danger" class="pene" [(ngModel)]="response.fields[i].response" [disabled]="idFormResponse != undefined"></ion-checkbox>
       </ion-item>
   </ion-list>
-  <ion-button color="danger" class="shadow-redSecond" shape="round" (click)="submit()">Submit</ion-button>
+  <ion-button
+    color="danger" 
+    class="shadow-redSecond" 
+    shape="round" 
+    (click)="submit()" 
+    ngIf*="idFormResponse == undefined">Submit</ion-button>
 </ion-content>

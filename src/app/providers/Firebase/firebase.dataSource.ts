@@ -26,15 +26,20 @@ export default class FirebaseSrc {
                 await ref.remove()
                 return ""
             case "GET_COL":
-                result = [] 
-                await ref.once("value", snap => {
+                result = []
+                let paramQuery = params ? Object.keys(params)[0] : undefined
+                const funcSnap = snap => {
                     snap.forEach(element => {
                         result.push({
                             value: element.val(),
                             key: element.key
                         })
                     })
-                })
+                }
+
+                await paramQuery ? 
+                    ref.orderByChild(paramQuery).equalTo(params[paramQuery]).once("value", funcSnap) : 
+                    ref.once("value", funcSnap)
                 return result
             case "GET_ONE":
                 await ref.once("value", snap => result = {value: snap.val(), key: snap.key})

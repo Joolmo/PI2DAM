@@ -4,6 +4,7 @@ import { IFormStruct, IFormResponse, IFirebaseResponse } from '../interfaces/int
 
 @Injectable()
 export default abstract class FormsService {
+    abstract getFormResponseByStruct(idFormStruct: string): Promise<IFirebaseResponse<IFormResponse>[]>;
     abstract getFormsStructsByTeacher(idTeacher: string): Promise<IFirebaseResponse<IFormStruct>[]>;
     abstract getFormsResponseByChild(idChild: string): Promise<IFirebaseResponse<IFormResponse>[]>;
     abstract getFormResponseById(idForm: string): Promise<IFormResponse>;

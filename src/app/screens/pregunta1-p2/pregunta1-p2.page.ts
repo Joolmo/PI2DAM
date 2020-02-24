@@ -26,7 +26,8 @@ export class Pregunta1P2Page implements OnInit {
     fields: []
   }
 
-  constructor(private menuCtrl: MenuController,
+  constructor(
+    private _menuCtrl: MenuController,
     private _formService: FormsService, 
     private _userService: UserService,
     private _activatedRoute: ActivatedRoute) {}
@@ -55,6 +56,6 @@ export class Pregunta1P2Page implements OnInit {
   }
 
   toggleMenu(){
-    this.menuCtrl.toggle();
+    this._menuCtrl.toggle();
   }
 }

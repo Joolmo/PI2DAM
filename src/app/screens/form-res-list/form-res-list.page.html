@@ -5,5 +5,9 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-card *ngFor="let response of responses">
+    <ion-item>
+      <ion-label class="font" (click)="navigate(response.key)">Form: {{response.value.idFormStruct}}</ion-label>
+    </ion-item>
+  </ion-card>
 </ion-content>

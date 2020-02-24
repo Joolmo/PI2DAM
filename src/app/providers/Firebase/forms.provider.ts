@@ -103,4 +103,22 @@ export default class FormsProvider extends FormsService {
             return undefined
         }
     }
+
+    async getFormResponseByStruct(idFormStruct: string): Promise<IFirebaseResponse<IFormResponse>[]> {
+        let result = await this._src.makeRequest({
+            action: "GET_COL",
+            path: `formResponses`,
+            params: {
+                idFormStruct: idFormStruct  
+            }
+        })
+
+        let notVoid = result as IFirebaseResponse<IFormResponse>[]
+        
+        if(notVoid.length != undefined && notVoid.length > 0) {
+            return notVoid
+        } else {
+            return []
+        }
+    }
 }

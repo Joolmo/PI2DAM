@@ -13,7 +13,6 @@ import ApiRestSrc from './apiRest.dataSource';
     si se enctra el recurso o lista de de recursos => se devuelve noramalmente
 */
 export default class UserProvider extends UserService{
-
     currentUser: IUser
     readonly childrenPath = "child"
     readonly teachersPath = "teacher"
@@ -247,5 +246,7 @@ export default class UserProvider extends UserService{
     
     }
 
-
+    getAllTeachers(): Promise<ITeacher[]> {
+        
+    }
 }

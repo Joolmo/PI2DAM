@@ -68,9 +68,14 @@ const routes: Routes = [
     loadChildren: () => import('./screens/form-str-list/form-str-list.module').then( m => m.FormStrListPageModule)
   },
   {
-    path: 'form-res-list',
+    path: 'form-res-list/:formStructId',
     loadChildren: () => import('./screens/form-res-list/form-res-list.module').then( m => m.FormResListPageModule)
   },
+  {
+    path: 'form-of-forms',
+    loadChildren: () => import('./screens/form-of-forms/form-of-forms.module').then( m => m.FormOfFormsPageModule)
+  },
+
 
 ]
 

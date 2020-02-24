@@ -13,6 +13,6 @@ export default abstract class UserService {
     abstract modifyChild(IChild): Promise <void>;
     abstract modifyTeacher(ITeacher): Promise <void>;
     abstract deleteChild(id: string): Promise <void>;
-    
+    abstract getAllTeachers(): Promise<ITeacher[]>;
 
 }
