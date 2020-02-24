@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login-screen', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: 'login-screen',
     loadChildren: () => import('./screens/login-screen/login-screen.module').then( m => m.LoginScreenPageModule)
@@ -16,7 +16,11 @@ const routes: Routes = [
     loadChildren: () => import('./screens/reports-screen/reports-screen.module').then( m => m.ReportsScreenPageModule)
   },
   {
-    path: 'pregunta1-p2',
+    path: 'pregunta1-p2/:idForm',
+    loadChildren: () => import('./screens/pregunta1-p2/pregunta1-p2.module').then( m => m.Pregunta1P2PageModule)
+  },
+  {
+    path: 'pregunta1-p2/:idForm/:idResponse',
     loadChildren: () => import('./screens/pregunta1-p2/pregunta1-p2.module').then( m => m.Pregunta1P2PageModule)
   },
   {
@@ -59,6 +63,15 @@ const routes: Routes = [
     path: 'add-child-screen',
     loadChildren: () => import('./screens/add-child-screen/add-child-screen.module').then( m => m.AddChildScreenPageModule)
   },
+  {
+    path: 'form-str-list',
+    loadChildren: () => import('./screens/form-str-list/form-str-list.module').then( m => m.FormStrListPageModule)
+  },
+  {
+    path: 'form-res-list',
+    loadChildren: () => import('./screens/form-res-list/form-res-list.module').then( m => m.FormResListPageModule)
+  },
+
 ]
 
 @NgModule({

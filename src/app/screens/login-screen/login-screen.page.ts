@@ -12,12 +12,14 @@ import { NgZone } from '@angular/core';
 export class LoginScreenPage implements OnInit {
   
 
-  constructor(private _userService: UserService, private _route: Router,
-     private toastController: ToastController) { }
+  constructor(
+    private _userService: UserService, 
+    private _route: Router,
+    private toastController: ToastController) { }
   
-  userTexto : string;
-  contraTexto : string;
-  contrasenya  =  true;
+  userTexto : string = "";
+  contraTexto : string = "";
+  contrasenya = true;
   
   async presentToast() {
     const toast = await this.toastController.create({
