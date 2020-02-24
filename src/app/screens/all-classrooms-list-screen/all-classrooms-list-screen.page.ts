@@ -27,18 +27,32 @@ export class AllClassroomsListScreenPage implements OnInit {
 
   async ngOnInit() { }
 
-  async presentLoading(){
+  /*async presentLoading(){
     const loading = await this._loading.create({
       message: 'Waiting',
       duration: 1000
     })
 
     return await loading.present();
+  }*/
+
+  async showLoading(){
+    const loading = await this._loading.create({
+      message: "Waiting...",
+      duration: 1000
+    })
+
+    loading.present();
+  
+    setTimeout(() => {
+      loading.dismiss();
+    }, 1000);
+
   }
 
 
   async ionViewWillEnter(){
-    this.presentLoading();
+    this.showLoading();
     this._class.getClassrooms().then(result =>{
       this.classrooms = result;
     })

@@ -21,21 +21,34 @@ export class ReportsScreenPage implements OnInit {
     private menuCtrl: MenuController, private _user: UserService,
     private _loading: LoadingController) { }
 
-    async presentLoading(){
+    /*async presentLoading(){
       const loading = await this._loading.create({
         message: 'Waiting',
         duration: 2000
       })
   
       return await loading.present();
-    }
+    }*/
   
+  async showLoading(){
+    const loading = await this._loading.create({
+      message: "Waiting...",
+      duration: 1000
+    })
 
-  async ngOnInit() {
-    this.presentLoading();
+    loading.present();
+  
+    setTimeout(() => {
+      loading.dismiss();
+    }, 1000);
+
   }
+  
+  async ngOnInit() {}
 
   async ionViewWillEnter(){
+
+    this.showLoading();
  
     if(this.isTeacher()) {
       this._report.getReportsByTeacher(this._user.getCurrentUser().id).then(result =>{

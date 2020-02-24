@@ -41,7 +41,7 @@ export class LoginScreenPage implements OnInit {
   
     setTimeout(() => {
       loading.dismiss();
-    }, 4000);
+    }, 1000);
 
   }
 
