@@ -1,10 +1,17 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>formStrList</ion-title>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button text="back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="negrita">My Forms</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
+  <div class="imagen">
+    <img class="imagenTamanyo" src='../assets/logoPi.png'>
+  </div>
   <ion-list *ngFor="let struct of structs">
     <ion-card>
       <ion-item>

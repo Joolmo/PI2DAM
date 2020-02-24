@@ -56,7 +56,6 @@ export class ProfileScreenPage implements OnInit {
   
     setTimeout(() => {
       loading.dismiss();
-      //this.Implementar();
     }, 4000);
 
   }

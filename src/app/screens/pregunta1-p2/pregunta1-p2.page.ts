@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { MenuController, ToastController } from '@ionic/angular';
 import { IFormStruct, IFormResponse } from 'src/app/interfaces/interfaces';
 import FormsService from 'src/app/services/forms.service';
 import UserService from 'src/app/services/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -30,7 +30,17 @@ export class Pregunta1P2Page implements OnInit {
     private _menuCtrl: MenuController,
     private _formService: FormsService, 
     private _userService: UserService,
-    private _activatedRoute: ActivatedRoute) {}
+    private _activatedRoute: ActivatedRoute,
+    private _toast: ToastController,
+    private _route: Router) {}
+
+  async presentToast(message: string) {
+    const toast = await this._toast.create({
+      message: message,
+      duration: 2000
+    });
+    toast.present();
+  }
 
 
   async ngOnInit() {
@@ -57,6 +67,8 @@ export class Pregunta1P2Page implements OnInit {
 
   submit(){
     this._formService.addFormRespose(this.response)
+    this.presentToast("You have sumbitted the questionary");
+    this._route.navigateByUrl('/teachers')
   }
 
   toggleMenu(){

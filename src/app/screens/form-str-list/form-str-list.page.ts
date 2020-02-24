@@ -13,6 +13,7 @@ export class FormStrListPage implements OnInit {
   structs: IFirebaseResponse<IFormStruct>[] = []
   idTeacher: string 
   user: IUser
+  isCreated: boolean = false
 
   constructor(
     private _formsService: FormsService,
@@ -21,10 +22,19 @@ export class FormStrListPage implements OnInit {
     private _route: Router,
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.user = this._userService.getCurrentUser()
     this.idTeacher = this.user.isTeacher ? this.user.id : this._activatedRoute.snapshot.paramMap.get('idTeacher')
     this._formsService.getFormsStructsByTeacher(this.idTeacher).then(result => this.structs = result)
+  }
+
+  async ionViewWillEnter(){
+    if(this.isCreated) {
+      this.user = this._userService.getCurrentUser()
+      this.idTeacher = this.user.isTeacher ? this.user.id : this._activatedRoute.snapshot.paramMap.get('idTeacher')
+      this._formsService.getFormsStructsByTeacher(this.idTeacher).then(result => this.structs = result)
+    }
+    else this.isCreated = true
   }
 
   navigate(idForm: string) {

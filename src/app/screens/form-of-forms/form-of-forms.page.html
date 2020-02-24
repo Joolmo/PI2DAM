@@ -1,10 +1,19 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>formOfForms</ion-title>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button text="back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="negrita">Add One Form</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content>
+  <div class="imagen">
+    <img class="imagenTamanyo" src='../assets/logoPi.png'>
+  </div>
+
   <ion-item>
     <ion-label class="font" position="floating">Name</ion-label>
     <ion-input [(ngModel)]="struct.name"></ion-input>
