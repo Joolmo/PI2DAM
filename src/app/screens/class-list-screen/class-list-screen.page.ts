@@ -18,15 +18,27 @@ export class ClassListScreenPage implements OnInit {
     private _userService: UserService,
     private _loading: LoadingController) { }
 
+  async showLoading(){
+    const loading = await this._loading.create({
+      message: "Waiting...",
+      duration: 1000
+    })
+
+    loading.present();
   
-    async presentLoading(){
+    setTimeout(() => {
+      loading.dismiss();
+    }, 1000);
+
+  }
+    /*async presentLoading(){
       const loading = await this._loading.create({
         message: 'Waiting',
         duration: 1000
       })
   
       return await loading.present();
-    }
+    }*/
   
 
   ngOnInit() {
@@ -35,7 +47,7 @@ export class ClassListScreenPage implements OnInit {
 
   async ionViewWillEnter(){
 
-    this.presentLoading();
+    this.showLoading();
     this._class.getClassroomsByTeacher(this._userService.getCurrentUser().id).then(result => {
       this.classrooms = result;
     })

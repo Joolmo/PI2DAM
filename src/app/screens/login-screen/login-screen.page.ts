@@ -22,13 +22,27 @@ export class LoginScreenPage implements OnInit {
   contraTexto : string = "";
   contrasenya = true;
   
-  async presentLoading(){
+  /*async presentLoading(){
     const loading = await this._loading.create({
       message: 'Waiting',
       duration: 1000
     })
 
     return await loading.present();
+  }*/
+
+  async showLoading(){
+    const loading = await this._loading.create({
+      message: "Waiting...",
+      duration: 1000
+    })
+
+    loading.present();
+  
+    setTimeout(() => {
+      loading.dismiss();
+    }, 1000);
+
   }
 
   async presentToast() {
@@ -44,8 +58,7 @@ export class LoginScreenPage implements OnInit {
   }
 
   Implementar() {
-
-    this.presentLoading();
+    this.showLoading();
     this._userService.login(this.userTexto,this.contraTexto).then(result => {
       if(result) {
         this._route.navigateByUrl(
