@@ -37,9 +37,9 @@ export default class FirebaseSrc {
                     })
                 }
 
-                await paramQuery ? 
-                    ref.orderByChild(paramQuery).equalTo(params[paramQuery]).once("value", funcSnap) : 
-                    ref.once("value", funcSnap)
+                paramQuery ? 
+                    await ref.orderByChild(paramQuery).equalTo(params[paramQuery]).once("value", funcSnap) : 
+                    await ref.once("value", funcSnap)
                 return result
             case "GET_ONE":
                 await ref.once("value", snap => result = {value: snap.val(), key: snap.key})

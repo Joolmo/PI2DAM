@@ -64,6 +64,10 @@ const routes: Routes = [
     loadChildren: () => import('./screens/add-child-screen/add-child-screen.module').then( m => m.AddChildScreenPageModule)
   },
   {
+    path: 'form-str-list/:idTeacher',
+    loadChildren: () => import('./screens/form-str-list/form-str-list.module').then( m => m.FormStrListPageModule)
+  },
+  {
     path: 'form-str-list',
     loadChildren: () => import('./screens/form-str-list/form-str-list.module').then( m => m.FormStrListPageModule)
   },

@@ -17,17 +17,17 @@
         
         <ion-button *ngIf="!isTeacher()" menuclose color="danger" expand="full" [routerLink]="['/report-form']" (click)="(closeCustom())"><ion-item color="danger">
           Create a report</ion-item></ion-button>
-
+        <ion-button *ngIf="!isTeacher()" color="danger" expand="full" [routerLink]="['/teachers']" (click)="(closeCustom())"><ion-item color="danger">
+          Forms</ion-item></ion-button>
 
         <!--TEACHER-->
         <ion-button *ngIf="isTeacher()" color="danger" expand="full" [routerLink]="['/add-classroom-screen']" (click)="(closeCustom())"><ion-item color="danger">
           Add new classroom</ion-item></ion-button>
         <ion-button *ngIf="isTeacher()" color="danger" expand="full" [routerLink]="['/class-list-screen/','true']" (click)="(closeCustom())"><ion-item color="danger">
           My classrooms</ion-item></ion-button>
-        <ion-button color="danger" expand="full" [routerLink]="['/form-str-list']" (click)="(closeCustom())"><ion-item color="danger">
+        <ion-button *ngIf="isTeacher()" color="danger" expand="full" [routerLink]="['/form-str-list']" (click)="(closeCustom())"><ion-item color="danger">
           My Forms</ion-item></ion-button>
-        <ion-button color="danger" expand="full" [routerLink]="['/teachers']" (click)="(closeCustom())"><ion-item color="danger">
-          Teachers</ion-item></ion-button>
+
 
 
           <!--BOTH-->

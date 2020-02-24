@@ -14,9 +14,11 @@
   <div class="imagen">
     <img class="imagenTamanyo" src='../assets/logoPi.png'>
   </div>
-  <ion-card *ngFor="let teacher of teachers">
-    <ion-item>
-      <ion-label>{{teacher.name}} {{teacher.surname}}</ion-label>
-    </ion-item>
-  </ion-card>
+  <ion-list *ngFor="let teacher of teachers">
+    <ion-card (click)="navigate(teacher.id)">
+      <ion-item>
+        <ion-label>{{teacher.name}} {{teacher.surname}}</ion-label>
+      </ion-item>
+    </ion-card>
+  </ion-list>
 </ion-content>

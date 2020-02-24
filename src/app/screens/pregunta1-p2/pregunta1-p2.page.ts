@@ -38,17 +38,21 @@ export class Pregunta1P2Page implements OnInit {
     this.idFormResponse = this._activatedRoute.snapshot.paramMap.get('idResponse')
 
     this._formService.getFormStructById(this.idFormStruct)
-    .then(result => this.struct = result)
-    .then(() => {
+    .then(result => {
       if(this.idFormResponse == undefined) {
-        this.response.idChild =this._userService.getCurrentUser().id,
+        this.response.idChild = this._userService.getCurrentUser().id,
         this.response.idFormStruct = this.idFormStruct
-        this.response.fields = this.struct.fields.map(field => ({
+        this.response.fields = result.fields.map(field => ({
           type: field.type,
           response: ""
         }))
+      } else {
+        this._formService.getFormResponseById(this.idFormResponse).then(response => this.response = response)
       }
+
+      return result
     })
+    .then(result => this.struct = result)
   }
 
   submit(){

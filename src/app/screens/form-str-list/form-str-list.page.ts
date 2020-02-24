@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IFirebaseResponse, IFormStruct } from 'src/app/interfaces/interfaces';
+import { IFirebaseResponse, IFormStruct, IUser } from 'src/app/interfaces/interfaces';
 import FormsService from 'src/app/services/forms.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import UserService from 'src/app/services/user.service';
@@ -12,6 +12,7 @@ import UserService from 'src/app/services/user.service';
 export class FormStrListPage implements OnInit {
   structs: IFirebaseResponse<IFormStruct>[] = []
   idTeacher: string 
+  user: IUser
 
   constructor(
     private _formsService: FormsService,
@@ -21,8 +22,8 @@ export class FormStrListPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    let user = this._userService.getCurrentUser()
-    this.idTeacher = user.isTeacher ? user.id : this._activatedRoute.snapshot.paramMap.get('idTeacher')
+    this.user = this._userService.getCurrentUser()
+    this.idTeacher = this.user.isTeacher ? this.user.id : this._activatedRoute.snapshot.paramMap.get('idTeacher')
     this._formsService.getFormsStructsByTeacher(this.idTeacher).then(result => this.structs = result)
   }
 

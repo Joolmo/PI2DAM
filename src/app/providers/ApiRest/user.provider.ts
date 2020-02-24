@@ -193,6 +193,23 @@ export default class UserProvider extends UserService{
         } 
     }
 
+    async getAllTeachers(): Promise<ITeacher[]> {
+        let result: IServerResponse
+        
+        try {
+            result = await this._source.makeRequest({
+                path: this.teachersPath,
+                method: "GET"
+            })
+        }
+        catch(error) {
+            console.warn(error)
+            throw error
+        }
+
+        if(result.result) return result.data.map(element => this.fromResponseToTeacher(element))
+        else return []
+    }
 
     fromResponseToChild(response: any): IChild {
         return {
@@ -244,9 +261,5 @@ export default class UserProvider extends UserService{
             throw error
         }
     
-    }
-
-    getAllTeachers(): Promise<ITeacher[]> {
-        
     }
 }
