@@ -3,7 +3,7 @@ import { IUser, IReport, IChild, ITeacher } from 'src/app/interfaces/interfaces'
 import ReportsService from 'src/app/services/reports.service';
 import UserService from 'src/app/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MenuController, ToastController } from '@ionic/angular';
+import { MenuController, ToastController, LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile-screen',
@@ -40,9 +40,25 @@ export class ProfileScreenPage implements OnInit {
   
   constructor(private _report: ReportsService, private _user: UserService, 
     private _activatedRoute: ActivatedRoute, private menuCtrl: MenuController,
-    private _toast: ToastController, private _route: Router) { }
+    private _toast: ToastController, private _route: Router,
+    private _loading: LoadingController) { }
 
   async ngOnInit() {
+  }
+
+  async showLoading(){
+    let loading = await this._loading.create({
+      message: "Waiting...",
+      duration: 1000
+    });
+
+    loading.present();
+  
+    setTimeout(() => {
+      loading.dismiss();
+      //this.Implementar();
+    }, 4000);
+
   }
 
   async presentToast(message: string) {

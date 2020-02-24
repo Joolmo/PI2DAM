@@ -24,7 +24,6 @@ export class TeachersPage implements OnInit {
       message: 'Waiting',
       duration: 1000
     })
-
     return await loading.present();
   }
 
