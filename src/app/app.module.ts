@@ -26,7 +26,7 @@ import { environment } from 'src/environments/environment';
     AppRoutingModule,
     ApiRestServicesModule, //HardCodeServicesModule
     //FirebaseServicesModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig), 
+    //AngularFireModule.initializeApp(environment.firebaseConfig), 
     AngularFireDatabaseModule
   ],
   providers: [
