@@ -75,6 +75,11 @@ const routes: Routes = [
     path: 'form-of-forms',
     loadChildren: () => import('./screens/form-of-forms/form-of-forms.module').then( m => m.FormOfFormsPageModule)
   },
+  {
+    path: 'teachers',
+    loadChildren: () => import('./screens/teachers/teachers.module').then( m => m.TeachersPageModule)
+  },
+
 
 
 ]
