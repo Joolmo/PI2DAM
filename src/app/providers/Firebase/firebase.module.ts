@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+/*import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import FormsService from 'src/app/services/forms.service';
@@ -27,4 +27,4 @@ var firebaseConfig = {
         {provide: FormsService, useClass: FormsProvider}
     ]
 })
-export default class FirebaseServicesModule {}
+export default class FirebaseServicesModule {}*/

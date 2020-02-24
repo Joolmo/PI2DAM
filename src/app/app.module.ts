@@ -5,11 +5,16 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-
+import{ AngularFireDatabaseModule } from '@angular/fire/database';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { /*HardCodeServicesModule,*/ ApiRestServicesModule } from './providers';
-import FirebaseServicesModule from './providers/Firebase/firebase.module';
+//import FirebaseServicesModule from './providers/Firebase/firebase.module';
+import FirebaseSrc from './providers/Firebase/firebase.dataSource';
+import FormsService from './services/forms.service';
+import FormsProvider from './providers/Firebase/forms.provider';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -20,12 +25,16 @@ import FirebaseServicesModule from './providers/Firebase/firebase.module';
     IonicModule.forRoot(), 
     AppRoutingModule,
     ApiRestServicesModule, //HardCodeServicesModule
-    FirebaseServicesModule
+    //FirebaseServicesModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig), 
+    AngularFireDatabaseModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    FirebaseSrc,
+      {provide: FormsService, useClass: FormsProvider}
   ],
   bootstrap: [AppComponent]
 })
